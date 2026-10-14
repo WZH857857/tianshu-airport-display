@@ -4,7 +4,7 @@
 
 下载方式：
 1. 打开本仓库的 Releases 页面（https://github.com/WZH857857/tianshu-airport-display/releases）；
-2. 在最新版本的 Assets 中下载「天枢空港智显上位机.exe」；
+2. 在最新版本的 Assets 中下载「Tianshu-Airport-Display-Host.exe」（即天枢空港智显上位机）；
 3. 双击即可运行，无需安装 Python 环境。
 
 如需从源码运行：
