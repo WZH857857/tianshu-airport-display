@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>天枢空港智显 - 火灾语音试听</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #16324a;
+      --muted: #5c7183;
+      --line: #c9d8e5;
+      --blue: #1769aa;
+      --blue-soft: #e9f3fb;
+      --green: #177b62;
+      --green-soft: #e8f6f1;
+      --orange: #b85c16;
+      --orange-soft: #fff2e6;
+      --paper: #f7fafc;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(90deg, rgba(23, 105, 170, .06) 1px, transparent 1px),
+        linear-gradient(rgba(23, 105, 170, .06) 1px, transparent 1px),
+        var(--paper);
+      background-size: 28px 28px;
+      font: 15px/1.65 "Microsoft YaHei", "Segoe UI", sans-serif;
+    }
+
+    main {
+      width: min(980px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 34px 0 56px;
+    }
+
+    header {
+      border-left: 6px solid var(--blue);
+      padding: 2px 0 2px 18px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 30px;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    .subtitle {
+      margin-top: 8px;
+      color: var(--muted);
+    }
+
+    .notice {
+      padding: 16px 18px;
+      border: 1px solid #92c8b5;
+      border-left: 5px solid var(--green);
+      background: var(--green-soft);
+      margin: 20px 0;
+    }
+
+    .notice strong { color: var(--green); }
+
+    .tracks {
+      display: grid;
+      gap: 14px;
+    }
+
+    .track {
+      border: 1px solid var(--line);
+      border-top: 4px solid var(--blue);
+      background: #fff;
+      padding: 16px 18px 18px;
+    }
+
+    .track.alternate { border-top-color: var(--orange); }
+    .track.old { border-top-color: #7c8b98; }
+
+    .track-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 19px;
+      letter-spacing: 0;
+    }
+
+    .badge {
+      color: var(--blue);
+      background: var(--blue-soft);
+      padding: 2px 9px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .alternate .badge {
+      color: var(--orange);
+      background: var(--orange-soft);
+    }
+
+    .old .badge {
+      color: #546471;
+      background: #eef2f5;
+    }
+
+    p { margin: 0 0 12px; color: var(--muted); }
+
+    audio {
+      display: block;
+      width: 100%;
+      min-height: 42px;
+    }
+
+    .facts {
+      margin-top: 18px;
+      border-top: 1px solid var(--line);
+      padding-top: 14px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    code {
+      color: var(--ink);
+      background: #edf3f7;
+      padding: 1px 5px;
+      font-family: Consolas, monospace;
+    }
+
+    @media (max-width: 640px) {
+      main { width: min(100% - 20px, 980px); padding-top: 22px; }
+      h1 { font-size: 23px; }
+      .track { padding: 14px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>火灾语音试听</h1>
+      <div class="subtitle">天枢空港智显 / 8 kHz 男声版音质修正</div>
+    </header>
+
+    <div class="notice">
+      <strong>当前推荐版本已写入 <code>sdcard/FIRE.WAV</code>。</strong>
+      把这个文件覆盖到 TF 卡根目录，并烧写
+      <code>adv28_firevoice2.bit</code>（下载方式选 <code>PROGRAM_SRAM</code>）。
+    </div>
+
+    <section class="tracks">
+      <article class="track">
+        <div class="track-head">
+          <h2>男声版 - 当前正式文件</h2>
+          <span class="badge">推荐</span>
+        </div>
+        <p>Microsoft Kangkang，16 kHz 合成后重采样到 8 kHz，25.68 秒，RMS 7592，无满幅削波。</p>
+        <audio controls preload="metadata" src="../build/fire_voice_preview/FIRE_MALE_8K.WAV"></audio>
+      </article>
+
+      <article class="track alternate">
+        <div class="track-head">
+          <h2>女声版 - 备选</h2>
+          <span class="badge">备选</span>
+        </div>
+        <p>Microsoft Huihui Desktop，28.13 秒，同样处理到 8 kHz。如果男声不符合现场听感，可以改用它。</p>
+        <audio controls preload="metadata" src="../build/fire_voice_preview/FIRE_FEMALE_8K.WAV"></audio>
+      </article>
+
+      <article class="track old">
+        <div class="track-head">
+          <h2>旧版 - 仅用于对比</h2>
+          <span class="badge">已替换</span>
+        </div>
+        <p>8 kHz 直接合成版本，约 22.42 秒。保留在备份目录，方便对照问题来源。</p>
+        <audio controls preload="metadata" src="../backup/FIRE_before_hq_20261006.wav"></audio>
+      </article>
+    </section>
+
+    <div class="facts">
+      生成脚本：<code>scripts/make_fire_voice_hq.ps1</code> 和
+      <code>scripts/make_fire_voice_hq_asset.py</code>。
+      男声正式文件 SHA256：
+      <code>D8AF89CFA6969A1708C6A5767C1A69C8B26EA62FBE75C9D0875AF275041D0D52</code>。
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,239 @@
+============================================================
+   Tang Dynasty, V6.2.168116
+   Copyright (c) 2012-2025 Anlogic Inc.
+   Executable = E:/Anlogic/TD_6.2.1_Engineer_6.2.168.116/bin/td_commands_prompt.exe
+   Built at =   16:32:07 Jun 12 2025
+   Run by =     ASUS
+   Run Date =   Mon Oct  5 03:45:37 2026
+
+   Run on =     LAPTOP-TFPALG0P
+============================================================
+RUN-1002 : start command "import_device eagle_s20.db -package EG4S20NG88"
+RUN-1001 : Using default speed grade: NA
+ARC-1001 : Device Initialization.
+ARC-1001 : ---------------------------------------------------------------
+ARC-1001 :            OPTION            |        IO         |   SETTING   
+ARC-1001 : ---------------------------------------------------------------
+ARC-1001 :   cso_b/cclk/mosi/miso/dout  |  P69/P82/P81/P80  |    gpio    
+ARC-1001 :             done             |        P8         |    gpio    
+ARC-1001 :           program_b          |        P67        |  dedicate  
+ARC-1001 :        tdi/tms/tck/tdo       |  P25/P22/P26/P21  |  dedicate  
+ARC-1001 : ---------------------------------------------------------------
+ARC-1004 : Device setting, marked 5 dedicate IOs in total.
+RUN-1002 : start command "read_hdl -file td/ramprobe3.v -top ramprobe3"
+HDL-1007 : analyze verilog file td/ramprobe3.v
+HDL-1007 : elaborate module ramprobe3 in td/ramprobe3.v(60)
+HDL-1007 : elaborate module ram9k_76800 in td/ramprobe3.v(15)
+HDL-1007 : extracting RAM for identifier 'mem' in td/ramprobe3.v(23)
+HDL-1007 : elaborate module ram32k_76800 in td/ramprobe3.v(30)
+HDL-1007 : extracting RAM for identifier 'mem' in td/ramprobe3.v(38)
+HDL-1007 : elaborate module ram32kf_76800 in td/ramprobe3.v(45)
+HDL-1007 : extracting RAM for identifier 'mem' in td/ramprobe3.v(53)
+HDL-1200 : Current top model is ramprobe3
+HDL-1100 : Inferred 3 RAMs.
+RUN-1002 : start command "optimize_rtl"
+RUN-1001 : Open license file E:/Anlogic/TD_6.2.1_Engineer_6.2.168.116/license/Anlogic.lic
+SYN-1001 : Stage 1 | Optimize RTL
+SYN-1001 : Stage 1.1 | Check Design Sanity
+SYN-1001 : End Stage 1.1 | Check Design Sanity; Time: 0.000170s wall, 0.000000s user + 0.000000s system = 0.000000s CPU (n/a%); Memory(MB): used = 90, reserved = 100, peak = 90;
+
+SYN-1079 : finish stage Check Design Sanity. Total instances: 63, Total nets: 302.
+
+SYN-1001 : Stage 1.2 | Initialize Design
+SYN-1001 : End Stage 1.2 | Initialize Design; Time: 0.005783s wall, 0.015625s user + 0.000000s system = 0.015625s CPU (270.2%); Memory(MB): used = 91, reserved = 100, peak = 91;
+
+SYN-1079 : finish stage Initialize Design. Total instances: 15, Total nets: 254.
+
+SYN-1001 : Stage 1.3 | Flatten Module
+SYN-1011 : Flatten model ramprobe3
+SYN-1001 : End Stage 1.3 | Flatten Module; Time: 0.001260s wall, 0.000000s user + 0.000000s system = 0.000000s CPU (n/a%); Memory(MB): used = 91, reserved = 100, peak = 91;
+
+SYN-1079 : finish stage Flatten Module. Total instances: 12, Total nets: 98.
+
+SYN-1001 : Stage 1.4 | Uniform Instance
+SYN-1001 : End Stage 1.4 | Uniform Instance; Time: 0.000380s wall, 0.000000s user + 0.000000s system = 0.000000s CPU (n/a%); Memory(MB): used = 91, reserved = 100, peak = 91;
+
+SYN-1079 : finish stage Uniform Instance. Total instances: 14, Total nets: 100.
+
+SYN-1001 : Stage 1.5 | Optimize Design
+SYN-1032 : 98/2 useful/useless nets, 12/2 useful/useless insts
+SYN-1016 : Merged 8 instances.
+SYN-1026 : Infer Logic BRAM(u_32k/ramread0_syn_4)
+	 port mode: single dual port
+	 port a size: 131072 x 8	 write mode: NORMAL
+	 port b size: 131072 x 8	 write mode: READBEFOREWRITE
+SYN-1023 : Infer 0 Logic DRAMs, 1 Logic BRAMs.
+SYN-1001 : End Stage 1.5 | Optimize Design; Time: 0.078478s wall, 0.078125s user + 0.000000s system = 0.078125s CPU (99.6%); Memory(MB): used = 93, reserved = 100, peak = 93;
+
+SYN-1079 : finish stage Optimize Design. Total instances: 3, Total nets: 54.
+
+SYN-1001 : Stage 1.6 | Optimize Iteratively
+SYN-1014 : Optimize round 1
+SYN-2595 : bram inst: u_32k/ramread0_syn_4 is set to PDPW/SP from DP for resource saving
+SYN-1015 : Optimize round 1, 0 better
+SYN-1014 : Optimize round 1
+SYN-1015 : Optimize round 1, 0 better
+SYN-1001 : End Stage 1.6 | Optimize Iteratively; Time: 0.150587s wall, 0.140625s user + 0.000000s system = 0.140625s CPU (93.4%); Memory(MB): used = 103, reserved = 100, peak = 103;
+
+SYN-1079 : finish stage Optimize Iteratively. Total instances: 3, Total nets: 54.
+
+SYN-1001 : Stage 1.7 | Check Design
+SYN-1001 : End Stage 1.7 | Check Design; Time: 0.000042s wall, 0.000000s user + 0.000000s system = 0.000000s CPU (n/a%); Memory(MB): used = 104, reserved = 100, peak = 104;
+
+SYN-1079 : finish stage Check Design. Total instances: 3, Total nets: 54.
+
+SYN-1001 : End Stage 1 | Optimize RTL; Time: 0.237076s wall, 0.234375s user + 0.000000s system = 0.234375s CPU (98.9%); Memory(MB): used = 104, reserved = 100, peak = 104;
+
+SYN-1079 : finish stage Optimize RTL. Total instances: 3, Total nets: 54.
+
+RUN-1002 : start command "read_sdc E:/FPGA guo sai/fall_detection/fpga/td/fall_core.sdc"
+RUN-1002 : start command "optimize_gate"
+RUN-1001 : Open license file E:/Anlogic/TD_6.2.1_Engineer_6.2.168.116/license/Anlogic.lic
+SYN-1001 : Stage 2 | Optimize Gate
+SYN-1001 : Stage 2.1 | Map Reg
+SYN-1001 : End Stage 2.1 | Map Reg; Time: 0.000206s wall, 0.000000s user + 0.000000s system = 0.000000s CPU (n/a%); Memory(MB): used = 104, reserved = 100, peak = 104;
+
+SYN-1079 : finish stage Map Reg. Total instances: 3, Total nets: 54.
+
+SYN-1001 : Stage 2.2 | Map IO
+SYN-2001 : Map 68 IOs to PADs of model 'ramprobe3'
+SYN-1001 : End Stage 2.2 | Map IO; Time: 0.059905s wall, 0.062500s user + 0.000000s system = 0.062500s CPU (104.3%); Memory(MB): used = 104, reserved = 100, peak = 104;
+
+SYN-1001 : Stage 2.3 | Map Macro
+RUN-1002 : start command "update_pll_param -module ramprobe3"
+SYN-2501 : Processed 0 LOGIC_BUF instances.
+SYN-2571 : Optimize after map_dsp, round 1
+SYN-1016 : Merged 150 instances.
+SYN-2571 : Optimize after map_dsp, round 1, 150 better
+SYN-2571 : Optimize after map_dsp, round 2
+SYN-2571 : Optimize after map_dsp, round 2, 0 better
+SYN-1001 : Throwback 5 control mux instances
+SYN-2501 : Optimize round 1
+SYN-2501 : Optimize round 1, 65 better
+SYN-2501 : Optimize round 2
+SYN-2501 : Optimize round 2, 0 better
+SYN-2501 : Optimize round 1
+SYN-2501 : Optimize round 1, 0 better
+SYN-1001 : End Stage 2.3 | Map Macro; Time: 0.091279s wall, 0.093750s user + 0.000000s system = 0.093750s CPU (102.7%); Memory(MB): used = 105, reserved = 100, peak = 105;
+
+SYN-1079 : finish stage Map Macro. Total instances: 430, Total nets: 697.
+
+SYN-1001 : Stage 2.4 | Map Gate
+SYN-3001 : Collect 271 PI 74 PO (74 timing unconstrained) for mapping
+SYN-2581 : Mapping with K=4, #lut = 240 (3.90), #lev = 0 (-nan(ind)), #crit_level = 0
+SYN-2551 : Post LUT mapping optimization.
+SYN-2581 : Mapping with K=4, #lut = 240 (3.90), #lev = 5 (2.27), #crit_level = 0
+SYN-3001 : Logic optimization opt = 0.17 sec, map = 0.03 sec, post map opt = 0.15 sec.
+SYN-1001 : End Stage 2.4 | Map Gate; Time: 0.568750s wall, 0.546875s user + 0.015625s system = 0.562500s CPU (98.9%); Memory(MB): used = 116, reserved = 101, peak = 116;
+
+SYN-1001 : Packing model "ramprobe3" ...
+SYN-4010 : Pack lib has 59 rtl pack models with 26 top pack blocks
+SYN-1014 : Optimize round 1
+SYN-1015 : Optimize round 1, 0 better
+SYN-4002 : Packing 5 DFF/LATCH to SEQ ...
+SYN-4009 : Pack 0 carry chain into lslice
+SYN-4007 : Packing 0 adder to BLE ...
+SYN-4008 : Packed 0 adder and 0 SEQ to BLE.
+SYN-4007 : Packing 0 gate4 to BLE ...
+SYN-4008 : Packed 0 gate4 and 0 SEQ to BLE.
+RUN-1002 : start command "report_qor -step gate -file gate.qor"
+RUN-1002 : start command "start_timer"
+-----------------------------------------------------------
+| QoR metrics               |         value               |
+-----------------------------------------------------------
+| Timing                    |                             |
+|     Setup WNS             |   2147483647                |
+|     Setup TNS             |            0                |
+|     Num of violated S-EP  |            0                |
+|     Hold WNS              |   2147483647                |
+|     Hold TNS              |            0                |
+|     Num of violated H-EP  |            0                |
+-----------------------------------------------------------
+| Utilization               |                             |
+|     #registers            |            5                |
+|     #luts                 |          240                |
+|     #lut1                 |            0                |
+|     #lut1(~A)             |            0                |
+|     #slices               |            0                |
+|     slices percentage     |        0.00%                |
+|     #RAMs                 |           32                |
+|     #DSPs                 |            0                |
+|     #f7mux                |        0.00%                |
+|     #MACROs               |            0                |
+|     #insts in MACRO       |            0                |
+-----------------------------------------------------------
+| kept_net                  |                             |
+|     #syn_keep             |            0                |
+|     #keep_hier            |            0                |
+|     #dont_touch           |            0                |
+|     #mark_debug           |            0                |
+|     #max_fanout_keep      |            0                |
+|     #async_reg            |            0                |
+-----------------------------------------------------------
+| Top 10% datanet fanout#   |        58.20                |
+| dff(single fanout)->dff   |            0                |
+| dff(single fanout)->dram  |            0                |
+-----------------------------------------------------------
+| Over-quota path num*      |                             |
+|     Total                 |            0                |
+-----------------------------------------------------------
+| Rent**                    |                             |
+-----------------------------------------------------------
+Note*: Over-quota path shows the over-path-level-threshold path number of each clock.
+       The clock will not be shown if no path is with path level over the threshold.
+       The threshold is defined as worst path_margin / 800ps.
+Note**: Rent shows the rent exponent value of the modules whose rent value exceeds the threshold.
+        Only modules under top are reported, and the threshold is defined as 0.7.
+
+Logic Level Distribution
+------------------------------
+  Clock  |  Period
+------------------------------
+  clk    |  11.905ns (83MHz)
+------------------------------
+Note: The table count the worst 100000 paths, each endpoint count only one time.(0 paths analyzed)
+
+Hierarchical Rent Exponent Report
++--------------------------------------------------------+
+|Inst     |Model  |Rent     |Cell     |Pin     |Term     |
++--------------------------------------------------------+
++--------------------------------------------------------+
+Note: Cell represents total number of cells inside module; Pin represents total number of pins
+      which have net connection inside module; Term represents total number of PIs and POs of module.
+      Rent represents the relationship between number of terms and number of cells in module.
+      A module with higher rent corresponds to highly connected logic and strong connectivity with others.
+Report gate stage QoR done.
+
+SYN-1001 : End Stage 2 | Optimize Gate; Time: 0.764579s wall, 0.734375s user + 0.031250s system = 0.765625s CPU (100.1%); Memory(MB): used = 117, reserved = 101, peak = 117;
+
+RUN-1002 : start command "report_area -file E:/FPGA guo sai/fall_detection/fpga/td/out/ramprobe3_gate.area"
+RUN-1001 : standard
+***Report Model: ramprobe3 Device: EG4S20NG88***
+
+IO Statistics
+#IO                        68   out of     66  103.03%
+  #input                   44
+  #output                  24
+  #inout                    0
+
+LUT Statistics
+#Total_luts               240
+  #lut4                   240
+  #lut5                     0
+  #lut6                     0
+  #lut5_mx41                0
+  #lut4_alu1b               0
+
+Utilization Statistics
+#lut                      240   out of  19600    1.22%
+#reg                        5   out of  19600    0.03%
+#bram                       0   out of     64    0.00%
+  #bram9k                   0
+  #fifo9k                   0
+#bram32k                   32   out of     16  200.00%
+#dsp                        0   out of     29    0.00%
+#pad                       68   out of     66  103.03%
+#pll                        0   out of      4    0.00%
+#gclk                       0   out of     16    0.00%
+
+

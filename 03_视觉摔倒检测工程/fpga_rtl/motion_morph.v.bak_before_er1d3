@@ -1,0 +1,318 @@
+//===========================================================================
+// motion_morph.v -- disk(1) erosion + radius-3 disk dilation
+//
+// Matches scipy.ndimage.binary_erosion(disk(1)) followed by
+// binary_dilation(disk(3)), border value 0, as used by tools/fall_proto.py.
+//
+// The two radii are asymmetric on purpose.  A 320x180 monitor-to-camera
+// replay of a fall produces a thin, low-contrast motion mask: disk(2)
+// erosion cut the falling body into disconnected fragments (best blob
+// 84x54, ratio 0.64, never person-like), while disk(1) keeps the silhouette
+// whole.  The wider disk(3) dilation then re-joins limbs and head without
+// gluing neighbours, which is what lets posture_fsm see a real collapse.
+// Measured over the ten loops of out/test_videos/fall_test.mp4 this pair is
+// 10/10 alarm loops against 6/10 for the old disk(2)/disk(2).
+//
+// disk(1) is the 3x3 cross {|dx|+|dy| <= 1}, one 3-row "column stack" RAM
+// plus two single-bit delays.  The stage maps slot (x,r) onto image position
+// (x-1, r-2).
+//
+// The dilation is exact: a 7-row column stack feeds seven horizontal
+// OR-windows whose widths follow the diamond
+//
+//     dy =   0           7 wide
+//     dy =  +/-1         5 wide
+//     dy =  +/-2         3 wide
+//     dy =  +/-3         single pixel
+//
+// Every window is driven by one common one-pixel-delayed copy of the eroded
+// stream, and the diamond's horizontal half-width falls out of which bit of
+// each lane's own history the running count starts from:
+//
+//   lane 0/6 (dy +/-3, 3 wide)  drain bit 2
+//   lane 1/5 (dy +/-2, 3 wide)  drain bit 1
+//   lane 2   (dy  0,   7 wide)  drain bit 6
+//   lane 3   (dy -1,   5 wide)  drain bit 4
+//   lane 4   (dy +1,   5 wide)  drain bit 4
+//
+// The taps were solved against SciPy with fpga/tools/morph_search.py rather
+// than by hand.  The datapath is four columns short of the image-space
+// result, so the mask leaving this module sits three columns right of the
+// source frame; every consumer (multi_bbox, motion_hist, the overlay) works
+// in that same shifted space, so the offset cancels.
+//
+// The port is a sparse valid stream, not a free-running one: the module
+// advances one slot per de_in pixel, so it can sit directly behind
+// gray_front + frame_diff, where a 320-pixel row arrives with idle clocks
+// between pixels and between rows.  Two internal sequences complete the
+// borders:
+//   * after every 320 input pixels the datapath runs DIL_LATENCY extra zero
+//     slots, which flush the horizontal windows at the right edge;
+//   * after the last real row it runs ROW_LATENCY extra zero rows, which
+//     produce the bottom output rows and leave the stacks zeroed for the
+//     next frame.  These must fit in the source's vertical blanking.
+//
+// The vertical pipeline runs ROW_LATENCY rows behind the input, so the first
+// output row appears while input row ROW_LATENCY is streamed.  Output: 320
+// pixels x HEIGHT rows per frame, one row per input row, mask_out/de_out
+// valid together.
+//
+// A frame is HEIGHT counted input rows; no frame_start strobe is required.
+//===========================================================================
+`timescale 1ns / 1ps
+
+module motion_morph (
+    input  wire clk,
+    input  wire rst_n,
+    input  wire de_in,
+    input  wire mask_in,
+    output reg  de_out,
+    output reg  mask_out
+);
+
+localparam integer WIDTH       = 320;
+localparam integer HEIGHT      = 180;   // 320x180 working frame
+localparam integer DIL_RADIUS  = 3;     // disk radius, 2*R+1 = 7 wide
+// Column shift of the whole pipeline: one column from the cross erosion plus
+// DIL_RADIUS from the centre of the widest window.  The per-lane taps below
+// take the +/-1 and +/-2 lanes out of one- and two-column delayed copies of
+// the eroded stream so every lane lands on the same output column.
+localparam integer DIL_LATENCY = 1 + DIL_RADIUS;  // out col = input col - 4
+localparam integer ROW_LATENCY = 3;               // erosion 2 + dilation 1
+// One row is WIDTH real pixels plus DIL_LATENCY zero slots, so exactly
+// WIDTH de_out pixels leave the row: the padding the disk needs on its
+// right edge must not turn into extra bits in the packed output stream.
+localparam integer ROW_SLOTS   = WIDTH + DIL_LATENCY;
+localparam integer LAST_SLOT   = ROW_SLOTS - 1;
+localparam integer FLUSH_ROWS  = ROW_LATENCY;
+
+localparam [1:0] P_IDLE = 2'd0;
+localparam [1:0] P_ROW  = 2'd1;
+localparam [1:0] P_FROW = 2'd2;
+
+// ------------------------------------------------------------- column stacks
+reg [2:0]  stack3 [0:WIDTH-1];   // {row r-2, r-1, r} cross erosion
+reg [6:0]  stack7 [0:WIDTH-1];   // 7 newest eroded rows per column
+
+// ------------------------------------------------------------- reset clearing
+reg [8:0] clr_addr;
+reg       clr_busy;
+reg       ready;
+
+// ------------------------------------------------------------- row sequencing
+reg [1:0]  phase;
+reg [9:0]  slot;          // 0 .. LAST_SLOT
+reg [8:0]  row;           // 0..239 real rows, 240 while flushing
+reg [3:0]  flush_left;
+
+// ------------------------------------------------------------- erosion state
+reg       p1a, p2a;       // cross middle-row bit, 1 and 2 columns back
+reg       q2a, q0a;       // cross previous column's {r-2} and {r} bits
+
+// ------------------------------------------------------------ dilation state
+// The eroded stream delayed by one and two valid pixels.  dy=0 needs the
+// full seven-column window and reads the current stream; the +/-1 lanes are
+// three and seven wide, and the +/-2 and +/-3 lanes are one pixel wide, all
+// referenced to the delayed copies so the seven lanes share one column.
+reg [6:0] eb_d1, eb_d2;
+// Per lane: one 7-wide horizontal history and three running OR-window
+// counts (7, 5 and 3 columns) started from the same pixel.  Lanes 1, 3 and 5
+// sit on the one-pixel-delayed copy so their windows cover rows -1, 0, +1;
+// lanes 0, 2, 4 and 6 sit on the two-pixel-delayed copy so their windows
+// cover rows -2, -3, +2, +3.  Lane 2 (dy = 0) is the only 7-wide lane.
+reg [6:0] h7 [0:6];
+reg [2:0] c7 [0:6];
+reg [2:0] c5 [0:6];
+reg [2:0] c3 [0:6];
+
+// --------------------------------------------------------------- temporaries
+integer   kf;
+reg [2:0] w3a_cur, w3a_new;
+reg [6:0] w7_cur, w7_new;
+reg       e_a, e_b;
+reg       d_or;
+reg       bbit;
+reg [6:0] nh;
+reg [2:0] n7, n5, n3;
+
+// per-cycle datapath control
+reg       process;
+reg       pix;
+reg [9:0] dslot;
+reg       row_done;
+
+always @* begin
+    process  = 1'b0;
+    pix      = 1'b0;
+    dslot    = slot;
+    row_done = 1'b0;
+    if (ready && !clr_busy) begin
+        if (phase == P_IDLE) begin
+            if (de_in) begin
+                process = 1'b1;
+                pix     = mask_in;
+                dslot   = 10'd0;
+            end
+        end else if (phase == P_ROW) begin
+            if (slot < WIDTH) begin
+                if (de_in) begin
+                    process = 1'b1;
+                    pix     = mask_in;
+                    dslot   = slot;
+                end
+            end else begin
+                process = 1'b1;          // tail slots 320..323, zeros
+                dslot   = slot;
+            end
+            if (process && (dslot == LAST_SLOT))
+                row_done = 1'b1;
+        end else begin
+            process = 1'b1;              // flush rows, all zeros
+            dslot   = slot;
+            if (dslot == LAST_SLOT)
+                row_done = 1'b1;
+        end
+    end
+end
+
+always @(posedge clk or negedge rst_n) begin
+    if (!rst_n) begin
+        clr_addr   <= 9'd0;
+        clr_busy   <= 1'b1;
+        ready      <= 1'b0;
+        phase      <= P_IDLE;
+        slot       <= 10'd0;
+        row        <= 9'd0;
+        flush_left <= 4'd0;
+        de_out     <= 1'b0;
+        mask_out   <= 1'b0;
+        p1a <= 1'b0; p2a <= 1'b0; q2a <= 1'b0; q0a <= 1'b0;
+        eb_d1 <= 7'd0;
+        eb_d2 <= 7'd0;
+        for (kf = 0; kf < 7; kf = kf + 1) begin
+            c7[kf] <= 3'd0;
+            c5[kf] <= 3'd0;
+            c3[kf] <= 3'd0;
+            h7[kf] <= 7'd0;
+        end
+    end else begin
+        de_out <= 1'b0;
+
+        if (clr_busy) begin
+            stack3[clr_addr] <= 3'd0;
+            stack7[clr_addr] <= 7'd0;
+            if (clr_addr == WIDTH - 1) begin
+                clr_busy <= 1'b0;
+                ready    <= 1'b1;
+            end else begin
+                clr_addr <= clr_addr + 9'd1;
+            end
+        end else if (ready && process) begin
+            // ------------------------------------------------ cross erosion
+            // 3x3 cross; slot (x,r) evaluates the centre (x-1, r-2).
+            w3a_cur = 3'd0;
+            if (dslot < WIDTH) w3a_cur = stack3[dslot];
+            w3a_new = {w3a_cur[1:0], pix};
+            e_a     = q2a & p1a & q0a & p2a & w3a_cur[1];
+
+            if (dslot < WIDTH) stack3[dslot] <= w3a_new;
+            p2a <= p1a;
+            p1a <= w3a_cur[1];
+            q2a <= w3a_cur[2];
+            q0a <= w3a_cur[0];
+            e_b     = e_a;
+
+            // ----------------------------------------------- disk(3) dilation
+            // Two delayed copies of the eroded pixel stream.  The stack and
+            // the horizontal windows are indexed by the lane's diamond
+            // offset, so lane kf is centred on row (row - 3 + kf).
+            eb_d2 <= {eb_d2[5:0], eb_d1[6]};
+            eb_d1 <= {eb_d1[5:0], e_b};
+
+            if (dslot >= 1) begin
+                w7_cur = 7'd0;
+                if (dslot <= WIDTH) w7_cur = stack7[dslot-1];
+                w7_new = {w7_cur[5:0], e_b};
+                if (dslot <= WIDTH) stack7[dslot-1] <= w7_new;
+
+                d_or = 1'b0;
+                for (kf = 0; kf < 7; kf = kf + 1) begin
+                    // All lanes run off the same one-pixel-delayed copy of
+                    // the eroded stream; the horizontal half-width of each
+                    // lane is the position of the bit the count drains.
+                    bbit = eb_d1[6];
+                    nh   = {h7[kf][5:0], bbit};
+
+                    if (kf == 0 || kf == 6) begin
+                        // dy = +/-3: horizontal 3 wide, oldest history bit 2.
+                        n3 = c3[kf] + {2'b00, bbit} - {2'b00, h7[kf][2]};
+                        n5 = c5[kf];
+                        n7 = c7[kf];
+                        d_or = d_or | (n3 != 3'd0);
+                    end else if (kf == 1 || kf == 5) begin
+                        // dy = +/-2: horizontal 3 wide, oldest history bit 1.
+                        n3 = c3[kf] + {2'b00, bbit} - {2'b00, h7[kf][1]};
+                        n5 = c5[kf];
+                        n7 = c7[kf];
+                        d_or = d_or | (n3 != 3'd0);
+                    end else if (kf == 2) begin
+                        // dy = 0, horizontal 7 wide -> the full diamond.
+                        n7 = c7[kf] + {2'b00, bbit} - {2'b00, h7[kf][6]};
+                        n5 = c5[kf];
+                        n3 = c3[kf];
+                        d_or = d_or | (n7 != 3'd0);
+                    end else if (kf == 3) begin
+                        // dy = -1, horizontal 5 wide, oldest history bit 4.
+                        n5 = c5[kf] + {2'b00, bbit} - {2'b00, h7[kf][4]};
+                        n3 = c3[kf];
+                        n7 = c7[kf];
+                        d_or = d_or | (n5 != 3'd0);
+                    end else begin
+                        // dy = +1, horizontal 5 wide, oldest history bit 4.
+                        n5 = c5[kf] + {2'b00, bbit} - {2'b00, h7[kf][4]};
+                        n3 = c3[kf];
+                        n7 = c7[kf];
+                        d_or = d_or | (n5 != 3'd0);
+                    end
+
+                    h7[kf] <= nh;
+                    c7[kf] <= n7;
+                    c5[kf] <= n5;
+                    c3[kf] <= n3;
+                end
+
+                if ((dslot >= DIL_LATENCY) && (row >= ROW_LATENCY)) begin
+                    mask_out <= d_or;
+                    de_out   <= 1'b1;
+                end
+            end
+
+            // -------------------------------------------- row sequencing
+            if (row_done) begin
+                slot <= 10'd0;
+                if (phase == P_ROW) begin
+                    if (row == HEIGHT - 1) begin
+                        row        <= HEIGHT;   // keep the output gate open
+                        phase      <= P_FROW;
+                        flush_left <= 4'd0;
+                    end else begin
+                        row <= row + 9'd1;
+                    end
+                end else if (flush_left == FLUSH_ROWS - 1) begin
+                    row   <= 9'd0;
+                    phase <= P_IDLE;
+                end else begin
+                    flush_left <= flush_left + 4'd1;
+                end
+            end else begin
+                slot <= slot + 10'd1;
+                if (phase == P_IDLE) begin
+                    phase <= P_ROW;
+                    slot  <= 10'd1;
+                end
+            end
+        end
+    end
+end
+
+endmodule

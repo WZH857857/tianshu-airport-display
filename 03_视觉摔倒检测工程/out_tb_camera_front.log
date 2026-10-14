@@ -1,0 +1,4 @@
+VCD info: dumpfile tb_camera_front.vcd opened for output.
+INFO raw=78 core=74 hidden=4 writes=2 shutter=188 gain=8
+PASS tb_camera_front: front end end-to-end clean
+tb/tb_camera_front.v:364: $finish called at 11573543987 (1ps)

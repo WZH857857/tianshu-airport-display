@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>E104 多模块工程、供电与接线说明</title>
+  <style>
+    :root {
+      --bg: #f2f5f4;
+      --panel: #ffffff;
+      --ink: #17201d;
+      --muted: #62716b;
+      --line: #d7dfdc;
+      --green: #176b57;
+      --green-soft: #e2f0eb;
+      --amber: #925807;
+      --amber-soft: #faecd8;
+      --red: #963a37;
+      --red-soft: #f8e7e6;
+      --blue: #285f86;
+      --blue-soft: #e2edf5;
+      --mono: "Cascadia Mono", Consolas, monospace;
+      --sans: "Microsoft YaHei UI", "PingFang SC", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html, body { max-width: 100%; overflow-x: hidden; }
+    body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 15px; line-height: 1.7; }
+    .shell { width: 100%; max-width: 1480px; margin: 0 auto; padding: 24px 20px 60px; }
+    header { padding: 28px 30px; border-radius: 10px; color: #fff; background: linear-gradient(125deg, #176b57, #214f46); }
+    header p { max-width: 1080px; margin: 8px 0 0; color: #e7f3ef; }
+    .eyebrow { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; opacity: .82; }
+    h1 { margin: 7px 0 0; font-size: 29px; line-height: 1.25; }
+    h2 { margin: 0 0 13px; font-size: 21px; }
+    h3 { margin: 18px 0 8px; font-size: 16px; }
+    p { margin: 8px 0; }
+    a { color: var(--green); }
+    section { margin: 15px 0; padding: 20px; border: 1px solid var(--line); border-radius: 9px; background: var(--panel); }
+    .stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-top: 16px; }
+    .stat { padding: 12px 14px; border: 1px solid var(--line); border-radius: 8px; background: #fbfcfc; }
+    .stat strong { display: block; font-size: 19px; color: var(--green); }
+    .stat small { color: var(--muted); }
+    .callout { margin: 10px 0; padding: 11px 14px; border-left: 4px solid var(--green); border-radius: 0 7px 7px 0; background: var(--green-soft); }
+    .warn { border-left-color: var(--amber); background: var(--amber-soft); }
+    .danger { border-left-color: var(--red); background: var(--red-soft); }
+    .search-bar { position: sticky; top: 8px; z-index: 8; display: grid; grid-template-columns: minmax(180px, 1fr) auto auto; gap: 9px; align-items: center; margin: 14px 0 8px; padding: 10px; border: 1px solid var(--line); border-radius: 9px; background: rgba(242, 245, 244, .96); backdrop-filter: blur(8px); }
+    .search-bar input { width: 100%; min-width: 0; min-height: 40px; padding: 8px 11px; border: 1px solid #b7c5c0; border-radius: 7px; background: #fff; color: var(--ink); font: inherit; outline: none; }
+    .search-bar input:focus { border-color: var(--green); box-shadow: 0 0 0 3px rgba(23, 107, 87, .12); }
+    .search-bar button { min-width: 0; min-height: 40px; padding: 8px 13px; border: 1px solid #b7c5c0; border-radius: 7px; background: #fff; color: var(--ink); font: inherit; cursor: pointer; }
+    .search-count { color: var(--muted); font-size: 13px; white-space: nowrap; }
+    tr.search-hidden, .table-wrap.search-empty { display: none !important; }
+    tr.search-hit { background: #fff4ca !important; }
+    .table-wrap { width: 100%; min-width: 0; overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; }
+    table { width: 100%; border-collapse: collapse; background: #fff; font-size: 14px; }
+    th, td { padding: 8px 10px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { position: sticky; top: 0; z-index: 1; background: #edf2f0; font-size: 13px; }
+    tr:last-child td { border-bottom: 0; }
+    tbody tr:hover { background: #f7faf9; }
+    code, pre { font-family: var(--mono); }
+    code { padding: 1px 5px; border: 1px solid #dbe3e0; border-radius: 4px; background: #edf1ef; white-space: nowrap; }
+    pre { overflow-x: auto; margin: 10px 0; padding: 14px; border-radius: 8px; background: #17201d; color: #ecf6f2; font-size: 13px; line-height: 1.55; }
+    .pin { color: var(--green); font-family: var(--mono); font-weight: 700; white-space: nowrap; }
+    .v33 { color: var(--amber); font-weight: 700; }
+    .v5 { color: var(--red); font-weight: 700; }
+    .links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+    .file-link { display: block; padding: 11px 13px; border: 1px solid var(--line); border-radius: 8px; background: #fbfcfc; text-decoration: none; }
+    .file-link strong { display: block; color: var(--green); }
+    .file-link small { color: var(--muted); }
+    ul, ol { padding-left: 22px; }
+    li + li { margin-top: 4px; }
+    footer { padding: 16px 4px; color: var(--muted); font-size: 13px; }
+    @media (max-width: 900px) {
+      .shell { padding: 12px 10px 40px; }
+      header { padding: 22px 18px; }
+      h1 { font-size: 24px; }
+      .stats, .links { grid-template-columns: 1fr; }
+      .search-bar { top: 4px; grid-template-columns: 1fr auto; }
+      .search-count { grid-column: 1 / -1; }
+      header, section { min-width: 0; overflow-wrap: anywhere; }
+      section { padding: 15px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <div class="eyebrow">ANLOGIC EAGLE E104 · EG4X20BG256 · MultiModule_Demo</div>
+      <h1>多模块工程、供电与接线说明</h1>
+      <p>本工程把 RTC、蓝牙串口、DHT11 温湿度、MQ-2 烟雾、水位、土壤湿度、蜂鸣器、三色灯、火焰传感器和 SPI TFT 组合到一块 FPGA 中。SPI TFT 负责本地显示状态，蓝牙串口按“天枢空港智显上位机”协议应答状态轮询，可无线查看全部数据。</p>
+      <div class="stats">
+        <div class="stat"><strong>已生成</strong><small>MultiModule_Demo.bit</small></div>
+        <div class="stat"><strong>129 ps</strong><small>最终 Setup WNS</small></div>
+        <div class="stat"><strong>214 ps</strong><small>最终 Hold WNS</small></div>
+        <div class="stat"><strong>22 / 184</strong><small>已使用 IO</small></div>
+      </div>
+    </header>
+
+    <div class="search-bar" role="search">
+      <input id="searchInput" type="search" autocomplete="off" placeholder="搜索模块、排针、FPGA 球号或电压，例如：降压 / J4.33 / M16 / 3.3V" aria-label="搜索接线和供电信息">
+      <button id="clearSearch" type="button">清除</button>
+      <span id="searchCount" class="search-count"></span>
+    </div>
+
+    <section>
+      <h2>先说结论：照片里有没有降压模块</h2>
+      <div class="callout warn">
+        <strong>没有看到独立降压模块。</strong>
+        你发来的 7 张照片分别是：Tiny RTC、蓝牙串口、温湿度检测（实际改用 DHT11）、低电平触发蜂鸣器、三色灯、火焰传感器和 SPI TFT。
+      </div>
+      <p>蓝牙模块底板上可能有自己的 3.3V 稳压器，但它只服务蓝牙模块，不能作为整套模块的 3.3V 总电源。E104 扩展排针方便使用的是 <code>+5V</code> 和 <code>GND</code>；若没有独立 5V 转 3.3V 模块，整套系统就不应直接从 E104 的 5V 给所有模块供电。</p>
+      <div class="callout danger">
+        <strong>安全供电方案：</strong>从 E104 的 <code>+5V</code> 接一个 5V 转 3.3V 降压模块，输出建议至少 1A；3.3V 和 GND 做公共电源轨，所有模块与 E104 必须共地。TFT 背光和全部模块同时工作时，电源余量比逻辑电平更值得关注。
+      </div>
+    </section>
+
+    <section>
+      <h2>一、各模块供电与直插判断</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>模块</th><th>建议供电</th><th>能否直接接 FPGA</th><th>中间是否需要元件</th><th>原因</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Tiny RTC / DS1307</td><td class="v5">官方规格 5V；3.3V 不保证</td><td>仅在 I2C 一侧为 3.3V 时直接接</td><td>需要双向 I2C 电平转换和上拉</td><td>若模块 5V 供电且上拉到 5V，SDA/SCL 不能直接接 FPGA</td></tr>
+            <tr><td>蓝牙串口</td><td class="v5">按底板丝印，常见底板可 5V</td><td>TXD 为 3.3V 电平时可以</td><td>通常不用；裸模块按模块规格</td><td>TXD 接 FPGA RX，RXD 接 FPGA TX，必须交叉</td></tr>
+            <tr><td>DHT11 温湿度</td><td class="v33">必须 3.3V</td><td>可以</td><td>DATA 需 4.7kΩ~10kΩ 上拉</td><td>单总线 DATA 直连 M16</td></tr>
+            <tr><td>SR602 人体红外</td><td class="v33">3.3V</td><td>可以</td><td>通常不用</td><td>OUT 直连 A12，高电平表示有人</td></tr>
+            <tr><td>有源蜂鸣器</td><td class="v33">优先 3.3V</td><td>可以</td><td>通常不用</td><td>成品板自带驱动三极管，本工程按 I/O 高电平触发</td></tr>
+            <tr><td>三色灯</td><td>由 FPGA 的 3.3V IO 驱动</td><td>可以</td><td>通常不用</td><td>成品板自带限流电阻；裸 LED 才需要每路约 330Ω</td></tr>
+            <tr><td>火焰传感器</td><td class="v33">优先 3.3V</td><td>可以</td><td>通常不用</td><td>若供 5V，DO/AO 可能超过 FPGA 输入安全范围</td></tr>
+            <tr><td>MQ-2 烟雾</td><td class="v5">5V（按模块加热要求）</td><td>分压后才能接</td><td>DO/AO 各用 10kΩ + 20kΩ 分压</td><td>5V 供电时输出高电平接近 5V，不能直连 FPGA</td></tr>
+            <tr><td>水位传感器</td><td class="v33">3.3V</td><td>S 可以直连 ADC</td><td>通常不用</td><td>S 只有模拟输出，接 N12 / ADC5</td></tr>
+            <tr><td>土壤湿度</td><td class="v33">优先 3.3V</td><td>可以</td><td>5V 供电时 AO/DO 需分压</td><td>AO 接 P12 / ADC6，DO 接 L12 作干湿提示</td></tr>
+            <tr><td>SPI TFT</td><td class="v33">需要确认，常见为 3.3V</td><td>CS、RES、DC、SCL、SDA 可以</td><td>BLK 可能需要三极管或 MOS</td><td>背光 LED 电流可能很大，不能直接让 FPGA 灌电流</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout">
+        所谓“直接直插”，是指成品模块的排针可以直接用杜邦线接 E104 排针。模块内部已经有比较器、上拉、限流电阻或驱动三极管；不是每个 GPIO 和模块信号之间再串一个电阻。
+      </div>
+    </section>
+
+    <section>
+      <h2>二、完整 FPGA 接线表</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>模块</th><th>模块引脚</th><th>E104 排针</th><th>FPGA 球号</th><th>方向</th><th>备注</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>TFT</td><td>CS</td><td>J4.5</td><td class="pin">T12</td><td>输出</td><td>低有效片选</td></tr>
+            <tr><td>TFT</td><td>RES</td><td>J4.6</td><td class="pin">R12</td><td>输出</td><td>复位</td></tr>
+            <tr><td>TFT</td><td>DC</td><td>J4.7</td><td class="pin">T13</td><td>输出</td><td>0 命令，1 数据</td></tr>
+            <tr><td>TFT</td><td>SCL</td><td>J4.8</td><td class="pin">T14</td><td>输出</td><td>SPI 时钟</td></tr>
+            <tr><td>TFT</td><td>SDA</td><td>J4.9</td><td class="pin">T15</td><td>输出</td><td>SPI MOSI</td></tr>
+            <tr><td>TFT</td><td>BLK</td><td>J4.10</td><td class="pin">R14</td><td>输出</td><td>背光控制，必要时加驱动器</td></tr>
+            <tr><td>RTC</td><td>SCL</td><td>J4.40</td><td class="pin">H15</td><td>输出/开漏</td><td>I2C 时钟</td></tr>
+            <tr><td>RTC</td><td>SDA</td><td>J4.39</td><td class="pin">H16</td><td>双向/开漏</td><td>I2C 数据</td></tr>
+            <tr><td>蓝牙</td><td>TXD</td><td>J4.37</td><td class="pin">K16</td><td>模块输出</td><td>接 FPGA UART RX</td></tr>
+            <tr><td>蓝牙</td><td>RXD</td><td>J4.38</td><td class="pin">K15</td><td>模块输入</td><td>接 FPGA UART TX</td></tr>
+            <tr><td>温湿度</td><td>DATA</td><td>J4.33</td><td class="pin">M16</td><td>模块输出</td><td>DHT11 单总线数据，DATA 需上拉</td></tr>
+            <tr><td>SR602 人体红外</td><td>OUT</td><td>U4.1</td><td class="pin">A12</td><td>模块输出</td><td>高电平表示有人，人离开后自动恢复安全页</td></tr>
+            <tr><td>蜂鸣器</td><td>I/O</td><td>J4.34</td><td class="pin">M15</td><td>FPGA 输出</td><td>高电平触发</td></tr>
+            <tr><td>火焰</td><td>DO</td><td>J4.35</td><td class="pin">D16</td><td>模块输出</td><td>低电平报警</td></tr>
+            <tr><td>火焰</td><td>AO</td><td>J3.17</td><td class="pin">M10</td><td>模拟输入</td><td>ADC 通道 3</td></tr>
+            <tr><td>MQ-2 烟雾</td><td>DO</td><td>J4.11</td><td class="pin">L13</td><td>模块输出</td><td>低电平预警，5V 输出需分压</td></tr>
+            <tr><td>MQ-2 烟雾</td><td>AO</td><td>J3.18</td><td class="pin">P11</td><td>模拟输入</td><td>ADC 通道 2，5V 输出需分压</td></tr>
+            <tr><td>水位</td><td>S</td><td>J3.16</td><td class="pin">N12</td><td>模拟输入</td><td>ADC 通道 5</td></tr>
+            <tr><td>土壤湿度</td><td>DO</td><td>J4.12</td><td class="pin">L12</td><td>模块输出</td><td>低电平表示湿润，不报警</td></tr>
+            <tr><td>土壤湿度</td><td>AO</td><td>J3.15</td><td class="pin">P12</td><td>模拟输入</td><td>ADC 通道 6</td></tr>
+            <tr><td>三色灯</td><td>R</td><td>J3.25</td><td class="pin">N1</td><td>FPGA 输出</td><td>高电平点亮</td></tr>
+            <tr><td>三色灯</td><td>Y</td><td>J3.26</td><td class="pin">N3</td><td>FPGA 输出</td><td>高电平点亮</td></tr>
+            <tr><td>三色灯</td><td>G</td><td>J3.27</td><td class="pin">M1</td><td>FPGA 输出</td><td>高电平点亮</td></tr>
+            <tr><td>板载资源</td><td>D1</td><td>板载</td><td class="pin">H4</td><td>输出</td><td>心跳灯</td></tr>
+            <tr><td>板载资源</td><td>时钟</td><td>板载</td><td class="pin">H3</td><td>输入</td><td>50 MHz</td></tr>
+            <tr><td>板载资源</td><td>按键</td><td>板载</td><td class="pin">F10</td><td>输入</td><td>低电平复位</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2>三、三个必须注意的电气问题</h2>
+      <h3>1. RTC 的 I2C 上拉</h3>
+      <p>I2C 是开漏总线，必须有上拉。Tiny RTC 底板通常会焊两个上拉电阻；如果没有，在 SDA、SCL 与 3.3V 之间各接一个 <code>4.7kΩ</code>。如果 RTC 由 5V 供电且模块上拉也接到 5V，FPGA 侧不能直接连，必须加双向电平转换器。</p>
+
+      <h3>2. TFT 的 BLK</h3>
+      <p>如果 BLK 只是模块内部的背光使能脚，可以直接接 FPGA。如果 BLK 直接接背光 LED 的阴极或阳极，就不能让 FPGA 引脚承担背光电流，需要 NPN 三极管或 N-MOS 管。先测背光电流，再决定是否直连。</p>
+
+      <h3>3. 温湿度传感器为 DHT11（单总线）</h3>
+      <p>当前工程按 DHT11 单总线协议读取，每 2 秒更新一次温度和湿度。FPGA 内先对原始湿度做“100 进制折算”（大于 100 减 100，如 175 → 75、255 → 55），再丢弃单次超过 25 %RH 的异常跳变，并用最近 4 次有效读数做滑动平均；显示和蓝牙上报限幅 20 %RH~90 %RH，报警按折算后的值判断。DATA 与 3.3 V 之间需要 4.7 kΩ~10 kΩ 上拉电阻。</p>
+    </section>
+
+    <section>
+      <h2>四、RTL 代码文件</h2>
+      <div class="links">
+        <a class="file-link" href="RTL/MultiModule_Demo.v"><strong>MultiModule_Demo.v</strong><small>顶层：模块连接、报警逻辑、状态汇总</small></a>
+        <a class="file-link" href="RTL/ili9341_display.v"><strong>ili9341_display.v</strong><small>SPI TFT 初始化、文字和状态显示</small></a>
+        <a class="file-link" href="RTL/i2c_rtc.v"><strong>i2c_rtc.v</strong><small>DS1307 100 kHz I2C 时间读取</small></a>
+        <a class="file-link" href="RTL/uart_tx.v"><strong>uart_tx.v</strong><small>9600 8N1 串口发送</small></a>
+        <a class="file-link" href="RTL/uart_rx.v"><strong>uart_rx.v</strong><small>9600 8N1 串口接收</small></a>
+        <a class="file-link" href="RTL/uart_proto_ctrl.v"><strong>uart_proto_ctrl.v</strong><small>A5 5A 协议解析与状态应答（R_STATUS 0x90）</small></a>
+        <a class="file-link" href="RTL/adc_reader.v"><strong>adc_reader.v</strong><small>火焰 / 烟雾 / 水位 / 土壤四通道 ADC 轮询与均值</small></a>
+        <a class="file-link" href="RTL/screen_text_driver.v"><strong>screen_text_driver.v</strong><small>1.9 寸 ST7789 状态页、图标、文字和实时时钟</small></a>
+      </div>
+      <h3>蓝牙串口行为（2026-10-04 更新）</h3>
+      <ul>
+        <li>串口参数 <code>9600-8-N-1</code>，与 HC-06 出厂波特率一致，模块无需改设置。</li>
+        <li>上位机每 0.5 s 发轮询帧 <code>A5 5A 10 00 10</code>，板卡回 <code>A5 5A 90 19 + 25 字节状态</code>（整帧 30 字节）。</li>
+        <li>除温湿度、火焰、人体和 RTC 外，还上传烟雾浓度 <code>P19</code>、水位 <code>P20</code>、土壤湿度 <code>P21</code>，以及 MQ-2 原始 AO 和扩展状态位。</li>
+        <li>清警帧 <code>A5 5A 11 00 11</code> 回 <code>A5 5A 91 00 91</code>，清除 FPGA 已锁存的温湿度报警和火焰报警；人体通道不参与清警。</li>
+        <li>PING 帧 <code>A5 5A 01 00 01</code> 回 <code>A5 5A 81 00 81</code>；其它命令回 <code>R_ERROR (0xE0)</code>。</li>
+      </ul>
+      <h3>显示内容（2026-10-04 改为状态页，2026-10-05 增加实时时间）</h3>
+      <ul>
+        <li>屏幕只显示“现在是什么状态”，不再显示任何具体数值。</li>
+        <li>正常：绿色外框 + 绿色底条 + 绿圆白勾，第 1 行 <code>NORMAL</code>、第 2 行 <code>ALL CLEAR</code>。</li>
+        <li>预警：黄色外框 + 黄色三角黑感叹号，第 1 行 <code>WARNING</code>，
+            第 2 行按原因显示 <code>TEMP HIGH</code> / <code>HUMI HIGH</code> / <code>TEMP+HUMI</code> / <code>PERSON</code> / <code>SMOKE</code>。</li>
+        <li>人体感应只上屏、亮黄灯，不驱动蜂鸣器；人离开后 SR602 输出回低，屏幕自动回到
+            <code>NORMAL / ALL CLEAR</code> 安全页。</li>
+        <li>火焰：红色外框 + 红火苗黄火心，第 1 行 <code>FIRE</code>、第 2 行 <code>ALARM</code>。
+            火焰 DO 触发后报警会锁存，DO 恢复也不会自动消失，只有上位机发送 <code>0x11</code> 清警才解除；
+            若清警时 DO 仍为低，板卡会立即重新锁存报警。</li>
+        <li>原因行下面、状态色底条上面多一行实时时钟 <code>HH:MM:SS</code>：
+            直接取 DS1307 的时/分/秒 BCD（<code>rtc_hour_bcd</code>、<code>rtc_min_bcd</code>、<code>rtc_sec_bcd</code>），
+            屏幕每 0.5 s 整屏重绘、RTC 每秒重读一次，所以秒位跟着真实时间跳。
+            RTC 还没读通（<code>rtc_ok=0</code>）时这一行留空，不显示假时间。</li>
+        <li>温度、湿度、火焰 AO、烟雾浓度、水位、土壤湿度、蓝牙在线状态只走蓝牙帧到上位机显示。</li>
+        <li>本机为 1.9 寸 170x320 ST7789V3（ZJY190S0800TG01），列地址窗口必须从 35 开始：顶层使用 <code>X_START=35</code>、<code>Y_START=0</code>。若少了这 35 列，画面会整体左移并在右侧出现花屏竖条。</li>
+      </ul>
+      <pre>// 火焰锁存：DO 触发后保持，只有清警脉冲才能清零
+always @(posedge sys_clk or negedge rst_n) begin
+    if (!rst_n)          flame_alarm_r <= 1'b0;
+    else if (clear_pulse) flame_alarm_r <= 1'b0;
+    else if (flame_now)   flame_alarm_r <= 1'b1;
+end
+wire flame_alarm = flame_alarm_r;
+
+// 顶层声光输出
+assign led_g  = (alarm_any | pir_active) ? 1'b0 : heartbeat;
+assign led_y  = (!flame_alarm && (temp_alarm | humi_alarm | pir_active | smoke_alarm)) ? 1'b1 : 1'b0;
+assign led_r  = flame_alarm ? fast_blink : 1'b0;
+// 蜂鸣器只跟火焰联动；人体检测不发声，人走开屏幕自动回安全页
+wire pir_active = pir_stable;
+assign buzzer = flame_alarm;
+
+// SPI 屏背光使能；若实物 BLK 直接驱动 LED，请增加三极管/MOS。
+assign tft_blk = 1'b1;</pre>
+    </section>
+
+    <section>
+      <h2>五、工程如何打开、综合和下载</h2>
+      <ol>
+        <li>在 TD 6.2.1 中打开 <code>MultiModule_Demo.al</code>。</li>
+        <li>确认工程器件为 <code>EG4X20BG256</code>，顶层模块为 <code>MultiModule_Demo</code>。</li>
+        <li>运行综合；当前已验证的最终布局布线和位流生成结果在 <code>MultiModule_Demo_Runs/phy_1</code>。</li>
+        <li>下载文件：<a href="MultiModule_Demo.bit">MultiModule_Demo.bit</a>（2026-10-08 16:45 新版，SR602 人体红外改接 U4.1 / A12；包含 MQ-2 烟雾、水位、土壤湿度三路数据、25 字节状态协议和九张上位机卡片；只有火焰触发蜂鸣器）。</li>
+        <li>先只接电源和 GND，测到稳定 3.3V 后，再逐个接传感器、RTC、蓝牙和 TFT。</li>
+      </ol>
+      <div class="callout">
+        本次布局布线最终结果：<code>Setup WNS 129 ps</code>、<code>Setup TNS 0</code>、<code>Hold WNS 214 ps</code>、<code>Hold TNS 0</code>，没有时序违例；综合与布局布线均成功，最终位流已生成。
+      </div>
+    </section>
+
+    <section>
+      <h2>六、TFT 实际型号与列偏移</h2>
+      <p>实测屏为 1.9 英寸 170×320 的 ST7789V3（ZJY190S0800TG01）。该面板在控制器显存中的有效区从第 35 列开始，所以顶层必须使用 <code>X_START=35</code>、<code>Y_START=0</code>、<code>X_LEN=170</code>、<code>Y_LEN=320</code>；否则画面会整体左移并在右侧出现花屏竖条。</p>
+    </section>
+
+    <footer>
+      E104 / EG4X20BG256 · MultiModule_Demo · 单文件离线 HTML
+    </footer>
+  </div>
+  <script>
+    (function () {
+      const input = document.getElementById('searchInput');
+      const clear = document.getElementById('clearSearch');
+      const count = document.getElementById('searchCount');
+      const rows = Array.from(document.querySelectorAll('tbody tr'));
+
+      function normalize(value) {
+        return String(value || '').toLowerCase().replace(/\s+/g, '').replace(/[，。；：、（）()]/g, '');
+      }
+
+      function apply() {
+        const query = normalize(input.value);
+        let hits = 0;
+        rows.forEach(function (row) {
+          const hit = !query || normalize(row.textContent).includes(query);
+          row.classList.toggle('search-hidden', !hit);
+          row.classList.toggle('search-hit', Boolean(query) && hit);
+          if (hit) hits += 1;
+        });
+        document.querySelectorAll('.table-wrap').forEach(function (wrap) {
+          const tableRows = Array.from(wrap.querySelectorAll('tbody tr'));
+          const hasHit = !query || tableRows.some(function (row) { return !row.classList.contains('search-hidden'); });
+          wrap.classList.toggle('search-empty', !hasHit);
+        });
+        count.textContent = query ? ('找到 ' + hits + ' 条匹配') : ('可搜索 ' + rows.length + ' 条接线信息');
+      }
+
+      input.addEventListener('input', apply);
+      clear.addEventListener('click', function () {
+        input.value = '';
+        apply();
+        input.focus();
+      });
+      document.addEventListener('keydown', function (event) {
+        if (event.key === '/' && document.activeElement !== input) {
+          event.preventDefault();
+          input.focus();
+        }
+        if (event.key === 'Escape' && document.activeElement === input) {
+          input.value = '';
+          apply();
+          input.blur();
+        }
+      });
+      apply();
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+============================================================
+   Tang Dynasty, V6.2.168116
+   Copyright (c) 2012-2025 Anlogic Inc.
+   Executable = E:/Anlogic/TD_6.2.1_Engineer_6.2.168.116/bin/td_commands_prompt.exe
+   Built at =   16:32:07 Jun 12 2025
+   Run by =     ASUS
+   Run Date =   Mon Oct  5 21:56:45 2026
+
+   Run on =     LAPTOP-TFPALG0P
+============================================================
+RUN-1002 : start command "import_device eagle_s20.db -package EG4S20NG88"
+RUN-1001 : Using default speed grade: NA
+ARC-1001 : Device Initialization.
+ARC-1001 : ---------------------------------------------------------------
+ARC-1001 :            OPTION            |        IO         |   SETTING   
+ARC-1001 : ---------------------------------------------------------------
+ARC-1001 :   cso_b/cclk/mosi/miso/dout  |  P69/P82/P81/P80  |    gpio    
+ARC-1001 :             done             |        P8         |    gpio    
+ARC-1001 :           program_b          |        P67        |  dedicate  
+ARC-1001 :        tdi/tms/tck/tdo       |  P25/P22/P26/P21  |  dedicate  
+ARC-1001 : ---------------------------------------------------------------
+ARC-1004 : Device setting, marked 5 dedicate IOs in total.
+RUN-1002 : start command "read_hdl -file rtl/gray_front.v rtl/frame_diff.v rtl/motion_morph.v rtl/multi_bbox.v  rtl/track_assoc.v rtl/posture_fsm.v rtl/posture_bank.v rtl/slot_scan.v  rtl/status_uart.v rtl/cmos_capture_rgb565.v rtl/ov5640_sccb_cfg.v  rtl/led595_shift.v rtl/fall_core_multi_top.v rtl/fall_camera_hdmi_multi_top.v  rtl/hdmi/eg4_pll_24.v rtl/hdmi/box_overlay.v  rtl/hdmi/vendor/video_timing_640x480.v rtl/hdmi/vendor/global_def.v  rtl/hdmi/vendor/afifo_16_32_256.v rtl/hdmi/vendor/afifo_32_16_256.v  rtl/hdmi/vendor/frame_fifo_read.v rtl/hdmi/vendor/frame_fifo_write.v  rtl/hdmi/vendor/frame_read_write.v rtl/hdmi/vendor/frame_store.v  rtl/hdmi/vendor/pattern_pixel.v rtl/hdmi/vendor/async_fifo.v  rtl/hdmi/vendor/sdr_as_ram.enc.v rtl/hdmi/vendor/sdr_init_ref.enc.v  rtl/hdmi/vendor/sdr_wrrd.enc.v rtl/hdmi/vendor/hdmi_tx.vhd  rtl/hdmi/enc_file/SerializerN_1_lvds.enc.vhd  rtl/hdmi/enc_file/SerializerN_1_lvds_dat.enc.vhd  rtl/hdmi/enc_file/TMDSEncoder.enc.vhd  rtl/hdmi/enc_file/DVITransmitter.enc.vhd -top fall_camera_hdmi_multi_top"
+HDL-1007 : analyze verilog file rtl/gray_front.v
+HDL-1007 : analyze verilog file rtl/frame_diff.v
+HDL-1007 : analyze verilog file rtl/motion_morph.v
+HDL-1007 : analyze verilog file rtl/multi_bbox.v
+HDL-1007 : analyze verilog file rtl/track_assoc.v
+HDL-1007 : analyze verilog file rtl/posture_fsm.v
+HDL-1007 : analyze verilog file rtl/posture_bank.v
+HDL-1007 : analyze verilog file rtl/slot_scan.v
+HDL-1007 : analyze verilog file rtl/status_uart.v
+HDL-1007 : analyze verilog file rtl/cmos_capture_rgb565.v
+HDL-1007 : analyze verilog file rtl/ov5640_sccb_cfg.v
+HDL-1007 : analyze verilog file rtl/led595_shift.v
+HDL-1007 : analyze verilog file rtl/fall_core_multi_top.v
+HDL-1007 : analyze verilog file rtl/fall_camera_hdmi_multi_top.v
+HDL-1007 : analyze verilog file rtl/hdmi/eg4_pll_24.v
+HDL-1007 : undeclared symbol 'open', assumed default net type 'wire' in rtl/hdmi/eg4_pll_24.v(78)
+HDL-1007 : undeclared symbol 'open', assumed default net type 'wire' in rtl/hdmi/eg4_pll_24.v(143)
+HDL-1007 : analyze verilog file rtl/hdmi/box_overlay.v
+HDL-1007 : analyze verilog file rtl/hdmi/vendor/video_timing_640x480.v
+HDL-1007 : analyze verilog file rtl/hdmi/vendor/afifo_16_32_256.v
+HDL-1007 : analyze verilog file rtl/hdmi/vendor/afifo_32_16_256.v
+HDL-1007 : analyze verilog file rtl/hdmi/vendor/frame_fifo_read.v
+HDL-1007 : analyze verilog file rtl/hdmi/vendor/frame_fifo_write.v
+HDL-1007 : analyze verilog file rtl/hdmi/vendor/frame_read_write.v
+HDL-5372 WARNING: redeclaration of ANSI port 'read_fifo_aclr' is not allowed in rtl/hdmi/vendor/frame_read_write.v(78)
+HDL-5372 WARNING: redeclaration of ANSI port 'write_fifo_aclr' is not allowed in rtl/hdmi/vendor/frame_read_write.v(79)
+HDL-1007 : analyze verilog file rtl/hdmi/vendor/frame_store.v
+HDL-1007 : analyze verilog file rtl/hdmi/vendor/pattern_pixel.v
+HDL-1007 : analyze verilog file rtl/hdmi/vendor/async_fifo.v
+HDL-1007 : analyze verilog file rtl/hdmi/vendor/sdr_as_ram.enc.v
+HDL-1007 : analyze included file rtl/hdmi/vendor/global_def.v in rtl/hdmi/vendor/sdr_as_ram.enc.v(10)
+HDL-1007 : back to file 'rtl/hdmi/vendor/sdr_as_ram.enc.v' in rtl/hdmi/vendor/sdr_as_ram.enc.v(10)
+Copyright (c) 1998-2019 The OpenSSL Project.  All rights reserved.
+This product includes software developed by the OpenSSL Project
+for use in the OpenSSL Toolkit (http://www.openssl.org/)
+Copyright (C) 1995-1998 Eric Young (eay@cryptsoft.com)
+All rights reserved.
+This product includes cryptographic software written by Eric Young (eay@cryptsoft.com)
+HDL-1007 : back to file 'rtl/hdmi/vendor/sdr_as_ram.enc.v' in rtl/hdmi/vendor/sdr_as_ram.enc.v(45)
+HDL-1007 : analyze verilog file rtl/hdmi/vendor/sdr_init_ref.enc.v
+HDL-1007 : analyze included file rtl/hdmi/vendor/global_def.v in rtl/hdmi/vendor/sdr_init_ref.enc.v(11)
+HDL-1007 : back to file 'rtl/hdmi/vendor/sdr_init_ref.enc.v' in rtl/hdmi/vendor/sdr_init_ref.enc.v(11)
+HDL-1007 : undeclared symbol '**', assumed default net type '**' in rtl/hdmi/vendor/sdr_init_ref.enc.v(57)
+HDL-1007 : back to file 'rtl/hdmi/vendor/sdr_init_ref.enc.v' in rtl/hdmi/vendor/sdr_init_ref.enc.v(149)
+HDL-5007 WARNING: concatenation with an unsized literal will be treated as 32 bits in rtl/hdmi/vendor/sdr_init_ref.enc.v(47)
+HDL-1007 : analyze verilog file rtl/hdmi/vendor/sdr_wrrd.enc.v
+HDL-5007 WARNING: concatenation with an unsized literal will be treated as 32 bits in rtl/hdmi/vendor/sdr_wrrd.enc.v(283)
+HDL-1007 : back to file 'rtl/hdmi/vendor/sdr_wrrd.enc.v' in rtl/hdmi/vendor/sdr_wrrd.enc.v(19)
+HDL-1007 : analyze VHDL file rtl/hdmi/vendor/hdmi_tx.vhd
+HDL-1007 : analyze entity hdmi_tx in rtl/hdmi/vendor/hdmi_tx.vhd(11)
+HDL-1007 : analyze architecture behavioral in rtl/hdmi/vendor/hdmi_tx.vhd(33)
+HDL-1007 : analyze VHDL file rtl/hdmi/enc_file/SerializerN_1_lvds.enc.vhd
+HDL-1007 : analyze entity ** in rtl/hdmi/enc_file/SerializerN_1_lvds.enc.vhd(12)
+HDL-1007 : analyze architecture ** in rtl/hdmi/enc_file/SerializerN_1_lvds.enc.vhd(25)
+HDL-1007 : analyze VHDL file rtl/hdmi/enc_file/SerializerN_1_lvds_dat.enc.vhd
+HDL-1007 : analyze entity ** in rtl/hdmi/enc_file/SerializerN_1_lvds_dat.enc.vhd(14)
+HDL-1007 : analyze architecture ** in rtl/hdmi/enc_file/SerializerN_1_lvds_dat.enc.vhd(28)
+HDL-1007 : analyze VHDL file rtl/hdmi/enc_file/TMDSEncoder.enc.vhd
+HDL-1007 : analyze entity ** in rtl/hdmi/enc_file/TMDSEncoder.enc.vhd(13)
+HDL-1007 : analyze architecture ** in rtl/hdmi/enc_file/TMDSEncoder.enc.vhd(24)
+HDL-1007 : analyze VHDL file rtl/hdmi/enc_file/DVITransmitter.enc.vhd
+HDL-1007 : analyze entity dvitransmitter in rtl/hdmi/enc_file/DVITransmitter.enc.vhd(13)
+HDL-1007 : analyze architecture ** in rtl/hdmi/enc_file/DVITransmitter.enc.vhd(2)
+HDL-8007 ERROR: concurrent assignment to a non-net 'ov_rgb' is not permitted in rtl/fall_camera_hdmi_multi_top.v(583)
+

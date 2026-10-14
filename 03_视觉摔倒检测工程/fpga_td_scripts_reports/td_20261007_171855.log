@@ -1,0 +1,274 @@
+============================================================
+   Tang Dynasty, V6.2.168116
+   Copyright (c) 2012-2025 Anlogic Inc.
+   Executable = E:/Anlogic/TD_6.2.1_Engineer_6.2.168.116/bin/td_commands_prompt.exe
+   Built at =   16:32:07 Jun 12 2025
+   Run by =     ASUS
+   Run Date =   Wed Oct  7 17:18:55 2026
+
+   Run on =     LAPTOP-TFPALG0P
+============================================================
+RUN-1002 : start command "import_device eagle_s20.db -package EG4S20NG88"
+RUN-1001 : Using default speed grade: NA
+ARC-1001 : Device Initialization.
+ARC-1001 : ---------------------------------------------------------------
+ARC-1001 :            OPTION            |        IO         |   SETTING   
+ARC-1001 : ---------------------------------------------------------------
+ARC-1001 :   cso_b/cclk/mosi/miso/dout  |  P69/P82/P81/P80  |    gpio    
+ARC-1001 :             done             |        P8         |    gpio    
+ARC-1001 :           program_b          |        P67        |  dedicate  
+ARC-1001 :        tdi/tms/tck/tdo       |  P25/P22/P26/P21  |  dedicate  
+ARC-1001 : ---------------------------------------------------------------
+ARC-1004 : Device setting, marked 5 dedicate IOs in total.
+RUN-1002 : start command "read_hdl -file box_overlay_probe_fall.v -top box_overlay"
+HDL-1007 : analyze verilog file box_overlay_probe_fall.v
+HDL-1007 : elaborate module box_overlay in box_overlay_probe_fall.v(36)
+HDL-1200 : Current top model is box_overlay
+HDL-1100 : Inferred 0 RAMs.
+RUN-1002 : start command "optimize_rtl"
+RUN-1001 : Open license file E:/Anlogic/TD_6.2.1_Engineer_6.2.168.116/license/Anlogic.lic
+SYN-1001 : Stage 1 | Optimize RTL
+SYN-1001 : Stage 1.1 | Check Design Sanity
+SYN-1001 : End Stage 1.1 | Check Design Sanity; Time: 0.000179s wall, 0.000000s user + 0.000000s system = 0.000000s CPU (n/a%); Memory(MB): used = 107, reserved = 101, peak = 107;
+
+SYN-1079 : finish stage Check Design Sanity. Total instances: 1728, Total nets: 4044.
+
+SYN-1001 : Stage 1.2 | Initialize Design
+SYN-1001 : End Stage 1.2 | Initialize Design; Time: 0.058098s wall, 0.062500s user + 0.000000s system = 0.062500s CPU (107.6%); Memory(MB): used = 107, reserved = 101, peak = 107;
+
+SYN-1079 : finish stage Initialize Design. Total instances: 427, Total nets: 1958.
+
+SYN-1001 : Stage 1.3 | Flatten Module
+SYN-1011 : Flatten model box_overlay
+SYN-1001 : End Stage 1.3 | Flatten Module; Time: 0.000249s wall, 0.000000s user + 0.000000s system = 0.000000s CPU (n/a%); Memory(MB): used = 107, reserved = 101, peak = 107;
+
+SYN-1079 : finish stage Flatten Module. Total instances: 427, Total nets: 1958.
+
+SYN-1001 : Stage 1.4 | Uniform Instance
+SYN-1001 : End Stage 1.4 | Uniform Instance; Time: 0.000679s wall, 0.000000s user + 0.000000s system = 0.000000s CPU (n/a%); Memory(MB): used = 107, reserved = 101, peak = 107;
+
+SYN-1079 : finish stage Uniform Instance. Total instances: 427, Total nets: 1958.
+
+SYN-1001 : Stage 1.5 | Optimize Design
+SYN-1032 : 1927/30 useful/useless nets, 419/7 useful/useless insts
+SYN-1001 : Optimize 5 less-than instances
+SYN-1016 : Merged 14 instances.
+SYN-1016 : Merged 15 instances.
+SYN-1001 : End Stage 1.5 | Optimize Design; Time: 0.146581s wall, 0.125000s user + 0.000000s system = 0.125000s CPU (85.3%); Memory(MB): used = 110, reserved = 101, peak = 110;
+
+SYN-1079 : finish stage Optimize Design. Total instances: 856, Total nets: 1230.
+
+SYN-1001 : Stage 1.6 | Optimize Iteratively
+SYN-1014 : Optimize round 1
+SYN-1044 : Optimized 4 inv instances.
+SYN-1020 : Optimized 26 distributor mux.
+SYN-1001 : Optimize 53 less-than instances
+SYN-1019 : Optimized 8 mux instances.
+SYN-1016 : Merged 65 instances.
+SYN-1015 : Optimize round 1, 168 better
+SYN-1014 : Optimize round 2
+SYN-1044 : Optimized 8 inv instances.
+SYN-1019 : Optimized 8 mux instances.
+SYN-1015 : Optimize round 2, 19 better
+SYN-1014 : Optimize round 1
+SYN-1019 : Optimized 7 mux instances.
+SYN-1016 : Merged 6 instances.
+SYN-1015 : Optimize round 1, 13 better
+SYN-1014 : Optimize round 2
+SYN-1019 : Optimized 7 mux instances.
+SYN-1015 : Optimize round 2, 7 better
+SYN-1014 : Optimize round 3
+SYN-1015 : Optimize round 3, 0 better
+SYN-1001 : End Stage 1.6 | Optimize Iteratively; Time: 0.226919s wall, 0.234375s user + 0.000000s system = 0.234375s CPU (103.3%); Memory(MB): used = 122, reserved = 101, peak = 122;
+
+SYN-1079 : finish stage Optimize Iteratively. Total instances: 919, Total nets: 1292.
+
+SYN-1001 : Stage 1.7 | Check Design
+SYN-1001 : End Stage 1.7 | Check Design; Time: 0.000085s wall, 0.000000s user + 0.000000s system = 0.000000s CPU (n/a%); Memory(MB): used = 122, reserved = 101, peak = 122;
+
+SYN-1079 : finish stage Check Design. Total instances: 919, Total nets: 1292.
+
+SYN-1001 : End Stage 1 | Optimize RTL; Time: 0.433141s wall, 0.421875s user + 0.000000s system = 0.421875s CPU (97.4%); Memory(MB): used = 122, reserved = 101, peak = 122;
+
+SYN-1079 : finish stage Optimize RTL. Total instances: 919, Total nets: 1292.
+
+RUN-1002 : start command "optimize_gate"
+RUN-1001 : Open license file E:/Anlogic/TD_6.2.1_Engineer_6.2.168.116/license/Anlogic.lic
+SYN-1001 : Stage 2 | Optimize Gate
+SYN-1001 : Stage 2.1 | Map Reg
+SYN-1001 : End Stage 2.1 | Map Reg; Time: 0.007141s wall, 0.015625s user + 0.000000s system = 0.015625s CPU (218.8%); Memory(MB): used = 122, reserved = 101, peak = 122;
+
+SYN-1079 : finish stage Map Reg. Total instances: 919, Total nets: 1292.
+
+SYN-1001 : Stage 2.2 | Map IO
+SYN-2001 : Map 249 IOs to PADs of model 'box_overlay'
+SYN-1001 : End Stage 2.2 | Map IO; Time: 0.170725s wall, 0.171875s user + 0.000000s system = 0.171875s CPU (100.7%); Memory(MB): used = 122, reserved = 101, peak = 122;
+
+SYN-1001 : Stage 2.3 | Map Macro
+RUN-1002 : start command "update_pll_param -module box_overlay"
+SYN-2501 : Processed 0 LOGIC_BUF instances.
+SYN-2571 : Map 1 macro multiplier
+SYN-2571 : Optimize after map_dsp, round 1
+SYN-2571 : Optimize after map_dsp, round 1, 0 better
+SYN-1001 : Generate 4 bigger adders
+SYN-1001 : Optimize 20 adders
+SYN-1001 : Convert 4 adder
+SYN-2501 : Optimize round 1
+SYN-1016 : Merged 13 instances.
+SYN-2501 : Optimize round 1, 177 better
+SYN-2501 : Optimize round 2
+SYN-2501 : Optimize round 2, 0 better
+SYN-2501 : Optimize round 1
+SYN-2501 : Optimize round 1, 0 better
+SYN-2501 : Map 119 macro adder(s)
+SYN-1019 : Optimized 31 mux instances.
+SYN-1016 : Merged 180 instances.
+SYN-1001 : End Stage 2.3 | Map Macro; Time: 0.096299s wall, 0.093750s user + 0.000000s system = 0.093750s CPU (97.4%); Memory(MB): used = 122, reserved = 101, peak = 122;
+
+SYN-1079 : finish stage Map Macro. Total instances: 2139, Total nets: 2510.
+
+SYN-1001 : Stage 2.4 | Map Gate
+SYN-2581 : Mapping with K=5, #lut = 465 (3.92), #lev = 14 (5.71), #crit_level = 0
+SYN-2551 : Post LUT mapping optimization.
+SYN-2581 : Mapping with K=5, #lut = 442 (3.90), #lev = 12 (5.06), #crit_level = 0
+SYN-3001 : Logic optimization opt = 0.12 sec, map = 0.06 sec, post map opt = 0.67 sec.
+SYN-3001 : Mapper removed 1 lut buffers
+SYN-1001 : End Stage 2.4 | Map Gate; Time: 0.891033s wall, 0.859375s user + 0.015625s system = 0.875000s CPU (98.2%); Memory(MB): used = 128, reserved = 105, peak = 128;
+
+SYN-1001 : Packing model "box_overlay" ...
+SYN-4010 : Pack lib has 59 rtl pack models with 26 top pack blocks
+SYN-1014 : Optimize round 1
+SYN-1015 : Optimize round 1, 0 better
+SYN-4002 : Packing 0 DFF/LATCH to SEQ ...
+SYN-4009 : Pack 16 carry chain into lslice
+SYN-4007 : Packing 494 adder to BLE ...
+SYN-4008 : Packed 494 adder and 0 SEQ to BLE.
+SYN-4007 : Packing 0 gate4 to BLE ...
+SYN-4008 : Packed 0 gate4 and 0 SEQ to BLE.
+RUN-1002 : start command "report_qor -step gate -file gate.qor"
+RUN-1002 : start command "start_timer"
+-----------------------------------------------------------
+| QoR metrics               |         value               |
+-----------------------------------------------------------
+| Timing                    |                             |
+|     Setup WNS             |   2147483647                |
+|     Setup TNS             |            0                |
+|     Num of violated S-EP  |            0                |
+|     Hold WNS              |   2147483647                |
+|     Hold TNS              |            0                |
+|     Num of violated H-EP  |            0                |
+-----------------------------------------------------------
+| Utilization               |                             |
+|     #registers            |            0                |
+|     #luts                 |          442                |
+|     #lut1                 |            4                |
+|     #lut1(~A)             |            4                |
+|     #slices               |          299                |
+|     slices percentage     |        3.05%                |
+|     #RAMs                 |            0                |
+|     #DSPs                 |            1                |
+|     #f7mux                |        0.00%                |
+|     #MACROs               |           65                |
+|     #insts in MACRO       |          299                |
+-----------------------------------------------------------
+| kept_net                  |                             |
+|     #syn_keep             |            0                |
+|     #keep_hier            |            0                |
+|     #dont_touch           |            0                |
+|     #mark_debug           |            0                |
+|     #max_fanout_keep      |            0                |
+|     #async_reg            |            0                |
+-----------------------------------------------------------
+| Top 10% datanet fanout#   |        19.00                |
+| dff(single fanout)->dff   |            0                |
+| dff(single fanout)->dram  |            0                |
+-----------------------------------------------------------
+| Over-quota path num*      |                             |
+|     Total                 |            0                |
+-----------------------------------------------------------
+| Rent**                    |                             |
+-----------------------------------------------------------
+Note*: Over-quota path shows the over-path-level-threshold path number of each clock.
+       The clock will not be shown if no path is with path level over the threshold.
+       The threshold is defined as worst path_margin / 800ps.
+Note**: Rent shows the rent exponent value of the modules whose rent value exceeds the threshold.
+        Only modules under top are reported, and the threshold is defined as 0.7.
+
+Logic Level Distribution
+------------------------------------
+  Clock        |  Period
+------------------------------------
+  DeriveClock  |  20.000ns (50MHz)
+------------------------------------
+Note: The table count the worst 100000 paths, each endpoint count only one time.(0 paths analyzed)
+
+Hierarchical Rent Exponent Report
++--------------------------------------------------------+
+|Inst     |Model  |Rent     |Cell     |Pin     |Term     |
++--------------------------------------------------------+
++--------------------------------------------------------+
+Note: Cell represents total number of cells inside module; Pin represents total number of pins
+      which have net connection inside module; Term represents total number of PIs and POs of module.
+      Rent represents the relationship between number of terms and number of cells in module.
+      A module with higher rent corresponds to highly connected logic and strong connectivity with others.
+Report gate stage QoR done.
+
+SYN-1001 : End Stage 2 | Optimize Gate; Time: 1.549448s wall, 1.484375s user + 0.015625s system = 1.500000s CPU (96.8%); Memory(MB): used = 128, reserved = 105, peak = 128;
+
+RUN-1003 : finish command "optimize_gate" in  1.558367s wall, 1.484375s user + 0.015625s system = 1.500000s CPU (96.3%)
+
+RUN-1004 : used memory is 128 MB, reserved memory is 105 MB, peak memory is 128 MB
+RUN-1002 : start command "report_area -file E:/FPGA guo sai/fall_detection/fpga/td/out_probe_overlay/overlay_gate.area"
+RUN-1001 : standard
+***Report Model: box_overlay Device: EG4S20NG88***
+
+IO Statistics
+#IO                       248   out of     66  375.76%
+  #input                  224
+  #output                  24
+  #inout                    0
+
+LUT Statistics
+#Total_luts               442
+  #lut4                   310
+  #lut5                   132
+  #lut6                     0
+  #lut5_mx41                0
+  #lut4_alu1b               0
+
+Utilization Statistics
+#lut                     1040   out of  19600    5.31%
+#reg                        0   out of  19600    0.00%
+#bram                       0   out of     64    0.00%
+  #bram9k                   0
+  #fifo9k                   0
+#bram32k                    0   out of     16    0.00%
+#dsp                        1   out of     29    3.45%
+#pad                      248   out of     66  375.76%
+#pll                        0   out of      4    0.00%
+#gclk                       0   out of     16    0.00%
+
+RUN-1002 : start command "flow_status -file E:/FPGA guo sai/fall_detection/fpga/td/out_probe_overlay/overlay_flow.status"
+Location         : E:\FPGA guo sai\fall_detection\fpga\rtl\hdmi
+Running with     : Tang Dynasty v6.2.168116
+                   Copyright (c) 2012-2025 Anlogic Inc.
+Top Model        : box_overlay
+Device           : EG4S20NG88
+Speed            : NA
+
+Timing Mode      : basic
+Setup            : WNS 2147483647ps  TNS        0ps  NUM_FEPS     0
+Hold             : WNS 2147483647ps  TNS        0ps  NUM_FEPS     0
+
+Flow Statistics  :
+RUN-1001 : Flow Statistics:
+RUN-1001 : --------------------------------------------------------------------------------------------------
+RUN-1001 :      command     |  #calls  |  wall time  |  cpu time(s)  |  used memory(mb)  |  peak memory(mb)  
+RUN-1001 : --------------------------------------------------------------------------------------------------
+RUN-1001 :   optimize_gate  |    1     |  1s(100%)   |    1(100%)    |        128        |        128        
+RUN-1001 :   import_device  |    1     |   0s(0%)    |     0(0%)     |        106        |        106        
+RUN-1001 :   optimize_rtl   |    1     |   0s(0%)    |     0(0%)     |        122        |        122        
+RUN-1001 : --------------------------------------------------------------------------------------------------
+RUN-1001 :       total      |    3     |     1s      |       1       |        128        |        128        
+RUN-1001 : --------------------------------------------------------------------------------------------------
+

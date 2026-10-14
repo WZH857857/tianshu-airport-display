@@ -1,0 +1,3 @@
+VCD info: dumpfile tb_mt9m001_cfg.vcd opened for output.
+PASS tb_mt9m001_cfg: 13 boot + 2 dynamic writes, protocol clean
+tb/tb_mt9m001_cfg.v:267: $finish called at 30765778573 (1ps)

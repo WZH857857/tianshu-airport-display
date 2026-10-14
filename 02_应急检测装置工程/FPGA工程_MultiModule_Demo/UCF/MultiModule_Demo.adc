@@ -1,0 +1,42 @@
+#==============================================================================
+# E104 / EG4X20BG256 多模块示例引脚约束
+# 所有排针 I/O 统一按 3.3 V 逻辑设置。
+# 若实际板卡版本的 Bank 电压不同，请以 E104 硬件手册为准。
+#==============================================================================
+
+# 系统时钟和复位
+set_pin_assignment { sys_clk } { LOCATION = H3; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+set_pin_assignment { rst_n }   { LOCATION = F10; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+
+# 三色灯和板载 LED
+set_pin_assignment { led_r }  { LOCATION = N1; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment { led_y }  { LOCATION = N3; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment { led_g }  { LOCATION = M1; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment { led_d1 } { LOCATION = H4; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+
+# 蜂鸣器：高电平触发
+set_pin_assignment { buzzer }   { LOCATION = M15; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+
+# 数字传感器输入
+set_pin_assignment { dht_data } { LOCATION = M16; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+set_pin_assignment { flame_do } { LOCATION = D16; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+# SR602 人体红外数字输出：U4 第 1 脚 / A12。
+set_pin_assignment { pir_out }  { LOCATION = A12; IOSTANDARD = LVCMOS33; PULLTYPE = NONE; }
+set_pin_assignment { mq2_do }  { LOCATION = L13; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+set_pin_assignment { soil_do } { LOCATION = L12; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+
+# SPI TFT
+set_pin_assignment { tft_cs_n }  { LOCATION = T12; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment { tft_res_n } { LOCATION = R12; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment { tft_dc }    { LOCATION = T13; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment { tft_scl }   { LOCATION = T14; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment { tft_sda }   { LOCATION = T15; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment { tft_blk }   { LOCATION = R14; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+
+# DS1307 / Tiny RTC。I2C 为开漏，外部必须有 4.7 kOhm 上拉到 3.3 V。
+set_pin_assignment { rtc_scl } { LOCATION = H15; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = PULLUP; }
+set_pin_assignment { rtc_sda } { LOCATION = H16; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = PULLUP; }
+
+# 蓝牙串口
+set_pin_assignment { uart_rx } { LOCATION = K16; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+set_pin_assignment { uart_tx } { LOCATION = K15; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }

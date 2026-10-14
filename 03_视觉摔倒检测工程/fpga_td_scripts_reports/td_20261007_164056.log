@@ -1,0 +1,1089 @@
+============================================================
+   Tang Dynasty, V6.2.168116
+   Copyright (c) 2012-2025 Anlogic Inc.
+   Executable = E:/Anlogic/TD_6.2.1_Engineer_6.2.168.116/bin/td_commands_prompt.exe
+   Built at =   16:32:07 Jun 12 2025
+   Run by =     ASUS
+   Run Date =   Wed Oct  7 16:40:56 2026
+
+   Run on =     LAPTOP-TFPALG0P
+============================================================
+RUN-1002 : start command "import_device eagle_s20.db -package EG4S20NG88"
+RUN-1001 : Using default speed grade: NA
+ARC-1001 : Device Initialization.
+ARC-1001 : ---------------------------------------------------------------
+ARC-1001 :            OPTION            |        IO         |   SETTING   
+ARC-1001 : ---------------------------------------------------------------
+ARC-1001 :   cso_b/cclk/mosi/miso/dout  |  P69/P82/P81/P80  |    gpio    
+ARC-1001 :             done             |        P8         |    gpio    
+ARC-1001 :           program_b          |        P67        |  dedicate  
+ARC-1001 :        tdi/tms/tck/tdo       |  P25/P22/P26/P21  |  dedicate  
+ARC-1001 : ---------------------------------------------------------------
+ARC-1004 : Device setting, marked 5 dedicate IOs in total.
+RUN-1002 : start command "set_param flow qor_monitor on"
+RUN-1002 : start command "set_param rtl reg_threshold 0"
+RUN-1002 : start command "set_param gate pack_seq_in_io off"
+RUN-1002 : start command "set_param place pr_strategy 1"
+RUN-1002 : start command "set_param place pr_strategy 5"
+RUN-1002 : start command "set_param place cn_opt_effort high"
+RUN-1002 : start command "set_param place critical_hfn_opt on"
+RUN-1002 : start command "set_param place ce_weight on"
+RUN-1002 : start command "set_param place enhanced_beeline_opt 3"
+RUN-1002 : start command "set_param place cn_opt_effort high"
+RUN-1002 : start command "set_param place critical_hfn_opt on"
+RUN-1002 : start command "set_param place ce_weight on"
+RUN-1002 : start command "set_param place enhanced_beeline_opt 3"
+RUN-1002 : start command "set_param place seed 2"
+RUN-1002 : start command "set_param route effort routability"
+RUN-1002 : start command "set_param place opt_timing high"
+RUN-1002 : start command "set_param place ofv 70"
+RUN-1002 : start command "set_param place opt_max_density 50"
+RUN-1002 : start command "set_param place target_density 0.6"
+RUN-1002 : start command "set_param place target_density_pp 0.7"
+RUN-1002 : start command "set_param place aggressive_opt 20"
+RUN-1002 : start command "set_param place enhanced_beeline_opt 2"
+RUN-1002 : start command "set_param place enhanced_gp on"
+RUN-1002 : start command "set_param place non_crit_opt on"
+RUN-1002 : start command "set_param place post_place_opt high"
+RUN-1002 : start command "set_param place enable_congestion_recovery on"
+RUN-1002 : start command "set_param route post_route_opt high"
+RUN-1002 : start command "set_param route fix_hold on"
+RUN-1002 : start command "read_hdl -file rtl/gray_front.v rtl/frame_diff.v rtl/motion_morph.v rtl/multi_bbox.v  rtl/track_assoc.v rtl/person_score.v rtl/posture_fsm.v rtl/posture_bank.v rtl/slot_scan.v  rtl/status_uart.v rtl/cmos_capture_gray8.v rtl/mt9m001_cfg.v rtl/ae_ctrl.v  rtl/led595_shift.v rtl/motion_hist.v rtl/fall_core_multi_top.v  rtl/fall_camera_hdmi_multi_top.v  rtl/hdmi/eg4_pll_24.v rtl/hdmi/box_overlay.v  rtl/hdmi/vendor/video_timing_640x480.v rtl/hdmi/vendor/global_def.v  rtl/hdmi/vendor/afifo_16_32_256.v rtl/hdmi/vendor/afifo_32_16_256.v  rtl/hdmi/vendor/frame_fifo_read.v rtl/hdmi/vendor/frame_fifo_write.v  rtl/hdmi/vendor/frame_read_write.v rtl/hdmi/vendor/frame_store.v  rtl/hdmi/vendor/pattern_pixel.v rtl/hdmi/vendor/async_fifo.v  rtl/hdmi/vendor/sdr_as_ram.enc.v rtl/hdmi/vendor/sdr_init_ref.enc.v  rtl/hdmi/vendor/sdr_wrrd.enc.v rtl/hdmi/vendor/hdmi_tx.vhd  rtl/hdmi/enc_file/SerializerN_1_lvds.enc.vhd  rtl/hdmi/enc_file/SerializerN_1_lvds_dat.enc.vhd  rtl/hdmi/enc_file/TMDSEncoder.enc.vhd  rtl/hdmi/enc_file/DVITransmitter.enc.vhd -top fall_camera_hdmi_multi_top"
+HDL-1007 : analyze verilog file rtl/gray_front.v
+HDL-1007 : analyze verilog file rtl/frame_diff.v
+HDL-1007 : analyze verilog file rtl/motion_morph.v
+HDL-1007 : analyze verilog file rtl/multi_bbox.v
+HDL-1007 : analyze verilog file rtl/track_assoc.v
+HDL-1007 : analyze verilog file rtl/person_score.v
+HDL-1007 : analyze verilog file rtl/posture_fsm.v
+HDL-1007 : analyze verilog file rtl/posture_bank.v
+HDL-1007 : analyze verilog file rtl/slot_scan.v
+HDL-1007 : analyze verilog file rtl/status_uart.v
+HDL-1007 : analyze verilog file rtl/cmos_capture_gray8.v
+HDL-1007 : analyze verilog file rtl/mt9m001_cfg.v
+HDL-1007 : analyze verilog file rtl/ae_ctrl.v
+HDL-1007 : analyze verilog file rtl/led595_shift.v
+HDL-1007 : analyze verilog file rtl/motion_hist.v
+HDL-5373 WARNING: identifier 'dec_busy' is used before its declaration in rtl/motion_hist.v(167)
+HDL-5373 WARNING: identifier 'dec_bank' is used before its declaration in rtl/motion_hist.v(168)
+HDL-5373 WARNING: identifier 'dec_c' is used before its declaration in rtl/motion_hist.v(168)
+HDL-5373 WARNING: identifier 'dec_c' is used before its declaration in rtl/motion_hist.v(169)
+HDL-5373 WARNING: identifier 'dir_held' is used before its declaration in rtl/motion_hist.v(599)
+HDL-5373 WARNING: identifier 'px0_w' is used before its declaration in rtl/motion_hist.v(604)
+HDL-5373 WARNING: identifier 'py0_w' is used before its declaration in rtl/motion_hist.v(605)
+HDL-5373 WARNING: identifier 'pw_w' is used before its declaration in rtl/motion_hist.v(606)
+HDL-5373 WARNING: identifier 'ph_w' is used before its declaration in rtl/motion_hist.v(607)
+HDL-5373 WARNING: identifier 'dir_new' is used before its declaration in rtl/motion_hist.v(608)
+HDL-5373 Similar messages will be suppressed.
+HDL-1007 : analyze verilog file rtl/fall_core_multi_top.v
+HDL-1007 : analyze verilog file rtl/fall_camera_hdmi_multi_top.v
+HDL-1007 : analyze verilog file rtl/hdmi/eg4_pll_24.v
+HDL-1007 : analyze verilog file rtl/hdmi/box_overlay.v
+HDL-1007 : analyze verilog file rtl/hdmi/vendor/video_timing_640x480.v
+HDL-1007 : analyze verilog file rtl/hdmi/vendor/afifo_16_32_256.v
+HDL-1007 : analyze verilog file rtl/hdmi/vendor/afifo_32_16_256.v
+HDL-1007 : analyze verilog file rtl/hdmi/vendor/frame_fifo_read.v
+HDL-1007 : analyze verilog file rtl/hdmi/vendor/frame_fifo_write.v
+HDL-1007 : analyze verilog file rtl/hdmi/vendor/frame_read_write.v
+HDL-5372 WARNING: redeclaration of ANSI port 'read_fifo_aclr' is not allowed in rtl/hdmi/vendor/frame_read_write.v(78)
+HDL-5372 WARNING: redeclaration of ANSI port 'write_fifo_aclr' is not allowed in rtl/hdmi/vendor/frame_read_write.v(79)
+HDL-1007 : analyze verilog file rtl/hdmi/vendor/frame_store.v
+HDL-1007 : analyze verilog file rtl/hdmi/vendor/pattern_pixel.v
+HDL-1007 : analyze verilog file rtl/hdmi/vendor/async_fifo.v
+HDL-1007 : analyze verilog file rtl/hdmi/vendor/sdr_as_ram.enc.v
+HDL-1007 : analyze included file rtl/hdmi/vendor/global_def.v in rtl/hdmi/vendor/sdr_as_ram.enc.v(10)
+HDL-1007 : back to file 'rtl/hdmi/vendor/sdr_as_ram.enc.v' in rtl/hdmi/vendor/sdr_as_ram.enc.v(10)
+Copyright (c) 1998-2019 The OpenSSL Project.  All rights reserved.
+This product includes software developed by the OpenSSL Project
+for use in the OpenSSL Toolkit (http://www.openssl.org/)
+Copyright (C) 1995-1998 Eric Young (eay@cryptsoft.com)
+All rights reserved.
+This product includes cryptographic software written by Eric Young (eay@cryptsoft.com)
+HDL-1007 : back to file 'rtl/hdmi/vendor/sdr_as_ram.enc.v' in rtl/hdmi/vendor/sdr_as_ram.enc.v(45)
+HDL-1007 : analyze verilog file rtl/hdmi/vendor/sdr_init_ref.enc.v
+HDL-1007 : analyze included file rtl/hdmi/vendor/global_def.v in rtl/hdmi/vendor/sdr_init_ref.enc.v(11)
+HDL-1007 : back to file 'rtl/hdmi/vendor/sdr_init_ref.enc.v' in rtl/hdmi/vendor/sdr_init_ref.enc.v(11)
+HDL-1007 : undeclared symbol '**', assumed default net type '**' in rtl/hdmi/vendor/sdr_init_ref.enc.v(57)
+HDL-1007 : back to file 'rtl/hdmi/vendor/sdr_init_ref.enc.v' in rtl/hdmi/vendor/sdr_init_ref.enc.v(149)
+HDL-5007 WARNING: concatenation with an unsized literal will be treated as 32 bits in rtl/hdmi/vendor/sdr_init_ref.enc.v(47)
+HDL-1007 : analyze verilog file rtl/hdmi/vendor/sdr_wrrd.enc.v
+HDL-5007 WARNING: concatenation with an unsized literal will be treated as 32 bits in rtl/hdmi/vendor/sdr_wrrd.enc.v(283)
+HDL-1007 : back to file 'rtl/hdmi/vendor/sdr_wrrd.enc.v' in rtl/hdmi/vendor/sdr_wrrd.enc.v(19)
+HDL-1007 : analyze VHDL file rtl/hdmi/vendor/hdmi_tx.vhd
+HDL-1007 : analyze entity hdmi_tx in rtl/hdmi/vendor/hdmi_tx.vhd(11)
+HDL-1007 : analyze architecture behavioral in rtl/hdmi/vendor/hdmi_tx.vhd(33)
+HDL-1007 : analyze VHDL file rtl/hdmi/enc_file/SerializerN_1_lvds.enc.vhd
+HDL-1007 : analyze entity ** in rtl/hdmi/enc_file/SerializerN_1_lvds.enc.vhd(12)
+HDL-1007 : analyze architecture ** in rtl/hdmi/enc_file/SerializerN_1_lvds.enc.vhd(25)
+HDL-1007 : analyze VHDL file rtl/hdmi/enc_file/SerializerN_1_lvds_dat.enc.vhd
+HDL-1007 : analyze entity ** in rtl/hdmi/enc_file/SerializerN_1_lvds_dat.enc.vhd(14)
+HDL-1007 : analyze architecture ** in rtl/hdmi/enc_file/SerializerN_1_lvds_dat.enc.vhd(28)
+HDL-1007 : analyze VHDL file rtl/hdmi/enc_file/TMDSEncoder.enc.vhd
+HDL-1007 : analyze entity ** in rtl/hdmi/enc_file/TMDSEncoder.enc.vhd(13)
+HDL-1007 : analyze architecture ** in rtl/hdmi/enc_file/TMDSEncoder.enc.vhd(24)
+HDL-1007 : analyze VHDL file rtl/hdmi/enc_file/DVITransmitter.enc.vhd
+HDL-1007 : analyze entity dvitransmitter in rtl/hdmi/enc_file/DVITransmitter.enc.vhd(13)
+HDL-1007 : analyze architecture ** in rtl/hdmi/enc_file/DVITransmitter.enc.vhd(2)
+HDL-1007 : elaborate module fall_camera_hdmi_multi_top in rtl/fall_camera_hdmi_multi_top.v(59)
+HDL-1007 : elaborate module hdmi_video_pll_25 in rtl/hdmi/eg4_pll_24.v(110)
+HDL-1007 : elaborate module EG_LOGIC_BUFG in E:\Anlogic\TD_6.2.1_Engineer_6.2.168.116\arch/eagle_macro.v(5)
+HDL-1007 : elaborate module EG_PHY_PLL(FIN="24.000000",REFCLK_DIV=24,FBCLK_DIV=25,CLKC0_DIV=40,CLKC1_DIV=8,CLKC0_ENABLE="ENABLE",CLKC1_ENABLE="ENABLE",FEEDBK_PATH="CLKC0_EXT",STDBY_ENABLE="DISABLE",CLKC0_CPHASE=39,CLKC1_CPHASE=7,GMC_GAIN=2,ICP_CURRENT=9,KVCO=2,LPF_CAPACITOR=1,LPF_RESISTOR=8,SYNC_ENABLE="DISABLE") in E:\Anlogic\TD_6.2.1_Engineer_6.2.168.116\arch/eagle_macro.v(889)
+HDL-1007 : elaborate module hdmi_mem_pll_24 in rtl/hdmi/eg4_pll_24.v(176)
+HDL-1007 : elaborate module EG_PHY_PLL(FIN="24.000000",FBCLK_DIV=5,CLKC0_DIV=8,CLKC2_DIV=8,CLKC0_ENABLE="ENABLE",CLKC2_ENABLE="ENABLE",FEEDBK_PATH="CLKC0_EXT",STDBY_ENABLE="DISABLE",CLKC0_CPHASE=7,CLKC2_CPHASE=3,GMC_GAIN=2,ICP_CURRENT=9,KVCO=2,LPF_CAPACITOR=1,LPF_RESISTOR=8,SYNC_ENABLE="DISABLE") in E:\Anlogic\TD_6.2.1_Engineer_6.2.168.116\arch/eagle_macro.v(889)
+HDL-1007 : elaborate module mt9m001_cfg(SCL_HZ=250000) in rtl/mt9m001_cfg.v(58)
+HDL-1007 : elaborate module cmos_capture_gray8 in rtl/cmos_capture_gray8.v(49)
+HDL-1007 : elaborate module ae_ctrl in rtl/ae_ctrl.v(80)
+HDL-1007 : elaborate module fall_core_multi_top(DIFF_THRESH=8,BBOX_MIN_PIX=4,BBOX_MIN_AREA=160) in rtl/fall_core_multi_top.v(34)
+HDL-1007 : elaborate module gray_front in rtl/gray_front.v(33)
+HDL-1007 : extracting RAM for identifier 'row_sum' in rtl/gray_front.v(58)
+HDL-1007 : elaborate module frame_diff(DIFF_THRESH=8) in rtl/frame_diff.v(45)
+HDL-1007 : extracting RAM for identifier 'prev_ram_lo' in rtl/frame_diff.v(65)
+HDL-1007 : extracting RAM for identifier 'prev_ram_hi' in rtl/frame_diff.v(66)
+HDL-1007 : elaborate module motion_morph in rtl/motion_morph.v(47)
+HDL-1007 : extracting RAM for identifier 'stack3a' in rtl/motion_morph.v(73)
+HDL-1007 : extracting RAM for identifier 'stack3b' in rtl/motion_morph.v(74)
+HDL-1007 : extracting RAM for identifier 'stack5' in rtl/motion_morph.v(75)
+HDL-1007 : elaborate module multi_bbox(MIN_PIX=4,MIN_AREA=160) in rtl/multi_bbox.v(49)
+HDL-1007 : extracting RAM for identifier 'mask_ram' in rtl/multi_bbox.v(90)
+HDL-1007 : extracting RAM for identifier 'hist' in rtl/multi_bbox.v(292)
+HDL-1007 : elaborate module track_assoc in rtl/track_assoc.v(65)
+HDL-1007 : elaborate module person_score in rtl/person_score.v(24)
+HDL-1007 : elaborate module motion_hist in rtl/motion_hist.v(48)
+HDL-1007 : elaborate module EG_PHY_BRAM(DATA_WIDTH_A="1",DATA_WIDTH_B="1",REGMODE_B="OUTREG") in E:\Anlogic\TD_6.2.1_Engineer_6.2.168.116\arch/eagle_macro.v(241)
+HDL-1007 : elaborate module EG_PHY_BRAM(DATA_WIDTH_A="2",DATA_WIDTH_B="2",REGMODE_B="OUTREG") in E:\Anlogic\TD_6.2.1_Engineer_6.2.168.116\arch/eagle_macro.v(241)
+HDL-1007 : elaborate module posture_bank in rtl/posture_bank.v(32)
+HDL-1007 : elaborate module posture_fsm(FRAME_H=180,MAX_REF_H=171,MAX_REF_AREA=11520,SUNK_CY2=15,COLLAPSE_FRAMES=36) in rtl/posture_fsm.v(23)
+HDL-1007 : elaborate module video_timing_640x480 in rtl/hdmi/vendor/video_timing_640x480.v(25)
+HDL-1007 : elaborate module frame_store(FRAME_WORDS=307200,BUF_COUNT=2) in rtl/hdmi/vendor/frame_store.v(19)
+HDL-1007 : elaborate module sdr_as_ram in rtl/hdmi/vendor/sdr_as_ram.enc.v(12)
+HDL-5007 WARNING: concatenation with an unsized literal will be treated as 32 bits in rtl/hdmi/vendor/sdr_init_ref.enc.v(47)
+HDL-1007 : elaborate module sdr_init_ref in rtl/hdmi/vendor/sdr_init_ref.enc.v(13)
+HDL-5007 WARNING: concatenation with an unsized literal will be treated as 32 bits in rtl/hdmi/vendor/sdr_wrrd.enc.v(283)
+HDL-1007 : elaborate module ** in rtl/hdmi/vendor/sdr_wrrd.enc.v(3)
+HDL-5317 WARNING: input port '**' is not connected on this instance in rtl/hdmi/vendor/sdr_as_ram.enc.v(17)
+HDL-1007 : port 'valid' remains unconnected for this instance in rtl/hdmi/vendor/frame_read_write.v(89)
+HDL-1007 : port 'afull' remains unconnected for this instance in rtl/hdmi/vendor/frame_read_write.v(89)
+HDL-1007 : port 'aempty' remains unconnected for this instance in rtl/hdmi/vendor/frame_read_write.v(89)
+HDL-1007 : port 'valid' remains unconnected for this instance in rtl/hdmi/vendor/frame_read_write.v(137)
+HDL-1007 : port 'afull' remains unconnected for this instance in rtl/hdmi/vendor/frame_read_write.v(137)
+HDL-1007 : port 'aempty' remains unconnected for this instance in rtl/hdmi/vendor/frame_read_write.v(137)
+HDL-1007 : elaborate module frame_read_write in rtl/hdmi/vendor/frame_read_write.v(2)
+HDL-1007 : port 'doa' remains unconnected for this instance in rtl/hdmi/vendor/afifo_16_32_256.v(226)
+HDL-1007 : port 'dib' remains unconnected for this instance in rtl/hdmi/vendor/afifo_16_32_256.v(226)
+HDL-1007 : elaborate module wfifo_32_32_512 in rtl/hdmi/vendor/afifo_16_32_256.v(13)
+HDL-1007 : elaborate module fifo_cross_domain_addr_process_al_wfifo_32_32_512 in rtl/hdmi/vendor/afifo_16_32_256.v(250)
+HDL-1007 : elaborate module ram_infer_wfifo_32_32_512(ADDRWIDTH_A=9,DATAWIDTH_B=32,ADDRWIDTH_B=9) in rtl/hdmi/vendor/afifo_16_32_256.v(333)
+HDL-1007 : extracting RAM for identifier 'memory' in rtl/hdmi/vendor/afifo_16_32_256.v(398)
+HDL-5317 WARNING: input port 'dib[31]' is not connected on this instance in rtl/hdmi/vendor/afifo_16_32_256.v(231)
+HDL-1007 : elaborate module frame_fifo_write(BURST_SIZE=256) in rtl/hdmi/vendor/frame_fifo_write.v(2)
+HDL-5007 WARNING: actual bit length 9 differs from formal bit length 10 for port 'rdusedw' in rtl/hdmi/vendor/frame_read_write.v(133)
+HDL-1007 : port 'doa' remains unconnected for this instance in rtl/hdmi/vendor/afifo_32_16_256.v(226)
+HDL-1007 : port 'dib' remains unconnected for this instance in rtl/hdmi/vendor/afifo_32_16_256.v(226)
+HDL-1007 : elaborate module rfifo_32_32_512 in rtl/hdmi/vendor/afifo_32_16_256.v(13)
+HDL-1007 : elaborate module fifo_cross_domain_addr_process_al_rfifo_32_32_512 in rtl/hdmi/vendor/afifo_32_16_256.v(250)
+HDL-1007 : elaborate module ram_infer_rfifo_32_32_512(ADDRWIDTH_A=9,DATAWIDTH_B=32,ADDRWIDTH_B=9) in rtl/hdmi/vendor/afifo_32_16_256.v(333)
+HDL-1007 : extracting RAM for identifier 'memory' in rtl/hdmi/vendor/afifo_32_16_256.v(398)
+HDL-5317 WARNING: input port 'dib[31]' is not connected on this instance in rtl/hdmi/vendor/afifo_32_16_256.v(231)
+HDL-1007 : elaborate module frame_fifo_read(BURST_SIZE=256) in rtl/hdmi/vendor/frame_fifo_read.v(2)
+HDL-5007 WARNING: actual bit length 9 differs from formal bit length 10 for port 'wrusedw' in rtl/hdmi/vendor/frame_read_write.v(179)
+HDL-1007 : elaborate module pattern_pixel in rtl/hdmi/vendor/pattern_pixel.v(9)
+HDL-1007 : elaborate module EG_PHY_SDRAM_2M_32 in E:\Anlogic\TD_6.2.1_Engineer_6.2.168.116\arch/eagle_macro.v(683)
+HDL-1007 : elaborate module box_overlay in rtl/hdmi/box_overlay.v(36)
+HDL-1007 : switch to vhdl to elaborate module hdmi_tx in rtl/fall_camera_hdmi_multi_top.v(845)
+HDL-1007 : elaborate hdmi_tx(1,3)(Behavioral) in rtl/hdmi/vendor/hdmi_tx.vhd(11)
+HDL-1007 : elaborate DVITransmitter(1,3)(Behavioral) in rtl/hdmi/enc_file/DVITransmitter.enc.vhd(13)
+HDL-1007 : elaborate **(**) in rtl/hdmi/enc_file/TMDSEncoder.enc.vhd(13)
+HDL-1007 : elaborate **(**) in rtl/hdmi/enc_file/SerializerN_1_lvds.enc.vhd(12)
+HDL-1007 : elaborate EG_LOGIC_ODDR(1,6)(rtl) in E:\Anlogic\TD_6.2.1_Engineer_6.2.168.116\arch/eagle_macro.vhd(1399)
+HDL-1007 : elaborate **(**) in rtl/hdmi/enc_file/SerializerN_1_lvds_dat.enc.vhd(14)
+HDL-1007 : back to vlog to elaborate in rtl/fall_camera_hdmi_multi_top.v(845)
+HDL-1007 : elaborate module led595_shift in rtl/led595_shift.v(11)
+HDL-1007 : elaborate module slot_scan in rtl/slot_scan.v(37)
+HDL-1007 : elaborate module status_uart(SHOW_SLOT=1,SHOW_AE=1) in rtl/status_uart.v(44)
+HDL-5001 WARNING: Contains anonymous inst(s) and/or net(s) that have not been renamed
+HDL-5001 WARNING: Contains anonymous inst(s) and/or net(s) that have not been renamed
+HDL-5001 WARNING: Contains anonymous inst(s) and/or net(s) that have not been renamed
+HDL-5001 WARNING: Contains anonymous inst(s) and/or net(s) that have not been renamed
+HDL-5001 WARNING: Contains anonymous inst(s) and/or net(s) that have not been renamed
+HDL-5001 WARNING: Contains anonymous inst(s) and/or net(s) that have not been renamed
+HDL-1200 : Current top model is fall_camera_hdmi_multi_top
+HDL-5106 WARNING: Initial value omitted on non-DFF net "cnt_t[4]" in rtl/hdmi/enc_file/TMDSEncoder.enc.vhd(0) 
+HDL-5106 WARNING: Initial value omitted on non-DFF net "cnt_t[3]" in rtl/hdmi/enc_file/TMDSEncoder.enc.vhd(0) 
+HDL-5106 WARNING: Initial value omitted on non-DFF net "cnt_t[2]" in rtl/hdmi/enc_file/TMDSEncoder.enc.vhd(0) 
+HDL-5106 WARNING: Initial value omitted on non-DFF net "cnt_t[1]" in rtl/hdmi/enc_file/TMDSEncoder.enc.vhd(0) 
+HDL-5106 WARNING: Initial value omitted on non-DFF net "cnt_t[0]" in rtl/hdmi/enc_file/TMDSEncoder.enc.vhd(0) 
+HDL-5106 WARNING: Initial value omitted on non-DFF net "dc_bias[4]" in E:\Anlogic\TD_6.2.1_Engineer_6.2.168.116\packages/std_logic_arith.vhd(1071) 
+HDL-5106 WARNING: Initial value omitted on non-DFF net "dc_bias[3]" in E:\Anlogic\TD_6.2.1_Engineer_6.2.168.116\packages/std_logic_arith.vhd(1071) 
+HDL-5106 WARNING: Initial value omitted on non-DFF net "dc_bias[2]" in E:\Anlogic\TD_6.2.1_Engineer_6.2.168.116\packages/std_logic_arith.vhd(1071) 
+HDL-5106 WARNING: Initial value omitted on non-DFF net "dc_bias[1]" in E:\Anlogic\TD_6.2.1_Engineer_6.2.168.116\packages/std_logic_arith.vhd(1071) 
+HDL-5106 WARNING: Initial value omitted on non-DFF net "dc_bias[0]" in E:\Anlogic\TD_6.2.1_Engineer_6.2.168.116\packages/std_logic_arith.vhd(1071) 
+HDL-1100 : Inferred 10 RAMs.
+RUN-1002 : start command "read_adc E:/FPGA guo sai/fall_detection/fpga/td/fall_camera_hdmi_top.adc"
+RUN-1002 : start command "set_pin_assignment  clk_24m   LOCATION = P13; IOSTANDARD = LVCMOS33; "
+RUN-1002 : start command "set_pin_assignment  key_n   LOCATION = P51; "
+RUN-1002 : start command "set_pin_assignment  cmos_data[0]   LOCATION = P2; "
+RUN-1002 : start command "set_pin_assignment  cmos_data[1]   LOCATION = P87; "
+RUN-1002 : start command "set_pin_assignment  cmos_data[2]   LOCATION = P86; "
+RUN-1002 : start command "set_pin_assignment  cmos_data[3]   LOCATION = P78; "
+RUN-1002 : start command "set_pin_assignment  cmos_data[4]   LOCATION = P77; "
+RUN-1002 : start command "set_pin_assignment  cmos_data[5]   LOCATION = P76; "
+RUN-1002 : start command "set_pin_assignment  cmos_data[6]   LOCATION = P75; "
+RUN-1002 : start command "set_pin_assignment  cmos_data[7]   LOCATION = P74; "
+RUN-1002 : start command "set_pin_assignment  cmos_href   LOCATION = P62; "
+RUN-1002 : start command "set_pin_assignment  cmos_pclk   LOCATION = P79; "
+RUN-1002 : start command "set_pin_assignment  cmos_sclk   LOCATION = P70; "
+RUN-1002 : start command "set_pin_assignment  cmos_sdat   LOCATION = P71; "
+RUN-1002 : start command "set_pin_assignment  cmos_vsync   LOCATION = P66; "
+RUN-1002 : start command "set_pin_assignment  cmos_xclk   LOCATION = P72; "
+RUN-1002 : start command "set_pin_assignment  HDMI_CLK_P   LOCATION = P47; IOSTANDARD = LVDS25; "
+RUN-1002 : start command "set_pin_assignment  HDMI_D0_P   LOCATION = P49; IOSTANDARD = LVDS25; "
+RUN-1002 : start command "set_pin_assignment  HDMI_D1_P   LOCATION = P55; IOSTANDARD = LVDS25; "
+RUN-1002 : start command "set_pin_assignment  HDMI_D2_P   LOCATION = P61; IOSTANDARD = LVDS25; "
+RUN-1002 : start command "set_pin_assignment  led595_clk   LOCATION = P59; "
+RUN-1002 : start command "set_pin_assignment  led595_dout   LOCATION = P45; "
+RUN-1002 : start command "set_pin_assignment  led595_latch   LOCATION = P57; "
+RUN-1002 : start command "set_pin_assignment  uart_txd   LOCATION = P3; IOSTANDARD = LVCMOS33; "
+RUN-1001 : Starting of IO setups legality check.
+RUN-1001 : Starting of IO vref setups legality check.
+RUN-1002 : start command "optimize_rtl"
+RUN-1001 : Open license file E:/Anlogic/TD_6.2.1_Engineer_6.2.168.116/license/Anlogic.lic
+SYN-1001 : Stage 1 | Optimize RTL
+SYN-1001 : Stage 1.1 | Check Design Sanity
+SYN-1001 : End Stage 1.1 | Check Design Sanity; Time: 0.008095s wall, 0.015625s user + 0.000000s system = 0.015625s CPU (193.0%); Memory(MB): used = 282, reserved = 256, peak = 282;
+
+SYN-1079 : finish stage Check Design Sanity. Total instances: 27155, Total nets: 81742.
+
+SYN-1001 : Stage 1.2 | Initialize Design
+SYN-1001 : End Stage 1.2 | Initialize Design; Time: 1.239440s wall, 1.234375s user + 0.000000s system = 1.234375s CPU (99.6%); Memory(MB): used = 282, reserved = 256, peak = 282;
+
+SYN-1079 : finish stage Initialize Design. Total instances: 6993, Total nets: 55876.
+
+SYN-1001 : Stage 1.3 | Flatten Module
+SYN-1011 : Flatten model fall_camera_hdmi_multi_top
+SYN-1050 : Instances selected by 'keep_hierarchy':
+RUN-1001 : --------------------------------------------------------------------------------------------------
+RUN-1001 :           instance           |  keep_hierarchy  |    down_module    |         file(line)          
+RUN-1001 : --------------------------------------------------------------------------------------------------
+RUN-1001 :  u_store/u_frame_rw/read...  |       true       |  rfifo_32_32_512  | rtl/hdmi/vendor/frame_r...  
+RUN-1001 :  u_store/u_frame_rw/writ...  |       true       |  wfifo_32_32_512  | rtl/hdmi/vendor/frame_r...  
+RUN-1001 : --------------------------------------------------------------------------------------------------
+SYN-1001 : End Stage 1.3 | Flatten Module; Time: 0.168595s wall, 0.156250s user + 0.000000s system = 0.156250s CPU (92.7%); Memory(MB): used = 283, reserved = 256, peak = 283;
+
+SYN-1079 : finish stage Flatten Module. Total instances: 7460, Total nets: 51925.
+
+SYN-1001 : Stage 1.4 | Uniform Instance
+SYN-5013 WARNING: Undriven net: model "fall_camera_hdmi_multi_top" / net "u_store/u_sdram_ctrl/u2_wrrd/Sdr_init_ref_ba[1]" in rtl/hdmi/vendor/sdr_wrrd.enc.v(0)
+		the net's pin: pin "i1[1]" in rtl/hdmi/vendor/sdr_wrrd.enc.v(0)
+SYN-5013 WARNING: Undriven net: model "fall_camera_hdmi_multi_top" / net "u_store/u_sdram_ctrl/u2_wrrd/Sdr_init_ref_ba[0]" in rtl/hdmi/vendor/sdr_wrrd.enc.v(0)
+		the net's pin: pin "i1[0]" in rtl/hdmi/vendor/sdr_wrrd.enc.v(0)
+SYN-5025 WARNING: Using 0 for all undriven pins and nets
+SYN-1001 : End Stage 1.4 | Uniform Instance; Time: 0.028403s wall, 0.015625s user + 0.000000s system = 0.015625s CPU (55.0%); Memory(MB): used = 273, reserved = 256, peak = 283;
+
+SYN-1079 : finish stage Uniform Instance. Total instances: 7398, Total nets: 51852.
+
+SYN-1001 : Stage 1.5 | Optimize Design
+SYN-1066 : Inferred FSM for state register 'u_cfg/phase_reg' in module 'fall_camera_hdmi_multi_top'
+--------------------------------------------
+     Previous Encoding     New Encoding
+--------------------------------------------
+                    00             0001
+                    01             0010
+                    10             0100
+                    11             1000
+--------------------------------------------
+SYN-1067 : encoded FSM with state register 'u_cfg/phase_reg' using encoding 'one_hot' in model 'fall_camera_hdmi_multi_top'
+SYN-1066 : Inferred FSM for state register 'u_cfg/state_reg' in module 'fall_camera_hdmi_multi_top'
+--------------------------------------------
+     Previous Encoding     New Encoding
+--------------------------------------------
+                  0000        000000001
+                  0001        000000010
+                  0010        000000100
+                  0011        000001000
+                  0100        000010000
+                  0101        000100000
+                  0111        001000000
+                  1000        010000000
+                  0110        100000000
+--------------------------------------------
+SYN-1067 : encoded FSM with state register 'u_cfg/state_reg' using encoding 'one_hot' in model 'fall_camera_hdmi_multi_top'
+SYN-1066 : Inferred FSM for state register 'u_cfg/stop_ph_reg' in module 'fall_camera_hdmi_multi_top'
+--------------------------------------------
+     Previous Encoding     New Encoding
+--------------------------------------------
+                    00             0001
+                    01             0010
+                    10             0100
+                    11             1000
+--------------------------------------------
+SYN-1067 : encoded FSM with state register 'u_cfg/stop_ph_reg' using encoding 'one_hot' in model 'fall_camera_hdmi_multi_top'
+SYN-1066 : Inferred FSM for state register 'u_core/u_bank/phase_reg' in module 'fall_camera_hdmi_multi_top'
+--------------------------------------------
+     Previous Encoding     New Encoding
+--------------------------------------------
+                   000           000001
+                   001           000010
+                   010           000100
+                   011           001000
+                   100           010000
+                   101           100000
+--------------------------------------------
+SYN-1067 : encoded FSM with state register 'u_core/u_bank/phase_reg' using encoding 'one_hot' in model 'fall_camera_hdmi_multi_top'
+SYN-1066 : Inferred FSM for state register 'u_core/u_bbox/state_reg' in module 'fall_camera_hdmi_multi_top'
+--------------------------------------------
+     Previous Encoding     New Encoding
+--------------------------------------------
+                   000            00001
+                   001            00010
+                   010            00100
+                   011            01000
+                   100            10000
+--------------------------------------------
+SYN-1067 : encoded FSM with state register 'u_core/u_bbox/state_reg' using encoding 'one_hot' in model 'fall_camera_hdmi_multi_top'
+SYN-1066 : Inferred FSM for state register 'u_core/u_hist/st_reg' in module 'fall_camera_hdmi_multi_top'
+--------------------------------------------
+     Previous Encoding     New Encoding
+--------------------------------------------
+                   000         00000001
+                   001         00000010
+                   010         00000100
+                   011         00001000
+                   100         00010000
+                   101         00100000
+                   110         01000000
+                   111         10000000
+--------------------------------------------
+SYN-1067 : encoded FSM with state register 'u_core/u_hist/st_reg' using encoding 'one_hot' in model 'fall_camera_hdmi_multi_top'
+SYN-1066 : Inferred FSM for state register 'u_core/u_morph/phase_reg' in module 'fall_camera_hdmi_multi_top'
+--------------------------------------------
+     Previous Encoding     New Encoding
+--------------------------------------------
+                    00              001
+                    01              010
+                    10              100
+--------------------------------------------
+SYN-1067 : encoded FSM with state register 'u_core/u_morph/phase_reg' using encoding 'one_hot' in model 'fall_camera_hdmi_multi_top'
+SYN-1066 : Inferred FSM for state register 'u_core/u_track/state_reg' in module 'fall_camera_hdmi_multi_top'
+------------------------------------------------
+     Previous Encoding         New Encoding
+------------------------------------------------
+                  0000     0000000000000001
+                  0001     0000000000000010
+                  0010     0000000000000100
+                  1101     0000000000001000
+                  1110     0000000000010000
+                  0011     0000000000100000
+                  0100     0000000001000000
+                  0101     0000000010000000
+                  0110     0000000100000000
+                  0111     0000001000000000
+                  1001     0000010000000000
+                  1000     0000100000000000
+                  1010     0001000000000000
+                  1111     0010000000000000
+                  1011     0100000000000000
+                  1100     1000000000000000
+------------------------------------------------
+SYN-1067 : encoded FSM with state register 'u_core/u_track/state_reg' using encoding 'one_hot' in model 'fall_camera_hdmi_multi_top'
+SYN-1066 : Inferred FSM for state register 'u_led/st_reg' in module 'fall_camera_hdmi_multi_top'
+--------------------------------------------
+     Previous Encoding     New Encoding
+--------------------------------------------
+                    00              001
+                    01              010
+                    10              100
+--------------------------------------------
+SYN-1067 : encoded FSM with state register 'u_led/st_reg' using encoding 'one_hot' in model 'fall_camera_hdmi_multi_top'
+SYN-1066 : Inferred FSM for state register 'u_scan/state_r_reg' in module 'fall_camera_hdmi_multi_top'
+--------------------------------------------
+     Previous Encoding     New Encoding
+--------------------------------------------
+                    00             0001
+                    01             0010
+                    10             0100
+                    11             1000
+--------------------------------------------
+SYN-1067 : encoded FSM with state register 'u_scan/state_r_reg' using encoding 'one_hot' in model 'fall_camera_hdmi_multi_top'
+SYN-1066 : Inferred FSM for state register 'u_store/rstate_reg' in module 'fall_camera_hdmi_multi_top'
+--------------------------------------------
+     Previous Encoding     New Encoding
+--------------------------------------------
+                    00              001
+                    01              010
+                    10              100
+--------------------------------------------
+SYN-1067 : encoded FSM with state register 'u_store/rstate_reg' using encoding 'one_hot' in model 'fall_camera_hdmi_multi_top'
+SYN-1066 : Inferred FSM for state register 'u_store/u_frame_rw/frame_fifo_read_m0/state_reg' in module 'fall_camera_hdmi_multi_top'
+--------------------------------------------
+     Previous Encoding     New Encoding
+--------------------------------------------
+                  0000           000001
+                  0001           000010
+                  0010           000100
+                  0011           001000
+                  0100           010000
+                  0101           100000
+--------------------------------------------
+SYN-1067 : encoded FSM with state register 'u_store/u_frame_rw/frame_fifo_read_m0/state_reg' using encoding 'one_hot' in model 'fall_camera_hdmi_multi_top'
+SYN-1066 : Inferred FSM for state register 'u_store/u_frame_rw/frame_fifo_write_m0/state_reg' in module 'fall_camera_hdmi_multi_top'
+--------------------------------------------
+     Previous Encoding     New Encoding
+--------------------------------------------
+                  0000           000001
+                  0001           000010
+                  0010           000100
+                  0011           001000
+                  0100           010000
+                  0101           100000
+--------------------------------------------
+SYN-1067 : encoded FSM with state register 'u_store/u_frame_rw/frame_fifo_write_m0/state_reg' using encoding 'one_hot' in model 'fall_camera_hdmi_multi_top'
+SYN-1066 : Inferred FSM for state register 'u_store/u_sdram_ctrl/u2_wrrd/state_reg' in module 'fall_camera_hdmi_multi_top'
+--------------------------------------------
+     Previous Encoding     New Encoding
+--------------------------------------------
+                  0000              001
+                  0001              010
+                  0010              100
+--------------------------------------------
+SYN-1067 : encoded FSM with state register 'u_store/u_sdram_ctrl/u2_wrrd/state_reg' using encoding 'one_hot' in model 'fall_camera_hdmi_multi_top'
+SYN-1066 : Inferred FSM for state register 'u_uart/ustate_reg' in module 'fall_camera_hdmi_multi_top'
+--------------------------------------------
+     Previous Encoding     New Encoding
+--------------------------------------------
+                    00               01
+                    01               10
+--------------------------------------------
+SYN-1067 : encoded FSM with state register 'u_uart/ustate_reg' using encoding 'one_hot' in model 'fall_camera_hdmi_multi_top'
+SYN-1057 : Inferred 15 FSM(s)
+SYN-1001 : Optimize 2 less-than instances
+SYN-1032 : 41512/243 useful/useless nets, 5971/9 useful/useless insts
+SYN-1001 : Bypass 4 mux instances
+SYN-1021 : Optimized 2 onehot mux instances.
+SYN-1068 : Optimized 7 binary mux instances.
+SYN-1019 : Optimized 45 mux instances.
+SYN-1021 : Optimized 6 onehot mux instances.
+SYN-1001 : Optimize 41 less-than instances
+SYN-1016 : Merged 344 instances.
+SYN-1025 : Merged 4 RAM ports.
+SYN-1026 : Infer Logic BRAM(u_core/u_bbox/ramread1_syn_4)
+	 port mode: single dual port
+	 port a size: 16384 x 8	 write mode: NORMAL
+	 port b size: 16384 x 8	 write mode: READBEFOREWRITE
+SYN-1026 : Infer Logic BRAM(u_core/u_diff/ramread0_syn_4)
+	 port mode: single dual port
+	 port a size: 65536 x 8	 write mode: NORMAL
+	 port b size: 65536 x 8	 write mode: READBEFOREWRITE
+SYN-1026 : Infer Logic BRAM(u_core/u_diff/ramread1_syn_4)
+	 port mode: single dual port
+	 port a size: 32768 x 8	 write mode: NORMAL
+	 port b size: 32768 x 8	 write mode: READBEFOREWRITE
+SYN-1027 : Infer Logic DRAM(u_core/u_gray/ramread0_syn_4) read 512x10, write 512x10
+SYN-1025 : Merged 1 RAM ports.
+SYN-1027 : Infer Logic DRAM(u_core/u_morph/ramread0_syn_30) read 512x3, write 512x3
+SYN-1025 : Merged 1 RAM ports.
+SYN-1027 : Infer Logic DRAM(u_core/u_morph/ramread1_syn_34) read 512x5, write 512x5
+SYN-1025 : Merged 1 RAM ports.
+SYN-1027 : Infer Logic DRAM(u_core/u_morph/ramread2_syn_30) read 512x3, write 512x3
+SYN-1026 : Infer Logic BRAM(u_store/u_frame_rw/read_buf/ram_inst/ramread0_syn_4)
+	 port mode: single dual port
+	 port a size: 512 x 32	 write mode: NORMAL
+	 port b size: 512 x 32	 write mode: READBEFOREWRITE
+SYN-1026 : Infer Logic BRAM(u_store/u_frame_rw/write_buf/ram_inst/ramread0_syn_4)
+	 port mode: single dual port
+	 port a size: 512 x 32	 write mode: NORMAL
+	 port b size: 512 x 32	 write mode: READBEFOREWRITE
+SYN-5042 WARNING: Failed to infer inst "u_core/u_bbox/ramread0_syn_41" as BRAM.
+SYN-1023 : Infer 4 Logic DRAMs, 5 Logic BRAMs.
+SYN-1016 : Merged 535 instances.
+SYN-1001 : End Stage 1.5 | Optimize Design; Time: 17.650877s wall, 15.203125s user + 0.312500s system = 15.515625s CPU (87.9%); Memory(MB): used = 325, reserved = 304, peak = 325;
+
+SYN-1079 : finish stage Optimize Design. Total instances: 25451, Total nets: 29656.
+
+SYN-1001 : Stage 1.6 | Optimize Iteratively
+SYN-1019 : Optimized 2 mux instances.
+SYN-1021 : Optimized 408 onehot mux instances.
+SYN-1014 : Optimize round 1
+SYN-1017 : Remove 30 const input seq instances
+SYN-1019 : Optimized 1 mux instances.
+SYN-1020 : Optimized 469 distributor mux.
+SYN-1001 : Optimize 112 less-than instances
+SYN-1019 : Optimized 330 mux instances.
+SYN-2595 : bram inst: u_core/u_bbox/ramread1_syn_4 is set to PDPW/SP from DP for resource saving
+SYN-2595 : bram inst: u_core/u_diff/ramread0_syn_4 is set to PDPW/SP from DP for resource saving
+SYN-2595 : bram inst: u_core/u_diff/ramread1_syn_4 is set to PDPW/SP from DP for resource saving
+SYN-2595 : bram inst: u_store/u_frame_rw/read_buf/ram_inst/ramread0_syn_4 is set to PDPW/SP from DP for resource saving
+SYN-2595 : bram inst: u_store/u_frame_rw/write_buf/ram_inst/ramread0_syn_4 is set to PDPW/SP from DP for resource saving
+SYN-2593 : bram inst: u_store/u_frame_rw/read_buf/ram_inst/ramread0_syn_4 will be optimized to a new one with A-width 24 due to unused data out
+SYN-1016 : Merged 30545 instances.
+SYN-1015 : Optimize round 1, 62199 better
+SYN-1014 : Optimize round 2
+SYN-1044 : Optimized 16 inv instances.
+SYN-1017 : Remove 3 const input seq instances
+SYN-1019 : Optimized 14 mux instances.
+SYN-1020 : Optimized 7 distributor mux.
+SYN-1019 : Optimized 317 mux instances.
+SYN-1016 : Merged 103 instances.
+SYN-1015 : Optimize round 2, 802 better
+SYN-5011 WARNING: Undriven pin: model "fall_camera_hdmi_multi_top" / inst "u_store/u_frame_rw/read_buf/ram_inst/ramread0_syn_4" in rtl/hdmi/vendor/afifo_32_16_256.v(822) / pin "bea[0]"
+SYN-5011 WARNING: Undriven pin: model "fall_camera_hdmi_multi_top" / inst "u_store/u_frame_rw/read_buf/ram_inst/ramread0_syn_4" in rtl/hdmi/vendor/afifo_32_16_256.v(822) / pin "beb[0]"
+SYN-5025 WARNING: Using 0 for all undriven pins and nets
+SYN-3010 : Optimized 180 DFF(s)
+SYN-1014 : Optimize round 1
+SYN-1017 : Remove 8 const input seq instances
+SYN-1019 : Optimized 1 mux instances.
+SYN-1020 : Optimized 232 distributor mux.
+SYN-1016 : Merged 1539 instances.
+SYN-1015 : Optimize round 1, 1906 better
+SYN-1014 : Optimize round 2
+SYN-1017 : Remove 1 const input seq instances
+SYN-1019 : Optimized 1 mux instances.
+SYN-1020 : Optimized 8 distributor mux.
+SYN-1016 : Merged 35 instances.
+SYN-1015 : Optimize round 2, 45 better
+SYN-1014 : Optimize round 3
+SYN-1015 : Optimize round 3, 0 better
+SYN-1001 : End Stage 1.6 | Optimize Iteratively; Time: 87.801681s wall, 78.093750s user + 1.328125s system = 79.421875s CPU (90.5%); Memory(MB): used = 603, reserved = 591, peak = 723;
+
+SYN-1079 : finish stage Optimize Iteratively. Total instances: 34028, Total nets: 38035.
+
+SYN-1001 : Stage 1.7 | Check Design
+SYN-1001 : End Stage 1.7 | Check Design; Time: 0.021353s wall, 0.015625s user + 0.000000s system = 0.015625s CPU (73.2%); Memory(MB): used = 603, reserved = 591, peak = 723;
+
+SYN-1079 : finish stage Check Design. Total instances: 34028, Total nets: 38035.
+
+SYN-1001 : End Stage 1 | Optimize RTL; Time: 106.922955s wall, 94.750000s user + 1.640625s system = 96.390625s CPU (90.1%); Memory(MB): used = 603, reserved = 591, peak = 723;
+
+SYN-1079 : finish stage Optimize RTL. Total instances: 34028, Total nets: 38035.
+
+RUN-1003 : finish command "optimize_rtl" in  106.932066s wall, 94.765625s user + 1.640625s system = 96.406250s CPU (90.2%)
+
+RUN-1004 : used memory is 603 MB, reserved memory is 591 MB, peak memory is 723 MB
+RUN-1002 : start command "report_area -file E:/FPGA guo sai/fall_detection/fpga/td/out_board_hdmi/hdmi_pnr_rtl.area"
+RUN-1001 : standard
+***Report Model: fall_camera_hdmi_multi_top Device: EG4S20NG88***
+
+IO Statistics
+#IO                        24
+  #input                   13
+  #output                  10
+  #inout                    1
+
+Gate Statistics
+#Basic gates            28374
+  #and                   6625
+  #nand                     0
+  #or                    6002
+  #nor                      0
+  #xor                     75
+  #xnor                    21
+  #buf                      0
+  #not                    647
+  #bufif1                  33
+  #MX21                  5979
+  #FADD                     0
+  #DFF                   8992
+  #LATCH                    0
+#MACRO_ADD                856
+#MACRO_EQ                 158
+#MACRO_MULT                12
+#MACRO_MUX               4191
+#MACRO_OTHERS              15
+
+RUN-1002 : start command "read_sdc E:/FPGA guo sai/fall_detection/fpga/td/fall_camera_hdmi_top.sdc"
+RUN-1002 : start command "optimize_gate"
+RUN-1001 : Open license file E:/Anlogic/TD_6.2.1_Engineer_6.2.168.116/license/Anlogic.lic
+SYN-1001 : Stage 2 | Optimize Gate
+SYN-1001 : Stage 2.1 | Map Reg
+SYN-1001 : End Stage 2.1 | Map Reg; Time: 3.273933s wall, 2.921875s user + 0.031250s system = 2.953125s CPU (90.2%); Memory(MB): used = 603, reserved = 590, peak = 723;
+
+SYN-1079 : finish stage Map Reg. Total instances: 34028, Total nets: 38035.
+
+SYN-1001 : Stage 2.2 | Map IO
+SYN-2002 : EG_PHY_SDRAM_2M_32 instance u_sdram.
+SYN-2001 : Map 79 IOs to PADs of model 'fall_camera_hdmi_multi_top'
+SYN-1001 : End Stage 2.2 | Map IO; Time: 1.254062s wall, 1.125000s user + 0.031250s system = 1.156250s CPU (92.2%); Memory(MB): used = 603, reserved = 591, peak = 723;
+
+SYN-1001 : Stage 2.3 | Map Macro
+RUN-1002 : start command "update_pll_param -module fall_camera_hdmi_multi_top"
+SYN-6577 WARNING: The clock signal "u_store/u_sdram_ctrl/SDRAM_CLK" is added with the synthetic instruction (keep/mark_debug/dont_touch/max_fanout), which may create additional logic on this net
+SYN-2501 : Processed 0 LOGIC_BUF instances.
+SYN-2501 : 2 BUFG to GCLK
+SYN-6562 WARNING: The init value of "u_store/u_frame_rw/read_buf/ram_inst/ramread0_syn_4(rtl/hdmi/vendor/afifo_32_16_256.v(822))" will be ignored since gate eram_init is set to off
+SYN-6562 WARNING: The init value of "u_store/u_frame_rw/write_buf/ram_inst/ramread0_syn_4(rtl/hdmi/vendor/afifo_16_32_256.v(822))" will be ignored since gate eram_init is set to off
+SYN-2571 : Map 12 macro multiplier
+SYN-2571 : Optimize after map_dsp, round 1
+SYN-1016 : Merged 303 instances.
+SYN-2571 : Optimize after map_dsp, round 1, 303 better
+SYN-2571 : Optimize after map_dsp, round 2
+SYN-2571 : Optimize after map_dsp, round 2, 0 better
+SYN-1001 : Throwback 290 control mux instances
+SYN-1001 : Generate 27 bigger adders
+SYN-1001 : Optimize 107 adders
+SYN-1001 : Optimize 3 less-than instances
+SYN-2501 : Optimize round 1
+SYN-1016 : Merged 460 instances.
+SYN-2501 : Optimize round 1, 1610 better
+SYN-2501 : Optimize round 2
+SYN-2501 : Optimize round 2, 0 better
+SYN-2501 : Optimize round 1
+SYN-2501 : Optimize round 1, 0 better
+SYN-2501 : Map 825 macro adder(s)
+SYN-2501 : Inferred 6 ROM instances
+SYN-1019 : Optimized 807 mux instances.
+SYN-1016 : Merged 3005 instances.
+SYN-1001 : End Stage 2.3 | Map Macro; Time: 32.539739s wall, 29.765625s user + 0.296875s system = 30.062500s CPU (92.4%); Memory(MB): used = 667, reserved = 645, peak = 723;
+
+SYN-1079 : finish stage Map Macro. Total instances: 46256, Total nets: 50376.
+
+SYN-1001 : Stage 2.4 | Map Gate
+SYN-3001 : Collect 10222 PI 5118 PO (118 timing unconstrained) for mapping
+SYN-2581 : Mapping with K=5, #lut = 11406 (3.42), #lev = 26 (3.63), #crit_level = 0
+SYN-2551 : Post LUT mapping optimization.
+SYN-2581 : Mapping with K=5, #lut = 11406 (3.42), #lev = 26 (3.76), #crit_level = 0
+SYN-3001 : Logic optimization opt = 18.32 sec, map = 5.69 sec, post map opt = 18.65 sec.
+SYN-3001 : Mapper removed 2 lut buffers
+SYN-1001 : End Stage 2.4 | Map Gate; Time: 70.431329s wall, 65.281250s user + 0.359375s system = 65.640625s CPU (93.2%); Memory(MB): used = 701, reserved = 680, peak = 723;
+
+SYN-1001 : Packing model "fall_camera_hdmi_multi_top" ...
+SYN-4010 : Pack lib has 59 rtl pack models with 26 top pack blocks
+SYN-1014 : Optimize round 1
+SYN-1015 : Optimize round 1, 0 better
+SYN-4002 : Packing 8929 DFF/LATCH to SEQ ...
+SYN-4009 : Pack 330 carry chain into lslice
+SYN-4007 : Packing 4015 adder to BLE ...
+SYN-4008 : Packed 4015 adder and 6 SEQ to BLE.
+SYN-4007 : Packing 0 gate4 to BLE ...
+SYN-4008 : Packed 0 gate4 and 0 SEQ to BLE.
+SYN-4013 : Packed 192 DRAM and 0 SEQ.
+RUN-1002 : start command "report_qor -step gate -file gate.qor"
+RUN-1002 : start command "start_timer"
+RUN-1003 : finish command "start_timer" in  4.123677s wall, 3.812500s user + 0.000000s system = 3.812500s CPU (92.5%)
+
+RUN-1004 : used memory is 620 MB, reserved memory is 609 MB, peak memory is 723 MB
+-----------------------------------------------------------
+| QoR metrics               |         value               |
+-----------------------------------------------------------
+| Timing                    |                             |
+|     Setup WNS             |          284                |
+|     Setup TNS             |            0                |
+|     Num of violated S-EP  |            0                |
+|     Hold WNS              |          509                |
+|     Hold TNS              |            0                |
+|     Num of violated H-EP  |            0                |
+-----------------------------------------------------------
+| Utilization               |                             |
+|     #registers            |         8923                |
+|     #luts                 |        11421                |
+|     #lut1                 |          103                |
+|     #lut1(~A)             |          103                |
+|     #slices               |         3726                |
+|     slices percentage     |       38.02%                |
+|     #RAMs                 |           68                |
+|     #DSPs                 |            9                |
+|     #f7mux                |        0.00%                |
+|     #MACROs               |          868                |
+|     #insts in MACRO       |         3726                |
+-----------------------------------------------------------
+| kept_net                  |                             |
+|     #syn_keep             |          138                |
+|     #keep_hier            |          134                |
+|     #dont_touch           |            0                |
+|     #mark_debug           |            0                |
+|     #max_fanout_keep      |            0                |
+|     #async_reg            |            0                |
+-----------------------------------------------------------
+| Top 10% datanet fanout#   |        73.47                |
+| dff(single fanout)->dff   |          971                |
+| dff(single fanout)->dram  |            0                |
+-----------------------------------------------------------
+| Over-quota path num*      |                             |
+|     Total                 |            0                |
+-----------------------------------------------------------
+| Rent**                    |                             |
+-----------------------------------------------------------
+Note*: Over-quota path shows the over-path-level-threshold path number of each clock.
+       The clock will not be shown if no path is with path level over the threshold.
+       The threshold is defined as worst path_margin / 800ps.
+Note**: Rent shows the rent exponent value of the modules whose rent value exceeds the threshold.
+        Only modules under top are reported, and the threshold is defined as 0.7.
+
+Logic Level Distribution
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  Clock      |  Period            |  0     |  1     |  2     |  3     |  4    |  5    |  6    |  7     |  8    |  9    |  10    |  11   |  12  |  13   |  14   |  15   |  16   |  17   |  18   |  19  |  20   |  21  |  22  |  26  |  27  |  28  |  >=30
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  clk_24m    |  41.667ns (24MHz)  |  2006  |  569   |  254   |  195   |  157  |  72   |  31   |  28    |  8    |  30   |  3     |  0    |  0   |  0    |  0    |  0    |  0    |  0    |  0    |  0   |  0    |  0   |  0   |  1   |  16  |  7   |  24
+  clk_mem    |  8.333ns (120MHz)  |  552   |  160   |  113   |  104   |  13   |  16   |  4    |  3     |  0    |  0    |  0     |  0    |  0   |  0    |  0    |  0    |  0    |  0    |  0    |  0   |  0    |  0   |  0   |  0   |  0   |  0   |  24
+  cmos_pclk  |  41.667ns (24MHz)  |  1444  |  4501  |  1446  |  1408  |  629  |  219  |  209  |  2875  |  452  |  169  |  2622  |  112  |  91  |  170  |  183  |  108  |  126  |  160  |  521  |  34  |  150  |  50  |  2   |  0   |  0   |  0   |  24
+  Total      |  NA                |  4002  |  5230  |  1813  |  1707  |  799  |  307  |  244  |  2906  |  460  |  199  |  2625  |  112  |  91  |  170  |  183  |  108  |  126  |  160  |  521  |  34  |  150  |  50  |  2   |  1   |  16  |  7   |  24
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Note: The table count the worst 100000 paths, each endpoint count only one time.(22047 paths analyzed)
+
+Hierarchical Rent Exponent Report
++-----------------------------------------------------------------------------+
+|Inst      |Model                      |Rent     |Cell     |Pin     |Term     |
++-----------------------------------------------------------------------------+
+|top       |fall_camera_hdmi_multi_top |0.13     |24641    |115415  |17       |
+|  u_store |frame_store_10             |0.51     |2069     |6728    |161      |
+|  u_core  |fall_core_multi_top_4      |0.42     |17943    |89201   |293      |
++-----------------------------------------------------------------------------+
+Note: Cell represents total number of cells inside module; Pin represents total number of pins
+      which have net connection inside module; Term represents total number of PIs and POs of module.
+      Rent represents the relationship between number of terms and number of cells in module.
+      A module with higher rent corresponds to highly connected logic and strong connectivity with others.
+Report gate stage QoR done.
+
+SYN-1001 : The design has 8 dangling syn_keep insts.
+RUN-1003 : finish command "report_qor -step gate -file gate.qor" in  18.716564s wall, 17.281250s user + 0.156250s system = 17.437500s CPU (93.2%)
+
+RUN-1004 : used memory is 664 MB, reserved memory is 653 MB, peak memory is 723 MB
+SYN-1001 : End Stage 2 | Optimize Gate; Time: 128.786022s wall, 118.781250s user + 0.921875s system = 119.703125s CPU (92.9%); Memory(MB): used = 664, reserved = 653, peak = 723;
+
+RUN-1003 : finish command "optimize_gate" in  128.837547s wall, 118.812500s user + 0.921875s system = 119.734375s CPU (92.9%)
+
+RUN-1004 : used memory is 664 MB, reserved memory is 653 MB, peak memory is 723 MB
+RUN-1002 : start command "legalize_phy_inst"
+SYN-1001 : Stage 3 | Legalize Phy Inst
+SYN-1011 : Flatten model fall_camera_hdmi_multi_top
+SYN-1001 : End Stage 3 | Legalize Phy Inst; Time: 0.309068s wall, 0.265625s user + 0.000000s system = 0.265625s CPU (85.9%); Memory(MB): used = 664, reserved = 653, peak = 723;
+
+RUN-1002 : start command "read_sdc E:/FPGA guo sai/fall_detection/fpga/td/fall_camera_hdmi_top.sdc"
+RUN-1002 : start command "report_area -file E:/FPGA guo sai/fall_detection/fpga/td/out_board_hdmi/hdmi_pnr_gate.area"
+RUN-1001 : standard
+***Report Model: fall_camera_hdmi_multi_top Device: EG4S20NG88***
+
+IO Statistics
+#IO                        24   out of     66   36.36%
+  #input                   13
+  #output                  10
+  #inout                    1
+
+LUT Statistics
+#Total_luts             11421
+  #lut4                 10949
+  #lut5                   454
+  #lut6                    18
+  #lut5_mx41                0
+  #lut4_alu1b               0
+
+Utilization Statistics
+#lut                    18891   out of  19600   96.38%
+#reg                     8929   out of  19600   45.56%
+#bram                      52   out of     64   81.25%
+  #bram9k                  52
+  #fifo9k                   0
+#bram32k                   16   out of     16  100.00%
+#dsp                        9   out of     29   31.03%
+#pad                       28   out of     66   42.42%
+  #ireg                     0
+  #oreg                     4
+  #treg                     0
+#pll                        2   out of      4   50.00%
+#gclk                       2   out of     16   12.50%
+
+RUN-1003 : finish command "report_area -file E:/FPGA guo sai/fall_detection/fpga/td/out_board_hdmi/hdmi_pnr_gate.area" in  5.991375s wall, 5.578125s user + 0.031250s system = 5.609375s CPU (93.6%)
+
+RUN-1004 : used memory is 664 MB, reserved memory is 653 MB, peak memory is 723 MB
+RUN-1002 : start command "place"
+RUN-1001 : Open license file E:/Anlogic/TD_6.2.1_Engineer_6.2.168.116/license/Anlogic.lic
+PHY-3001 : Placer runs in 24 thread(s).
+PHY-1001 : Stage 1 | Initialize Design
+PHY-1001 : Stage 1.1 | Build Design
+PHY-1001 : 11421 luts, 8923 seqs, 2452 mslices, 1274 lslices, 83 pads, 68 brams, 9 dsps
+RUN-1002 : start command "legalize_phy_inst"
+SYN-1011 : Flatten model fall_camera_hdmi_multi_top
+PHY-1001 : Remove keep and sweep redundant instances ...
+PHY-1001 : 11421 luts, 8915 seqs, 2452 mslices, 1274 lslices, 83 pads, 68 brams, 9 dsps
+PHY-1001 : End Stage 1.1 | Build Design; Time: 0.429875s wall, 0.390625s user + 0.000000s system = 0.390625s CPU (90.9%); Memory(MB): used = 664, reserved = 653, peak = 723;
+
+PHY-1001 : Stage 1.2 | Optimize Design
+RUN-1001 : Place-Opt uses density threshold max=0.50, pref=0.30
+OPT-1001 : Stage 1.2.1 | Simplify Lut
+OPT-1001 : End Stage 1.2.1 | Simplify Lut; Time: 0.194678s wall, 0.156250s user + 0.000000s system = 0.156250s CPU (80.3%); Memory(MB): used = 665, reserved = 655, peak = 723;
+
+OPT-1001 : Stage 1.2.2 | Sweep
+OPT-1001 : End Stage 1.2.2 | Sweep; Time: 0.075399s wall, 0.062500s user + 0.000000s system = 0.062500s CPU (82.9%); Memory(MB): used = 665, reserved = 655, peak = 723;
+
+OPT-1001 : Stage 1.2.3 | Synthesize High-fanout Net
+OPT-1001 : Current memory(MB): used = 665, reserved = 655, peak = 723.
+OPT-1001 : End Stage 1.2.3 | Synthesize High-fanout Net; Time: 0.000669s wall, 0.015625s user + 0.000000s system = 0.015625s CPU (n/a%); Memory(MB): used = 665, reserved = 655, peak = 723;
+
+OPT-1001 : End physical optimization;  0.271899s wall, 0.234375s user + 0.000000s system = 0.234375s CPU (86.2%)
+
+PHY-1001 : End Stage 1.2 | Optimize Design; Time: 0.272242s wall, 0.234375s user + 0.000000s system = 0.234375s CPU (86.1%); Memory(MB): used = 665, reserved = 655, peak = 723;
+
+PHY-1001 : Stage 1.3 | Initialize Clock
+SYN-4016 : Net u_store/u_frame_rw/frame_fifo_read_m0/mem_clk driven by BUFG (745 clock/control pins, 1 other pins).
+SYN-4016 : Net clk_pixel driven by BUFG (840 clock/control pins, 1 other pins).
+SYN-4027 : Net u_store/u_sdram_ctrl/SDRAM_CLK is clkc2 of pll u_mem_pll/pll_inst.
+SYN-4019 : Net cmos_xclk_dup_1 is refclk of pll u_mem_pll/pll_inst.
+SYN-4020 : Net cmos_xclk_dup_1 is fbclk of pll u_mem_pll/pll_inst.
+SYN-4027 : Net u_hdmi_tx/Inst_DVITransmitter/PCLK_X5_I is clkc1 of pll u_video_pll/pll_inst.
+SYN-4019 : Net cmos_xclk_dup_1 is refclk of pll u_video_pll/pll_inst.
+SYN-4020 : Net cmos_xclk_dup_1 is fbclk of pll u_video_pll/pll_inst.
+SYN-4024 : Net "u_store/u_frame_rw/write_buf/clkw" drives clk pins.
+SYN-4025 : Tag rtl::Net clk_pixel as clock net
+SYN-4025 : Tag rtl::Net cmos_xclk_dup_1 as clock net
+SYN-4025 : Tag rtl::Net u_hdmi_tx/Inst_DVITransmitter/PCLK_X5_I as clock net
+SYN-4025 : Tag rtl::Net u_store/u_frame_rw/frame_fifo_read_m0/mem_clk as clock net
+SYN-4025 : Tag rtl::Net u_store/u_frame_rw/write_buf/clkw as clock net
+SYN-4025 : Tag rtl::Net u_store/u_sdram_ctrl/SDRAM_CLK as clock net
+SYN-4026 : Tagged 6 rtl::Net as clock net
+PHY-1001 : Populate physical database on model fall_camera_hdmi_multi_top.
+RUN-1001 : There are total 24229 instances
+RUN-0007 : 11420 luts, 8915 seqs, 2452 mslices, 1274 lslices, 83 pads, 68 brams, 9 dsps
+RUN-1001 : There are total 29965 nets
+RUN-1001 : 19820 nets have 2 pins
+RUN-1001 : 7814 nets have [3 - 5] pins
+RUN-1001 : 1662 nets have [6 - 10] pins
+RUN-1001 : 351 nets have [11 - 20] pins
+RUN-1001 : 253 nets have [21 - 99] pins
+RUN-1001 : 65 nets have 100+ pins
+PHY-1001 : End Stage 1.3 | Initialize Clock; Time: 0.372840s wall, 0.375000s user + 0.000000s system = 0.375000s CPU (100.6%); Memory(MB): used = 665, reserved = 655, peak = 723;
+
+PHY-1001 : End Stage 1 | Initialize Design; Time: 1.219063s wall, 1.093750s user + 0.015625s system = 1.109375s CPU (91.0%); Memory(MB): used = 665, reserved = 655, peak = 723;
+
+PHY-1001 : Stage 2 | Global Placement
+RUN-1001 : Report Control nets information:
+RUN-1001 : DFF Distribution
+RUN-1001 : -------------------------------------
+RUN-1001 :   CE   |  SSR  |  ASR  |  DFF Count  
+RUN-1001 : -------------------------------------
+RUN-1001 :   No   |  No   |  No   |     562     
+RUN-1001 :   No   |  No   |  Yes  |     960     
+RUN-1001 :   No   |  Yes  |  No   |     90      
+RUN-1001 :   Yes  |  No   |  No   |    2661     
+RUN-1001 :   Yes  |  No   |  Yes  |    4584     
+RUN-1001 :   Yes  |  Yes  |  No   |     58      
+RUN-1001 : -------------------------------------
+RUN-1001 : Control Group Statistic
+RUN-1001 : -----------------------------
+RUN-1001 :   #CLK  |  #CE  |  #SSR/ASR  
+RUN-1001 : -----------------------------
+RUN-1001 :    5    |  436  |     14     
+RUN-1001 : -----------------------------
+RUN-0007 : Control Set = 457
+PHY-1001 : Stage 2.1 | Place Fixed Instances
+PHY-1001 : End Stage 2.1 | Place Fixed Instances; Time: 0.529769s wall, 0.437500s user + 0.000000s system = 0.437500s CPU (82.6%); Memory(MB): used = 682, reserved = 672, peak = 723;
+
+PHY-1001 : Stage 2.2 | Pre-Place DRC Check
+PHY-1001 : Stage 2.2.1 | Force Route Constraint Check
+PHY-1001 : Check Pass.
+PHY-1001 : End Stage 2.2.1 | Force Route Constraint Check; Time: 0.013630s wall, 0.000000s user + 0.000000s system = 0.000000s CPU (n/a%); Memory(MB): used = 682, reserved = 672, peak = 723;
+
+PHY-1001 : End Stage 2.2 | Pre-Place DRC Check; Time: 0.013788s wall, 0.000000s user + 0.000000s system = 0.000000s CPU (n/a%); Memory(MB): used = 682, reserved = 672, peak = 723;
+
+PHY-1001 : Stage 2.3 | Global Placement Step 1
+PHY-3001 : Target density is 60%
+PHY-1001 : Stage 2.3.1 | Update Timing
+RUN-1002 : start command "start_timer"
+RUN-1003 : finish command "start_timer" in  4.144839s wall, 3.718750s user + 0.031250s system = 3.750000s CPU (90.5%)
+
+RUN-1004 : used memory is 698 MB, reserved memory is 688 MB, peak memory is 723 MB
+PHY-1001 : SWNS: 284, STNS: 0, FEP: 0
+PHY-1001 : End Stage 2.3.1 | Update Timing; Time: 8.551704s wall, 7.781250s user + 0.062500s system = 7.843750s CPU (91.7%); Memory(MB): used = 699, reserved = 688, peak = 723;
+
+PHY-0007 : Cell area utilization is 96%
+RUN-1001 : Huge Net Statistic
+RUN-1001 : -----------------------------------------------
+RUN-1001 :   Fanout  |  Slack  |           Net            
+RUN-1001 : -----------------------------------------------
+RUN-1001 :    3372   |  31886  |       u_core/rst_n       
+RUN-1001 :    1968   |  39282  |          rst_n           
+RUN-1001 :    1282   |  31769  |  u_core/u_bbox/a_col[1]  
+RUN-1001 : -----------------------------------------------
+PHY-3001 : Clustering ...
+PHY-3001 : End clustering;  0.320663s wall, 0.421875s user + 0.109375s system = 0.531250s CPU (165.7%)
+
+PHY-3001 : Target density is 60%
+PHY-1001 : Stage 2.3.2 | GP Iteration
+PHY-1001 : End Stage 2.3.2 | GP Iteration; Time: 2.161979s wall, 4.937500s user + 0.937500s system = 5.875000s CPU (271.7%); Memory(MB): used = 700, reserved = 690, peak = 723;
+
+PHY-3001 : Multithread accelerating rate: 2.55
+PHY-3001 : Low accelerating rate: 2.55. This may happen when it is heavy-loaded.
+TMR-2502 : Net delay update with mode: Placed
+PHY-3001 : No need to merge 9x9 Dsps.
+PHY-1001 : Populate physical database on model fall_camera_hdmi_multi_top.
+PHY-1001 : End Stage 2.3 | Global Placement Step 1; Time: 16.844169s wall, 18.484375s user + 1.203125s system = 19.687500s CPU (116.9%); Memory(MB): used = 700, reserved = 690, peak = 723;
+
+PHY-1001 : Stage 2.4 | RAM/DSP Legalization and Detailed Placement
+PHY-1001 : Stage 2.4.1 | Legalization
+PHY-3001 : Before Legalized: Len = 244680
+PHY-3001 : After Legalized: Len = 358516, Over = 2338.81
+PHY-1001 : End Stage 2.4.1 | Legalization; Time: 4.491100s wall, 4.234375s user + 0.000000s system = 4.234375s CPU (94.3%); Memory(MB): used = 700, reserved = 690, peak = 723;
+
+PHY-1001 : End Stage 2.4 | RAM/DSP Legalization and Detailed Placement; Time: 4.493089s wall, 4.234375s user + 0.000000s system = 4.234375s CPU (94.2%); Memory(MB): used = 700, reserved = 690, peak = 723;
+
+PHY-1001 : Stage 2.5 | Global Placement Step 2
+PHY-3001 : Target density is 60%
+PHY-1001 : Stage 2.5.1 | Update Timing
+PHY-1001 : SWNS: 3075, STNS: 0, FEP: 0
+PHY-1001 : End Stage 2.5.1 | Update Timing; Time: 0.444144s wall, 0.437500s user + 0.000000s system = 0.437500s CPU (98.5%); Memory(MB): used = 700, reserved = 690, peak = 723;
+
+PHY-1001 : Stage 2.5.2 | GP Iteration
+PHY-1001 : End Stage 2.5.2 | GP Iteration; Time: 23.922873s wall, 87.906250s user + 2.718750s system = 90.625000s CPU (378.8%); Memory(MB): used = 700, reserved = 690, peak = 723;
+
+PHY-3001 : Multithread accelerating rate: 3.79
+PHY-3001 : Low accelerating rate: 3.79. This may happen when it is heavy-loaded.
+PHY-1001 : End Stage 2.5 | Global Placement Step 2; Time: 29.478772s wall, 92.421875s user + 2.765625s system = 95.187500s CPU (322.9%); Memory(MB): used = 700, reserved = 690, peak = 723;
+
+PHY-1001 : Stage 2.6 | RAM/DSP Detailed Placement
+PHY-1001 : End Stage 2.6 | RAM/DSP Detailed Placement; Time: 0.063858s wall, 0.031250s user + 0.000000s system = 0.031250s CPU (48.9%); Memory(MB): used = 700, reserved = 690, peak = 723;
+
+PHY-1001 : Stage 2.7 | Optimize Design
+OPT-1001 : Start physical optimization ...
+OPT-1001 : Total overflow 1113.91 peak overflow 4.97
+OPT-1001 : Stage 2.7.1 | Synthesize High-fanout Net
+OPT-1001 : Start high-fanout net optimization in pre-pack flow with medium effort ...
+OPT-1001 : Update timing in Manhattan mode
+OPT-1001 : End timing update;  4.926183s wall, 4.421875s user + 0.093750s system = 4.515625s CPU (91.7%)
+
+OPT-1001 : Start: SWNS 3133 STNS 0 NUM_FEPS 0
+OPT-1001 : Total overflow 1113.91 peak overflow 4.97
+PHY-1001 : Populate physical database on model fall_camera_hdmi_multi_top.
+OPT-1001 : 33 high-fanout net processed.
+PHY-3001 : Start incremental placement ...
+PHY-1001 : Populate physical database on model fall_camera_hdmi_multi_top.
+PHY-3001 : Target density is 60%
+PHY-3001 : Target density is 60%
+PHY-1001 : Stage 2.7.1.1 | Update Timing
+PHY-1001 : SWNS: 3133, STNS: 0, FEP: 0
+PHY-1001 : End Stage 2.7.1.1 | Update Timing; Time: 0.531222s wall, 0.468750s user + 0.015625s system = 0.484375s CPU (91.2%); Memory(MB): used = 703, reserved = 692, peak = 723;
+
+PHY-1001 : Stage 2.7.1.2 | GP Iteration
+PHY-1001 : End Stage 2.7.1.2 | GP Iteration; Time: 5.298001s wall, 20.359375s user + 0.578125s system = 20.937500s CPU (395.2%); Memory(MB): used = 703, reserved = 692, peak = 723;
+
+PHY-3001 : Multithread accelerating rate: 3.95
+PHY-3001 : Low accelerating rate: 3.95. This may happen when it is heavy-loaded.
+PHY-3001 : Final: Len = 833678, Over = 569.031
+PHY-3001 : End incremental placement;  7.277250s wall, 22.078125s user + 0.593750s system = 22.671875s CPU (311.5%)
+
+OPT-1001 : Total overflow 1177.75 peak overflow 8.03
+RUN-1001 : HFN opt statistic
+RUN-1001 : ------------------------------------------------------
+RUN-1001 :   DriverCell type  |  HFN count  |  Duplicated count  
+RUN-1001 : ------------------------------------------------------
+RUN-1001 :         REG        |     33      |        326         
+RUN-1001 :        LUT6        |      0      |         0          
+RUN-1001 :        LUT5        |      0      |         0          
+RUN-1001 :        LUT4        |      0      |         0          
+RUN-1001 :        LUT3        |      0      |         0          
+RUN-1001 :        LUT2        |      0      |         0          
+RUN-1001 :        TOTAL       |     33      |        326         
+RUN-1001 : ------------------------------------------------------
+OPT-1001 : End high-fanout net optimization;  29.871637s wall, 42.687500s user + 0.859375s system = 43.546875s CPU (145.8%)
+
+OPT-1001 : Update timing in Manhattan mode
+OPT-1001 : End timing update;  5.367160s wall, 4.734375s user + 0.046875s system = 4.781250s CPU (89.1%)
+
+OPT-1001 : Current memory(MB): used = 704, reserved = 693, peak = 723.
+OPT-1001 : End Stage 2.7.1 | Synthesize High-fanout Net; Time: 35.820442s wall, 47.968750s user + 0.906250s system = 48.875000s CPU (136.4%); Memory(MB): used = 704, reserved = 693, peak = 723;
+
+OPT-1001 : Stage 2.7.2 | Synthesize High-fanout Net
+OPT-1001 : Current memory(MB): used = 704, reserved = 693, peak = 723.
+OPT-1001 : End Stage 2.7.2 | Synthesize High-fanout Net; Time: 0.763526s wall, 0.609375s user + 0.015625s system = 0.625000s CPU (81.9%); Memory(MB): used = 704, reserved = 693, peak = 723;
+
+OPT-1001 : Stage 2.7.3 | Optimize Bottleneck
+OPT-1001 : Start bottleneck based optimization ...
+OPT-0007 : Start: SWNS 3164 STNS 0 NUM_FEPS 0
+OPT-1001 : Start congestion update ...
+RUN-1001 : Generating global routing grids ...
+RUN-1001 : Building simple global routing graph ...
+PHY-1001 : Generate routing nets ...
+PHY-1001 : Reuse net number 0/24136.
+PHY-1001 : Global iterations in 24 thread ...
+PHY-1002 : len = 1.01767e+06, over cnt = 4803(13%), over = 16306, worst = 28
+PHY-1002 : len = 1.10442e+06, over cnt = 4619(13%), over = 11787, worst = 23
+PHY-1002 : len = 1.2387e+06, over cnt = 3432(9%), over = 6414, worst = 13
+PHY-1002 : len = 1.38619e+06, over cnt = 1699(4%), over = 1911, worst = 11
+PHY-1002 : len = 1.48444e+06, over cnt = 441(1%), over = 456, worst = 4
+PHY-1001 : End global iterations;  30.152903s wall, 33.406250s user + 0.359375s system = 33.765625s CPU (112.0%)
+
+PHY-1001 : Congestion index:
+PHY-1001 : top1  = 77.19(S 93.88, N 95.11, E 87.65, W 87.59, I 0.00, O 0.00)
+PHY-1001 : top5  = 69.72(S 84.13, N 83.68, E 77.84, W 75.70, I 0.00, O 0.00)
+PHY-1001 : top10 = 66.06(S 78.23, N 76.94, E 72.43, W 69.94, I 0.00, O 0.00)
+PHY-1001 : top15 = 63.70(S 74.49, N 72.80, E 69.11, W 66.37, I 0.00, O 0.00)
+OPT-1001 : End congestion update;  31.384453s wall, 34.484375s user + 0.390625s system = 34.875000s CPU (111.1%)
+
+OPT-0007 : Skip optimization due to slack greater than threshold 3000
+OPT-1001 : Current memory(MB): used = 723, reserved = 702, peak = 723.
+OPT-1001 : End Stage 2.7.3 | Optimize Bottleneck; Time: 32.017396s wall, 35.078125s user + 0.390625s system = 35.468750s CPU (110.8%); Memory(MB): used = 723, reserved = 702, peak = 723;
+
+OPT-1001 : Stage 2.7.4 | Optimize Path
+OPT-1001 : Start path based optimization ...
+OPT-0007 : Start: SWNS 3164 STNS 0 NUM_FEPS 0 with mode 0
+OPT-0007 : Skip optimization due to slack greater than threshold 3000
+OPT-1001 : Current memory(MB): used = 723, reserved = 702, peak = 723.
+OPT-1001 : End Stage 2.7.4 | Optimize Path; Time: 0.656296s wall, 0.546875s user + 0.000000s system = 0.546875s CPU (83.3%); Memory(MB): used = 723, reserved = 702, peak = 723;
+
+OPT-1001 : Stage 2.7.5 | Aggressive Optimization
+OPT-1001 : End Stage 2.7.5 | Aggressive Optimization; Time: 0.576089s wall, 0.484375s user + 0.000000s system = 0.484375s CPU (84.1%); Memory(MB): used = 723, reserved = 702, peak = 723;
+
+OPT-0007 : End flow prepack: SWNS 3164 STNS 0 NUM_FEPS 0
+OPT-1001 : End physical optimization;  69.953594s wall, 85.062500s user + 1.312500s system = 86.375000s CPU (123.5%)
+
+PHY-1001 : End Stage 2.7 | Optimize Design; Time: 69.955326s wall, 85.062500s user + 1.312500s system = 86.375000s CPU (123.5%); Memory(MB): used = 723, reserved = 702, peak = 723;
+
+PHY-1001 : Stage 2.8 | Place Packing
+PHY-1001 : Stage 2.8.1 | Packing
+SYN-4007 : Packing 0 MUX to BLE ...
+SYN-4008 : Packed 0 MUX and 0 SEQ to BLE.
+SYN-4007 : Packing 11420 LUT to BLE ...
+SYN-4008 : Packed 11420 LUT and 2741 SEQ to BLE.
+SYN-4003 : Packing 6500 remaining SEQ's ...
+SYN-4005 : Packed 5741 SEQ with LUT/SLICE
+SYN-4006 : 3614 single LUT's are left
+SYN-4006 : 759 single SEQ's are left
+SYN-4011 : Packing model "fall_camera_hdmi_multi_top" (AL_USER_NORMAL) with 12179/16073 primitive instances ...
+PHY-1001 : Populate physical database on model fall_camera_hdmi_multi_top.
+RUN-1001 : There are total 10313 instances
+RUN-1001 : 5073 mslices, 5072 lslices, 83 pads, 68 brams, 9 dsps
+RUN-1001 : There are total 28148 nets
+RUN-1001 : 17743 nets have 2 pins
+RUN-1001 : 7857 nets have [3 - 5] pins
+RUN-1001 : 1595 nets have [6 - 10] pins
+RUN-1001 : 405 nets have [11 - 20] pins
+RUN-1001 : 514 nets have [21 - 99] pins
+RUN-1001 : 34 nets have 100+ pins
+PHY-9009 ERROR: Design's mslice number = 5073, exceeds the limit 4900. There are more MSlices exceeding the limit of the device. You can try using 'report_area' in console to check the resource utilization of the device and results of Optimize Gate stage. And you can try modifying the design or changing the strategy of syn and rerunning it.
+PHY-1001 : End Stage 2.8.1 | Packing; Time: 8.540254s wall, 7.578125s user + 0.109375s system = 7.687500s CPU (90.0%); Memory(MB): used = 727, reserved = 704, peak = 727;
+
+PHY-1001 : End Stage 2.8 | Place Packing; Time: 8.540429s wall, 7.578125s user + 0.109375s system = 7.687500s CPU (90.0%); Memory(MB): used = 727, reserved = 704, peak = 727;
+
+PHY-1001 : End Stage 2 | Global Placement; Time: 130.168407s wall, 208.515625s user + 5.390625s system = 213.906250s CPU (164.3%); Memory(MB): used = 727, reserved = 704, peak = 727;
+
+PHY-1001 : Stage 3 | Optimize Design
+PHY-1001 : End Stage 3 | Optimize Design; Time: 0.001175s wall, 0.000000s user + 0.000000s system = 0.000000s CPU (n/a%); Memory(MB): used = 727, reserved = 704, peak = 727;
+
+PHY-1001 : Stage 4 | DRC Check
+PHY-1001 : Stage 4.1 | Force Route Constraint Check
+PHY-1001 : Check Pass.
+PHY-1001 : End Stage 4.1 | Force Route Constraint Check; Time: 0.013087s wall, 0.015625s user + 0.000000s system = 0.015625s CPU (119.4%); Memory(MB): used = 727, reserved = 704, peak = 727;
+
+PHY-1001 : Stage 4.2 | Duplicated SelfDriven Check
+PHY-1001 : Check pass.
+PHY-1001 : End Stage 4.2 | Duplicated SelfDriven Check; Time: 0.159803s wall, 0.140625s user + 0.000000s system = 0.140625s CPU (88.0%); Memory(MB): used = 727, reserved = 704, peak = 727;
+
+PHY-1001 : Stage 4.3 | Clock Rule Check
+PHY-1001 : End Stage 4.3 | Clock Rule Check; Time: 0.003238s wall, 0.000000s user + 0.000000s system = 0.000000s CPU (n/a%); Memory(MB): used = 727, reserved = 704, peak = 727;
+
+PHY-1001 : End Stage 4 | DRC Check; Time: 0.278013s wall, 0.203125s user + 0.000000s system = 0.203125s CPU (73.1%); Memory(MB): used = 727, reserved = 704, peak = 727;
+
+OPT-1001 : QoR tracer report on placement steps:
+    SWNS [   incr ]    STNS [   incr ]    FEPS [   incr ]    CRIT [   incr ]      CELL [     incr ]        WL [     incr ]    CONG [   incr ]    PDES [   incr ]   RT(s) [   incr ]   MEM(mb) [     incr ]
+       0 [      0 ]       0 [      0 ]       0 [      0 ]       0 [      0 ]     24229 [        0 ]         0 [        0 ]    0.00 [   0.00 ]       0 [      0 ]       0 [      0 ]       723 [        0 ] : preplace:simplify_lut
+       0 [      0 ]       0 [      0 ]       0 [      0 ]       0 [      0 ]     24229 [        0 ]         0 [        0 ]    0.00 [   0.00 ]       0 [      0 ]       0 [      0 ]       723 [        0 ] : preplace:sweep
+       0 [      0 ]       0 [      0 ]       0 [      0 ]       0 [      0 ]     24229 [        0 ]         0 [        0 ]    0.00 [   0.00 ]       0 [      0 ]       0 [      0 ]       723 [        0 ] : preplace:hfn_opt
+    3075 [   3075 ]       0 [      0 ]       0 [      0 ]   23711 [  23711 ]     24229 [        0 ]    239801 [   239801 ]    0.00 [   0.00 ]       0 [      0 ]      18 [     18 ]       723 [        0 ] : step1_gp
+    3075 [      0 ]       0 [      0 ]       0 [      0 ]   23011 [   -700 ]     24229 [        0 ]    353645 [   113844 ]    0.00 [   0.00 ]       0 [      0 ]      23 [      5 ]       723 [        0 ] : step1_legal
+    3133 [     58 ]       0 [      0 ]       0 [      0 ]   20767 [  -2244 ]     24229 [        0 ]    859259 [   505614 ]    0.00 [   0.00 ]       0 [      0 ]      52 [     29 ]       723 [        0 ] : step2_gp
+    3164 [     31 ]       0 [      0 ]       0 [      0 ]   21327 [    560 ]     24555 [      326 ]    827978 [   -31281 ]    0.00 [   0.00 ]       0 [      0 ]      88 [     36 ]       723 [        0 ] : prepack:hfn_opt
+    3164 [      0 ]       0 [      0 ]       0 [      0 ]   21327 [      0 ]     24555 [        0 ]    827978 [        0 ]    0.00 [   0.00 ]       0 [      0 ]      89 [      1 ]       723 [        0 ] : prepack:crit_hfn_opt
+    3164 [      0 ]       0 [      0 ]       0 [      0 ]   21327 [      0 ]     24555 [        0 ]    827978 [        0 ]   76.86 [  76.86 ]       0 [      0 ]     121 [     32 ]       723 [        0 ] : prepack:bn_opt
+    3164 [      0 ]       0 [      0 ]       0 [      0 ]   21327 [      0 ]     24555 [        0 ]    827978 [        0 ]   76.86 [   0.00 ]       0 [      0 ]     122 [      1 ]       723 [        0 ] : prepack:path_opt
+    3164 [      0 ]       0 [      0 ]       0 [      0 ]   21327 [      0 ]     24555 [        0 ]    827978 [        0 ]   76.86 [   0.00 ]       0 [      0 ]     122 [      0 ]       723 [        0 ] : prepack:aggressive_opt2
+
+RUN-1003 : finish command "place" in  131.849733s wall, 209.968750s user + 5.406250s system = 215.375000s CPU (163.3%)
+
+RUN-1004 : used memory is 727 MB, reserved memory is 704 MB, peak memory is 727 MB
+

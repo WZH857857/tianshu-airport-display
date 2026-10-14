@@ -1,0 +1,13 @@
+============================================================
+   Tang Dynasty, V6.2.168116
+   Copyright (c) 2012-2025 Anlogic Inc.
+   Executable = E:/Anlogic/TD_6.2.1_Engineer_6.2.168.116/bin/td_commands_prompt.exe
+   Built at =   16:32:07 Jun 12 2025
+   Run by =     ASUS
+   Run Date =   Mon Oct  5 03:26:26 2026
+
+   Run on =     LAPTOP-TFPALG0P
+============================================================
+RUN-1002 : start command "import_device E:/Anlogic/TD_6.2.1_Engineer_6.2.168.116/arch/eagle_20.db -package EG4S20NG88"
+USR-8001 ERROR: device E:/Anlogic/TD_6.2.1_Engineer_6.2.168.116/arch/eagle_20 not support package EG4S20NG88
+

@@ -1,0 +1,100 @@
+# hdmi_mm_player pin assignment
+# board HX4S20 / EG4S20BG256, pins from HX4S20开发板手册-HDL版2410.pdf
+#   sections: 2.2 LED and keys, 2.4 HDMI socket A, 2.17 TF card
+
+# 50 MHz system clock
+set_pin_assignment { sys_clk } { LOCATION = R7; IOSTANDARD = LVCMOS33; PULLTYPE = NONE; }
+
+# KEY3 = reset, KEY1 = show the next picture
+set_pin_assignment { sys_rst_n } { LOCATION = B1; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+set_pin_assignment { key_mode } { LOCATION = A2; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+set_pin_assignment { key_bright } { LOCATION = B2; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+set_pin_assignment { key_ui } { LOCATION = C1; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+
+# SW1 selects the picture-advance mode.  The board manual documents the four
+# slide switches as level inputs: up = 1, down = 0.  Down is the power-on
+# state, so the player starts in manual mode; KEY1 still advances one picture.
+set_pin_assignment { key_auto } { LOCATION = C8; IOSTANDARD = LVCMOS33; PULLTYPE = NONE; }
+
+# USB-UART bridge, the same Type-C socket that powers the board.  The manual
+# table in HX4S20开发板手册-HDL版2410.pdf section 2.9 lists the FPGA side as
+# RXD = F12 and TXD = D12.  The host application talks to this pair.
+set_pin_assignment { uart_rx_pin } { LOCATION = F12; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+set_pin_assignment { uart_tx_pin } { LOCATION = D12; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+
+# DS1307 / Tiny RTC on the J1 expansion header.
+# J1 is documented with pin 1 at the upper-left.  J1.25 is H15 (SCL) and
+# J1.26 is H16 (SDA); J1.29 is 3.3 V and J1.30 is GND.
+set_pin_assignment { rtc_scl } { LOCATION = H15; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = PULLUP; }
+set_pin_assignment { rtc_sda } { LOCATION = H16; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = PULLUP; }
+
+# the four separate LEDs, numbered as in the vendor DEMO
+set_pin_assignment { led[0] } { LOCATION = A4; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment { led[1] } { LOCATION = A3; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment { led[2] } { LOCATION = C10; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment { led[3] } { LOCATION = B12; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+
+# HDMI socket A (the one wired straight to the FPGA).
+# socket B would be: CLK = C3, D0 = G5, D1 = F1, D2 = E1,
+#                    SCL = P2, SDA = R2
+#
+# The HDMI 1.4b transmitter core reads the monitor EDID over the DDC lines, so
+# socket A needs them as well.  Socket A DDC and hot plug, from
+# HX4S20开发板手册-HDL版2410.pdf section 2.4:
+#   HDMIA_SCL = P1, HDMIA_SDA = R1, HDMIA_HPD = K2, HDMIA_CEC = K3
+# HPD and CEC are not used: the core does not look at them.
+set_pin_assignment { HDMI_CLK_P } { LOCATION = K1; IOSTANDARD = LVDS33; PULLTYPE = NONE; }
+set_pin_assignment { HDMI_D2_P } { LOCATION = B3; IOSTANDARD = LVDS33; PULLTYPE = NONE; }
+set_pin_assignment { HDMI_D1_P } { LOCATION = E3; IOSTANDARD = LVDS33; PULLTYPE = NONE; }
+set_pin_assignment { HDMI_D0_P } { LOCATION = F5; IOSTANDARD = LVDS33; PULLTYPE = NONE; }
+set_pin_assignment { HDMI_DDC_SCL } { LOCATION = P1; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = PULLUP; }
+set_pin_assignment { HDMI_DDC_SDA } { LOCATION = R1; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = PULLUP; }
+
+# HDMI socket B sits on the same FPGA bank as socket A and carries the same
+# TMDS stream.  Output pins are C3 / E1 / F1 / G5.  The socket B DDC pair
+# (P2 / R2) is assigned as well: the core only reads EDID from socket A, so B
+# is driven from the A lines and both connectors see the same monitor model.
+# Leave these assignments in place so the B connectors are never left
+# floating; remove them only if socket B has to be freed for another use.
+set_pin_assignment { HDMI_B_CLK_P } { LOCATION = C3; IOSTANDARD = LVDS33; PULLTYPE = NONE; }
+set_pin_assignment { HDMI_B_D2_P } { LOCATION = E1; IOSTANDARD = LVDS33; PULLTYPE = NONE; }
+set_pin_assignment { HDMI_B_D1_P } { LOCATION = F1; IOSTANDARD = LVDS33; PULLTYPE = NONE; }
+set_pin_assignment { HDMI_B_D0_P } { LOCATION = G5; IOSTANDARD = LVDS33; PULLTYPE = NONE; }
+set_pin_assignment { HDMI_B_DDC_SCL } { LOCATION = P2; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = PULLUP; }
+set_pin_assignment { HDMI_B_DDC_SDA } { LOCATION = R2; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = PULLUP; }
+
+# TF card in SPI mode. The card socket is on the back of the board.
+set_pin_assignment { SD_nCS }  { LOCATION = A12; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment { SD_DCLK } { LOCATION = A14; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment { SD_MOSI } { LOCATION = A13; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment { SD_MISO } { LOCATION = B14; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+
+# Fire emergency annunciators, from HX4S20开发板手册-HDL版2410.pdf sections
+# 2.14 (buzzer) and 2.11 / 2.12 (eight digit display and dual colour LEDs).
+#
+# BUZZER is driven through a transistor: low level = sound.  SW5 has to be
+# pushed down to connect it.
+set_pin_assignment { buzzer } { LOCATION = H11; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+
+# Common anode eight digit display.  DIG0..DIG7 are the a..g / dp segments and
+# SEL0..SEL7 the digit selects.  Both groups are low active on this board: the
+# digit commons go through inverting transistor drivers, so driving SEL low
+# lights the selected digit.  The same sixteen pins also feed the dual colour
+# LED array, and SW6 picks which of the two is connected: up = digits,
+# down = LEDs.
+set_pin_assignment { seg_n[0] } { LOCATION = C15; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment { seg_n[1] } { LOCATION = C16; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment { seg_n[2] } { LOCATION = B6;  IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment { seg_n[3] } { LOCATION = A5;  IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment { seg_n[4] } { LOCATION = B5;  IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment { seg_n[5] } { LOCATION = A8;  IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment { seg_n[6] } { LOCATION = A7;  IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment { seg_n[7] } { LOCATION = A6;  IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment { sel[0] } { LOCATION = F16; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment { sel[1] } { LOCATION = E16; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment { sel[2] } { LOCATION = E12; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment { sel[3] } { LOCATION = E10; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment { sel[4] } { LOCATION = C13; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment { sel[5] } { LOCATION = F10; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment { sel[6] } { LOCATION = E11; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment { sel[7] } { LOCATION = D11; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }

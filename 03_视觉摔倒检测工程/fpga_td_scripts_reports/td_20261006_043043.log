@@ -1,0 +1,20 @@
+============================================================
+   Tang Dynasty, V6.2.168116
+   Copyright (c) 2012-2025 Anlogic Inc.
+   Executable = E:/Anlogic/TD_6.2.1_Engineer_6.2.168.116/bin/td_commands_prompt.exe
+   Built at =   16:32:07 Jun 12 2025
+   Run by =     ASUS
+   Run Date =   Tue Oct  6 04:30:43 2026
+
+   Run on =     LAPTOP-TFPALG0P
+============================================================
+RUN-1002 : start command "download -mode jtag -bit E:/FPGA guo sai/fall_detection/fpga/td/out_board_hdmi/hdmi_multi.bit"
+PRG-2014 : Chip validation success: EG4S20NG88
+RUN-1002 : start command "bit_to_vec -chip EG4S20NG88 -m jtag_burst -freq 3.000000 -bit E:/FPGA guo sai/fall_detection/fpga/td/out_board_hdmi/hdmi_multi.bit"
+RUN-1002 : start command "program -cable 0 -mode svf -spd 8 -p"
+RUN-1003 : finish command "program -cable 0 -mode svf -spd 8 -p" in  7.690417s wall, 0.062500s user + 0.078125s system = 0.140625s CPU (1.8%)
+
+RUN-1004 : used memory is 77 MB, reserved memory is 76 MB, peak memory is 77 MB
+RUN-1003 : finish command "download -mode jtag -bit E:/FPGA guo sai/fall_detection/fpga/td/out_board_hdmi/hdmi_multi.bit" in  7.903510s wall, 0.203125s user + 0.078125s system = 0.281250s CPU (3.6%)
+
+RUN-1004 : used memory is 77 MB, reserved memory is 76 MB, peak memory is 77 MB

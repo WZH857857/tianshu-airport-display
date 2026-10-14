@@ -1,0 +1,547 @@
+============================================================
+   Tang Dynasty, V6.2.168116
+   Copyright (c) 2012-2025 Anlogic Inc.
+   Executable = E:/anlogic/TD_6.2.1_Engineer_6.2.168.116/bin/td_commands_prompt.exe
+   Built at =   16:32:07 Jun 12 2025
+   Run by =     ASUS
+   Run Date =   Mon Oct  5 20:35:03 2026
+
+   Run on =     LAPTOP-TFPALG0P
+============================================================
+[multi_synth] import_device eagle_s20.db -package EG4S20NG88
+RUN-1002 : start command "import_device eagle_s20.db -package EG4S20NG88"
+RUN-1001 : Using default speed grade: NA
+ARC-1001 : Device Initialization.
+ARC-1001 : ---------------------------------------------------------------
+ARC-1001 :            OPTION            |        IO         |   SETTING   
+ARC-1001 : ---------------------------------------------------------------
+ARC-1001 :   cso_b/cclk/mosi/miso/dout  |  P69/P82/P81/P80  |    gpio    
+ARC-1001 :             done             |        P8         |    gpio    
+ARC-1001 :           program_b          |        P67        |  dedicate  
+ARC-1001 :        tdi/tms/tck/tdo       |  P25/P22/P26/P21  |  dedicate  
+ARC-1001 : ---------------------------------------------------------------
+ARC-1004 : Device setting, marked 5 dedicate IOs in total.
+[multi_synth] read_hdl
+RUN-1002 : start command "read_hdl -file rtl/gray_front.v rtl/frame_diff.v rtl/motion_morph.v rtl/multi_bbox.v rtl/posture_fsm.v rtl/posture_bank.v rtl/slot_scan.v rtl/status_uart.v rtl/cmos_capture_rgb565.v rtl/ov5640_sccb_cfg.v rtl/led595_shift.v rtl/fall_core_multi_top.v rtl/fall_camera_multi_top.v -top fall_camera_multi_top"
+HDL-1007 : analyze verilog file rtl/gray_front.v
+HDL-1007 : analyze verilog file rtl/frame_diff.v
+HDL-1007 : analyze verilog file rtl/motion_morph.v
+HDL-1007 : analyze verilog file rtl/multi_bbox.v
+HDL-1007 : analyze verilog file rtl/posture_fsm.v
+HDL-1007 : analyze verilog file rtl/posture_bank.v
+HDL-1007 : analyze verilog file rtl/slot_scan.v
+HDL-1007 : analyze verilog file rtl/status_uart.v
+HDL-1007 : analyze verilog file rtl/cmos_capture_rgb565.v
+HDL-1007 : analyze verilog file rtl/ov5640_sccb_cfg.v
+HDL-1007 : analyze verilog file rtl/led595_shift.v
+HDL-1007 : analyze verilog file rtl/fall_core_multi_top.v
+HDL-1007 : analyze verilog file rtl/fall_camera_multi_top.v
+HDL-1007 : elaborate module fall_camera_multi_top in rtl/fall_camera_multi_top.v(30)
+HDL-1007 : elaborate module ov5640_sccb_cfg in rtl/ov5640_sccb_cfg.v(37)
+HDL-1007 : elaborate module cmos_capture_rgb565 in rtl/cmos_capture_rgb565.v(28)
+HDL-1007 : elaborate module fall_core_multi_top in rtl/fall_core_multi_top.v(33)
+HDL-1007 : elaborate module gray_front in rtl/gray_front.v(33)
+HDL-1007 : extracting RAM for identifier 'row_sum' in rtl/gray_front.v(58)
+HDL-1007 : elaborate module frame_diff in rtl/frame_diff.v(45)
+HDL-1007 : extracting RAM for identifier 'prev_ram_lo' in rtl/frame_diff.v(65)
+HDL-1007 : extracting RAM for identifier 'prev_ram_hi' in rtl/frame_diff.v(66)
+HDL-1007 : elaborate module motion_morph in rtl/motion_morph.v(35)
+HDL-1007 : extracting RAM for identifier 'stack3' in rtl/motion_morph.v(57)
+HDL-1007 : extracting RAM for identifier 'stack11' in rtl/motion_morph.v(58)
+HDL-1007 : elaborate module multi_bbox in rtl/multi_bbox.v(38)
+HDL-1007 : extracting RAM for identifier 'mask_ram' in rtl/multi_bbox.v(78)
+HDL-1007 : elaborate module posture_bank in rtl/posture_bank.v(32)
+HDL-1007 : elaborate module posture_fsm(FRAME_H=180,MAX_REF_H=171,MAX_REF_AREA=11520,SUNK_CY2=15,COLLAPSE_FRAMES=36) in rtl/posture_fsm.v(23)
+HDL-1007 : elaborate module led595_shift in rtl/led595_shift.v(11)
+HDL-1007 : elaborate module slot_scan in rtl/slot_scan.v(22)
+HDL-1007 : elaborate module status_uart(SHOW_SLOT=1) in rtl/status_uart.v(27)
+HDL-5001 WARNING: Contains anonymous inst(s) and/or net(s) that have not been renamed
+HDL-1200 : Current top model is fall_camera_multi_top
+HDL-1100 : Inferred 6 RAMs.
+[multi_synth] read_adc
+RUN-1002 : start command "read_adc E:/FPGA guo sai/fall_detection/fpga/td/fall_camera_top.adc"
+RUN-1002 : start command "set_pin_assignment  clk_24m   LOCATION = P13; IOSTANDARD = LVCMOS33; "
+RUN-1002 : start command "set_pin_assignment  key_n   LOCATION = P51; IOSTANDARD = LVCMOS33; "
+RUN-1002 : start command "set_pin_assignment  cmos_data[0]   LOCATION = P2; "
+RUN-1002 : start command "set_pin_assignment  cmos_data[1]   LOCATION = P87; "
+RUN-1002 : start command "set_pin_assignment  cmos_data[2]   LOCATION = P86; "
+RUN-1002 : start command "set_pin_assignment  cmos_data[3]   LOCATION = P78; "
+RUN-1002 : start command "set_pin_assignment  cmos_data[4]   LOCATION = P77; "
+RUN-1002 : start command "set_pin_assignment  cmos_data[5]   LOCATION = P76; "
+RUN-1002 : start command "set_pin_assignment  cmos_data[6]   LOCATION = P75; "
+RUN-1002 : start command "set_pin_assignment  cmos_data[7]   LOCATION = P74; "
+RUN-1002 : start command "set_pin_assignment  cmos_href   LOCATION = P62; "
+RUN-1002 : start command "set_pin_assignment  cmos_pclk   LOCATION = P79; "
+RUN-1002 : start command "set_pin_assignment  cmos_sclk   LOCATION = P70; "
+RUN-1002 : start command "set_pin_assignment  cmos_sdat   LOCATION = P71; "
+RUN-1002 : start command "set_pin_assignment  cmos_vsync   LOCATION = P66; "
+RUN-1002 : start command "set_pin_assignment  cmos_xclk   LOCATION = P72; "
+RUN-1002 : start command "set_pin_assignment  led595_clk   LOCATION = P59; "
+RUN-1002 : start command "set_pin_assignment  led595_dout   LOCATION = P45; "
+RUN-1002 : start command "set_pin_assignment  led595_latch   LOCATION = P57; "
+RUN-1002 : start command "set_pin_assignment  uart_txd   LOCATION = P3; IOSTANDARD = LVCMOS33; "
+RUN-1001 : Starting of IO setups legality check.
+RUN-1001 : Starting of IO vref setups legality check.
+[multi_synth] optimize_rtl
+RUN-1002 : start command "optimize_rtl"
+RUN-1001 : Open license file E:/anlogic/TD_6.2.1_Engineer_6.2.168.116/license/Anlogic.lic
+SYN-1001 : Stage 1 | Optimize RTL
+SYN-1001 : Stage 1.1 | Check Design Sanity
+SYN-1001 : End Stage 1.1 | Check Design Sanity; Time: 0.006197s wall, 0.000000s user + 0.000000s system = 0.000000s CPU (n/a%); Memory(MB): used = 223, reserved = 214, peak = 223;
+
+SYN-1079 : finish stage Check Design Sanity. Total instances: 9989, Total nets: 49097.
+
+SYN-1001 : Stage 1.2 | Initialize Design
+SYN-1001 : End Stage 1.2 | Initialize Design; Time: 1.322105s wall, 1.265625s user + 0.031250s system = 1.296875s CPU (98.1%); Memory(MB): used = 224, reserved = 214, peak = 224;
+
+SYN-1079 : finish stage Initialize Design. Total instances: 2437, Total nets: 40630.
+
+SYN-1001 : Stage 1.3 | Flatten Module
+SYN-1011 : Flatten model fall_camera_multi_top
+SYN-1001 : End Stage 1.3 | Flatten Module; Time: 0.222376s wall, 0.187500s user + 0.000000s system = 0.187500s CPU (84.3%); Memory(MB): used = 224, reserved = 214, peak = 224;
+
+SYN-1079 : finish stage Flatten Module. Total instances: 2425, Total nets: 38727.
+
+SYN-1001 : Stage 1.4 | Uniform Instance
+SYN-5025 WARNING: Using 0 for all undriven pins and nets
+SYN-1001 : End Stage 1.4 | Uniform Instance; Time: 0.034848s wall, 0.031250s user + 0.000000s system = 0.031250s CPU (89.7%); Memory(MB): used = 222, reserved = 222, peak = 224;
+
+SYN-1079 : finish stage Uniform Instance. Total instances: 2394, Total nets: 38691.
+
+SYN-1001 : Stage 1.5 | Optimize Design
+SYN-1066 : Inferred FSM for state register 'u_cfg/phase_reg' in module 'fall_camera_multi_top'
+--------------------------------------------
+     Previous Encoding     New Encoding
+--------------------------------------------
+                    00             0001
+                    01             0010
+                    10             0100
+                    11             1000
+--------------------------------------------
+SYN-1067 : encoded FSM with state register 'u_cfg/phase_reg' using encoding 'one_hot' in model 'fall_camera_multi_top'
+SYN-1066 : Inferred FSM for state register 'u_cfg/state_reg' in module 'fall_camera_multi_top'
+--------------------------------------------
+     Previous Encoding     New Encoding
+--------------------------------------------
+                   000         00000001
+                   001         00000010
+                   010         00000100
+                   011         00001000
+                   100         00010000
+                   101         00100000
+                   110         01000000
+                   111         10000000
+--------------------------------------------
+SYN-1067 : encoded FSM with state register 'u_cfg/state_reg' using encoding 'one_hot' in model 'fall_camera_multi_top'
+SYN-1066 : Inferred FSM for state register 'u_cfg/stop_ph_reg' in module 'fall_camera_multi_top'
+--------------------------------------------
+     Previous Encoding     New Encoding
+--------------------------------------------
+                    00             0001
+                    01             0010
+                    10             0100
+                    11             1000
+--------------------------------------------
+SYN-1067 : encoded FSM with state register 'u_cfg/stop_ph_reg' using encoding 'one_hot' in model 'fall_camera_multi_top'
+SYN-1066 : Inferred FSM for state register 'u_core/u_bank/phase_reg' in module 'fall_camera_multi_top'
+--------------------------------------------
+     Previous Encoding     New Encoding
+--------------------------------------------
+                   000           000001
+                   001           000010
+                   010           000100
+                   011           001000
+                   100           010000
+                   101           100000
+--------------------------------------------
+SYN-1067 : encoded FSM with state register 'u_core/u_bank/phase_reg' using encoding 'one_hot' in model 'fall_camera_multi_top'
+SYN-1066 : Inferred FSM for state register 'u_core/u_bbox/state_reg' in module 'fall_camera_multi_top'
+--------------------------------------------
+     Previous Encoding     New Encoding
+--------------------------------------------
+                    00             0001
+                    01             0010
+                    10             0100
+                    11             1000
+--------------------------------------------
+SYN-1067 : encoded FSM with state register 'u_core/u_bbox/state_reg' using encoding 'one_hot' in model 'fall_camera_multi_top'
+SYN-1066 : Inferred FSM for state register 'u_core/u_morph/phase_reg' in module 'fall_camera_multi_top'
+--------------------------------------------
+     Previous Encoding     New Encoding
+--------------------------------------------
+                    00              001
+                    01              010
+                    10              100
+--------------------------------------------
+SYN-1067 : encoded FSM with state register 'u_core/u_morph/phase_reg' using encoding 'one_hot' in model 'fall_camera_multi_top'
+SYN-1066 : Inferred FSM for state register 'u_led/st_reg' in module 'fall_camera_multi_top'
+--------------------------------------------
+     Previous Encoding     New Encoding
+--------------------------------------------
+                    00              001
+                    01              010
+                    10              100
+--------------------------------------------
+SYN-1067 : encoded FSM with state register 'u_led/st_reg' using encoding 'one_hot' in model 'fall_camera_multi_top'
+SYN-1066 : Inferred FSM for state register 'u_scan/state_r_reg' in module 'fall_camera_multi_top'
+--------------------------------------------
+     Previous Encoding     New Encoding
+--------------------------------------------
+                    00             0001
+                    01             0010
+                    10             0100
+                    11             1000
+--------------------------------------------
+SYN-1067 : encoded FSM with state register 'u_scan/state_r_reg' using encoding 'one_hot' in model 'fall_camera_multi_top'
+SYN-1066 : Inferred FSM for state register 'u_uart/ustate_reg' in module 'fall_camera_multi_top'
+--------------------------------------------
+     Previous Encoding     New Encoding
+--------------------------------------------
+                    00               01
+                    01               10
+--------------------------------------------
+SYN-1067 : encoded FSM with state register 'u_uart/ustate_reg' using encoding 'one_hot' in model 'fall_camera_multi_top'
+SYN-1057 : Inferred 9 FSM(s)
+SYN-1001 : Optimize 1 less-than instances
+SYN-1032 : 38572/39 useful/useless nets, 2340/0 useful/useless insts
+SYN-1001 : Bypass 2 mux instances
+SYN-1019 : Optimized 19 mux instances.
+SYN-1001 : Optimize 1 less-than instances
+SYN-1016 : Merged 44 instances.
+SYN-1026 : Infer Logic BRAM(u_core/u_diff/ramread0_syn_4)
+	 port mode: single dual port
+	 port a size: 65536 x 8	 write mode: NORMAL
+	 port b size: 65536 x 8	 write mode: READBEFOREWRITE
+SYN-1026 : Infer Logic BRAM(u_core/u_diff/ramread1_syn_4)
+	 port mode: single dual port
+	 port a size: 32768 x 8	 write mode: NORMAL
+	 port b size: 32768 x 8	 write mode: READBEFOREWRITE
+SYN-1027 : Infer Logic DRAM(u_core/u_gray/ramread0_syn_4) read 512x10, write 512x10
+SYN-1025 : Merged 1 RAM ports.
+SYN-1027 : Infer Logic DRAM(u_core/u_morph/ramread0_syn_30) read 512x3, write 512x3
+SYN-1025 : Merged 1 RAM ports.
+SYN-1027 : Infer Logic DRAM(u_core/u_morph/ramread1_syn_46) read 512x11, write 512x11
+SYN-5042 WARNING: Failed to infer inst "u_core/u_bbox/ramread0_syn_5" as BRAM.
+SYN-1023 : Infer 3 Logic DRAMs, 2 Logic BRAMs.
+SYN-1016 : Merged 196 instances.
+SYN-1001 : End Stage 1.5 | Optimize Design; Time: 16.846956s wall, 16.296875s user + 0.343750s system = 16.640625s CPU (98.8%); Memory(MB): used = 777, reserved = 767, peak = 777;
+
+SYN-1079 : finish stage Optimize Design. Total instances: 144955, Total nets: 161089.
+
+SYN-1001 : Stage 1.6 | Optimize Iteratively
+SYN-1019 : Optimized 1 mux instances.
+SYN-1021 : Optimized 330 onehot mux instances.
+SYN-1014 : Optimize round 1
+SYN-1017 : Remove 6 const input seq instances
+SYN-1020 : Optimized 558 distributor mux.
+SYN-1001 : Optimize 22 less-than instances
+SYN-1019 : Optimized 35 mux instances.
+SYN-2595 : bram inst: u_core/u_diff/ramread0_syn_4 is set to PDPW/SP from DP for resource saving
+SYN-2595 : bram inst: u_core/u_diff/ramread1_syn_4 is set to PDPW/SP from DP for resource saving
+SYN-1016 : Merged 29066 instances.
+SYN-1015 : Optimize round 1, 37835 better
+SYN-1014 : Optimize round 2
+SYN-1044 : Optimized 5 inv instances.
+SYN-1017 : Remove 2 const input seq instances
+SYN-1020 : Optimized 2 distributor mux.
+SYN-1019 : Optimized 242 mux instances.
+SYN-1016 : Merged 28 instances.
+SYN-1015 : Optimize round 2, 308 better
+SYN-3010 : Optimized 99 DFF(s)
+SYN-1014 : Optimize round 1
+SYN-1017 : Remove 8 const input seq instances
+SYN-1019 : Optimized 1 mux instances.
+SYN-1020 : Optimized 220 distributor mux.
+SYN-1016 : Merged 1512 instances.
+SYN-1015 : Optimize round 1, 1770 better
+SYN-1014 : Optimize round 2
+SYN-1017 : Remove 1 const input seq instances
+SYN-1019 : Optimized 1 mux instances.
+SYN-1020 : Optimized 7 distributor mux.
+SYN-1016 : Merged 35 instances.
+SYN-1015 : Optimize round 2, 44 better
+SYN-1014 : Optimize round 3
+SYN-1015 : Optimize round 3, 0 better
+SYN-1001 : End Stage 1.6 | Optimize Iteratively; Time: 133.138928s wall, 122.703125s user + 7.390625s system = 130.093750s CPU (97.7%); Memory(MB): used = 2140, reserved = 2350, peak = 2255;
+
+SYN-1079 : finish stage Optimize Iteratively. Total instances: 144719, Total nets: 160796.
+
+SYN-1001 : Stage 1.7 | Check Design
+SYN-1001 : End Stage 1.7 | Check Design; Time: 0.044899s wall, 0.046875s user + 0.000000s system = 0.046875s CPU (104.4%); Memory(MB): used = 2140, reserved = 2351, peak = 2255;
+
+SYN-1079 : finish stage Check Design. Total instances: 144719, Total nets: 160796.
+
+SYN-1001 : End Stage 1 | Optimize RTL; Time: 151.623382s wall, 140.562500s user + 7.765625s system = 148.328125s CPU (97.8%); Memory(MB): used = 2140, reserved = 2351, peak = 2255;
+
+SYN-1079 : finish stage Optimize RTL. Total instances: 144719, Total nets: 160796.
+
+RUN-1003 : finish command "optimize_rtl" in  151.641286s wall, 140.578125s user + 7.765625s system = 148.343750s CPU (97.8%)
+
+RUN-1004 : used memory is 2140 MB, reserved memory is 2351 MB, peak memory is 2255 MB
+RUN-1002 : start command "report_area -file E:/FPGA guo sai/fall_detection/fpga/td/out_board_multi/multi_rtl.area"
+RUN-1001 : standard
+***Report Model: fall_camera_multi_top Device: EG4S20NG88***
+
+IO Statistics
+#IO                        20
+  #input                   13
+  #output                   6
+  #inout                    1
+
+Gate Statistics
+#Basic gates           142412
+  #and                  14906
+  #nand                     0
+  #or                     324
+  #nor                      0
+  #xor                      2
+  #xnor                     0
+  #buf                      0
+  #not                    171
+  #bufif1                   1
+  #MX21                  6042
+  #FADD                     0
+  #DFF                 120966
+  #LATCH                    0
+#MACRO_ADD                179
+#MACRO_EQ                  60
+#MACRO_MULT                 5
+#MACRO_MUX               2051
+#MACRO_OTHERS               5
+
+[multi_synth] read_sdc
+RUN-1002 : start command "read_sdc E:/FPGA guo sai/fall_detection/fpga/td/fall_camera_top.sdc"
+[multi_synth] optimize_gate
+RUN-1002 : start command "optimize_gate"
+RUN-1001 : Open license file E:/anlogic/TD_6.2.1_Engineer_6.2.168.116/license/Anlogic.lic
+SYN-1001 : Stage 2 | Optimize Gate
+SYN-1001 : Stage 2.1 | Map Reg
+SYN-1001 : End Stage 2.1 | Map Reg; Time: 8.542611s wall, 7.578125s user + 0.515625s system = 8.093750s CPU (94.7%); Memory(MB): used = 2142, reserved = 2351, peak = 2255;
+
+SYN-1079 : finish stage Map Reg. Total instances: 144719, Total nets: 160796.
+
+SYN-1001 : Stage 2.2 | Map IO
+SYN-2001 : Map 20 IOs to PADs of model 'fall_camera_multi_top'
+SYN-1001 : End Stage 2.2 | Map IO; Time: 0.805160s wall, 0.687500s user + 0.109375s system = 0.796875s CPU (99.0%); Memory(MB): used = 2153, reserved = 2362, peak = 2255;
+
+SYN-1001 : Stage 2.3 | Map Macro
+RUN-1002 : start command "update_pll_param -module fall_camera_multi_top"
+SYN-2501 : Processed 0 LOGIC_BUF instances.
+SYN-2571 : Map 5 macro multiplier
+SYN-2571 : Optimize after map_dsp, round 1
+SYN-1016 : Merged 195 instances.
+SYN-2571 : Optimize after map_dsp, round 1, 195 better
+SYN-2571 : Optimize after map_dsp, round 2
+SYN-2571 : Optimize after map_dsp, round 2, 0 better
+SYN-1001 : Throwback 105 control mux instances
+SYN-1001 : Generate 15 bigger adders
+SYN-1001 : Optimize 29 adders
+SYN-2501 : Optimize round 1
+SYN-1016 : Merged 46 instances.
+SYN-2501 : Optimize round 1, 510 better
+SYN-2501 : Optimize round 2
+SYN-2501 : Optimize round 2, 0 better
+SYN-2501 : Optimize round 1
+SYN-2501 : Optimize round 1, 0 better
+SYN-2501 : Map 178 macro adder(s)
+SYN-2501 : Inferred 16 ROM instances
+SYN-1019 : Optimized 8365 mux instances.
+SYN-1016 : Merged 127358 instances.
+SYN-1001 : End Stage 2.3 | Map Macro; Time: 51.684681s wall, 47.484375s user + 2.468750s system = 49.953125s CPU (96.6%); Memory(MB): used = 2404, reserved = 2669, peak = 2445;
+
+SYN-1079 : finish stage Map Macro. Total instances: 279680, Total nets: 281282.
+
+SYN-1001 : Stage 2.4 | Map Gate
+SYN-3001 : Collect 121452 PI 16325 PO (118 timing unconstrained) for mapping
+SYN-2581 : Mapping with K=5, #lut = 102802 (3.58), #lev = 17 (4.79), #crit_level = 0
+SYN-2551 : Post LUT mapping optimization.
+SYN-2581 : Mapping with K=5, #lut = 100515 (3.66), #lev = 17 (5.27), #crit_level = 0
+SYN-3001 : Logic optimization opt = 100.78 sec, map = 29.69 sec, post map opt = 101.10 sec.
+SYN-3001 : Mapper removed 2 lut buffers
+SYN-1001 : End Stage 2.4 | Map Gate; Time: 322.975459s wall, 293.781250s user + 14.484375s system = 308.265625s CPU (95.4%); Memory(MB): used = 2409, reserved = 4104, peak = 3050;
+
+SYN-1001 : Packing model "fall_camera_multi_top" ...
+SYN-4010 : Pack lib has 59 rtl pack models with 26 top pack blocks
+SYN-1014 : Optimize round 1
+SYN-1015 : Optimize round 1, 0 better
+SYN-4002 : Packing 120957 DFF/LATCH to SEQ ...
+SYN-4009 : Pack 68 carry chain into lslice
+SYN-4007 : Packing 972 adder to BLE ...
+SYN-4008 : Packed 972 adder and 56 SEQ to BLE.
+SYN-4007 : Packing 0 gate4 to BLE ...
+SYN-4008 : Packed 0 gate4 and 0 SEQ to BLE.
+SYN-4013 : Packed 224 DRAM and 0 SEQ.
+RUN-1002 : start command "report_qor -step gate -file gate.qor"
+RUN-1002 : start command "start_timer"
+RUN-1003 : finish command "start_timer" in  5.426030s wall, 5.296875s user + 0.046875s system = 5.343750s CPU (98.5%)
+
+RUN-1004 : used memory is 2491 MB, reserved memory is 3802 MB, peak memory is 3050 MB
+-----------------------------------------------------------
+| QoR metrics               |         value               |
+-----------------------------------------------------------
+| Timing                    |                             |
+|     Setup WNS             |        -1534                |
+|     Setup TNS             |        -1534                |
+|     Num of violated S-EP  |            1                |
+|     Hold WNS              |          694                |
+|     Hold TNS              |            0                |
+|     Num of violated H-EP  |            0                |
+-----------------------------------------------------------
+| Utilization               |                             |
+|     #registers            |       120901                |
+|     #luts                 |       100577                |
+|     #lut1                 |           15                |
+|     #lut1(~A)             |           15                |
+|     #slices               |         1458                |
+|     slices percentage     |       14.88%                |
+|     #RAMs                 |           48                |
+|     #DSPs                 |            3                |
+|     #f7mux                |        0.00%                |
+|     #MACROs               |          370                |
+|     #insts in MACRO       |         1458                |
+-----------------------------------------------------------
+| kept_net                  |                             |
+|     #syn_keep             |            0                |
+|     #keep_hier            |            0                |
+|     #dont_touch           |            0                |
+|     #mark_debug           |            0                |
+|     #max_fanout_keep      |            0                |
+|     #async_reg            |            0                |
+-----------------------------------------------------------
+| Top 10% datanet fanout#   |       136.36                |
+| dff(single fanout)->dff   |          426                |
+| dff(single fanout)->dram  |            0                |
+-----------------------------------------------------------
+| Over-quota path num*      |                             |
+|     Total                 |            0                |
+-----------------------------------------------------------
+| Rent**                    |                             |
+-----------------------------------------------------------
+Note*: Over-quota path shows the over-path-level-threshold path number of each clock.
+       The clock will not be shown if no path is with path level over the threshold.
+       The threshold is defined as worst path_margin / 800ps.
+Note**: Rent shows the rent exponent value of the modules whose rent value exceeds the threshold.
+        Only modules under top are reported, and the threshold is defined as 0.7.
+
+Logic Level Distribution
+-----------------------------------------------------------------------------------------------------------------------------------------
+  Clock      |  Period            |  5  |  6  |  7      |  8    |  9   |  10   |  11   |  12   |  13  |  14  |  15  |  16  |  17  |  18
+-----------------------------------------------------------------------------------------------------------------------------------------
+  clk_24m    |  41.667ns (24MHz)  |  0  |  0  |  0      |  0    |  0   |  0    |  0    |  0    |  0   |  0   |  0   |  0   |  0   |  0
+  cmos_pclk  |  20.833ns (48MHz)  |  2  |  1  |  98188  |  979  |  60  |  146  |  205  |  330  |  27  |  8   |  1   |  49  |  1   |  3
+  Total      |  NA                |  2  |  1  |  98188  |  979  |  60  |  146  |  205  |  330  |  27  |  8   |  1   |  49  |  1   |  3
+-----------------------------------------------------------------------------------------------------------------------------------------
+Note: The table count the worst 100000 paths, each endpoint count only one time.(100000 paths analyzed)
+
+Hierarchical Rent Exponent Report
++-----------------------------------------------------------------------+
+|Inst     |Model                 |Rent     |Cell     |Pin     |Term     |
++-----------------------------------------------------------------------+
+|top      |fall_camera_multi_top |0.10     |223007   |856463  |13       |
+|  u_core |fall_core_multi_top_3 |0.34     |221113   |848271  |253      |
++-----------------------------------------------------------------------+
+Note: Cell represents total number of cells inside module; Pin represents total number of pins
+      which have net connection inside module; Term represents total number of PIs and POs of module.
+      Rent represents the relationship between number of terms and number of cells in module.
+      A module with higher rent corresponds to highly connected logic and strong connectivity with others.
+Report gate stage QoR done.
+
+RUN-1003 : finish command "report_qor -step gate -file gate.qor" in  28.017402s wall, 26.828125s user + 0.437500s system = 27.265625s CPU (97.3%)
+
+RUN-1004 : used memory is 2753 MB, reserved memory is 3997 MB, peak memory is 3050 MB
+SYN-1001 : End Stage 2 | Optimize Gate; Time: 416.715893s wall, 380.453125s user + 18.296875s system = 398.750000s CPU (95.7%); Memory(MB): used = 2753, reserved = 3997, peak = 3050;
+
+RUN-1003 : finish command "optimize_gate" in  416.738727s wall, 380.468750s user + 18.296875s system = 398.765625s CPU (95.7%)
+
+RUN-1004 : used memory is 2753 MB, reserved memory is 3997 MB, peak memory is 3050 MB
+RUN-1002 : start command "report_area -file E:/FPGA guo sai/fall_detection/fpga/td/out_board_multi/multi_gate.area"
+RUN-1001 : standard
+***Report Model: fall_camera_multi_top Device: EG4S20NG88***
+
+IO Statistics
+#IO                        20   out of     66   30.30%
+  #input                   13
+  #output                   6
+  #inout                    1
+
+LUT Statistics
+#Total_luts            100577
+  #lut4                 97699
+  #lut5                  2816
+  #lut6                    62
+  #lut5_mx41                0
+  #lut4_alu1b               0
+
+Utilization Statistics
+#lut                   103555   out of  19600  528.34%
+#reg                   120957   out of  19600  617.13%
+#bram                      32   out of     64   50.00%
+  #bram9k                  32
+  #fifo9k                   0
+#bram32k                   16   out of     16  100.00%
+#dsp                        3   out of     29   10.34%
+#pad                       20   out of     66   30.30%
+  #ireg                    11
+  #oreg                     6
+  #treg                     0
+#pll                        0   out of      4    0.00%
+#gclk                       0   out of     16    0.00%
+
+RUN-1003 : finish command "report_area -file E:/FPGA guo sai/fall_detection/fpga/td/out_board_multi/multi_gate.area" in  597.031332s wall, 571.500000s user + 6.343750s system = 577.843750s CPU (96.8%)
+
+RUN-1004 : used memory is 734 MB, reserved memory is 3997 MB, peak memory is 3050 MB
+RUN-1002 : start command "report_timing_summary -file E:/FPGA guo sai/fall_detection/fpga/td/out_board_multi/multi_gate.timing"
+RUN-1003 : finish command "report_timing_summary -file E:/FPGA guo sai/fall_detection/fpga/td/out_board_multi/multi_gate.timing" in  1.842684s wall, 0.437500s user + 0.687500s system = 1.125000s CPU (61.1%)
+
+RUN-1004 : used memory is 1017 MB, reserved memory is 3997 MB, peak memory is 3050 MB
+RUN-1002 : start command "flow_status -file E:/FPGA guo sai/fall_detection/fpga/td/out_board_multi/multi_synth_flow.status"
+Location         : E:\FPGA guo sai\fall_detection\fpga
+Running with     : Tang Dynasty v6.2.168116
+                   Copyright (c) 2012-2025 Anlogic Inc.
+Top Model        : fall_camera_multi_top
+Device           : EG4S20NG88
+Speed            : NA
+
+Timing Mode      : basic
+Setup            : WNS -1534ps  TNS    -1534ps  NUM_FEPS     1
+Hold             : WNS   694ps  TNS        0ps  NUM_FEPS     0
+
+Flow Statistics  :
+RUN-1001 : Flow Statistics:
+RUN-1001 : ---------------------------------------------------------------------------------------------------
+RUN-1001 :      command     |  #calls  |  wall time   |  cpu time(s)  |  used memory(mb)  |  peak memory(mb)  
+RUN-1001 : ---------------------------------------------------------------------------------------------------
+RUN-1001 :   optimize_gate  |    1     |  6m56s(73%)  |   398(73%)    |       2753        |       3050        
+RUN-1001 :   optimize_rtl   |    1     |  2m31s(26%)  |   147(26%)    |       2140        |       2255        
+RUN-1001 :   import_device  |    1     |    0s(0%)    |     0(0%)     |        83         |        83         
+RUN-1001 :     read_adc     |    1     |    0s(0%)    |     0(0%)     |        223        |        223        
+RUN-1001 :     read_sdc     |    1     |    0s(0%)    |     0(0%)     |       2141        |       2255        
+RUN-1001 : ---------------------------------------------------------------------------------------------------
+RUN-1001 :       total      |    5     |    9m27s     |      545      |       2753        |       3050        
+RUN-1001 : ---------------------------------------------------------------------------------------------------
+[multi_synth] export_db
+RUN-1002 : start command "export_db E:/FPGA guo sai/fall_detection/fpga/td/out_board_multi/multi_gate.db"
+RUN-1001 : Exported flow parameters
+RUN-1001 : Exported /
+RUN-1001 : Exported libs
+RUN-1001 : Exported entities
+RUN-1001 : Exported ports
+RUN-1001 : Exported pins
+RUN-1001 : Exported instances
+RUN-1001 : Exported nets
+RUN-1001 : Exported buses
+RUN-1001 : Exported models
+RUN-1001 : Exported packer
+RUN-1001 : Exported congestions
+RUN-1001 : Exported violations
+RUN-1001 : Exported ATMR Setting
+RUN-1001 : Exported timing constraints
+RUN-1001 : Exported IO constraints
+RUN-1001 : Exported Inst constraints
+RUN-1001 : Exported ChipWatcher
+RUN-1003 : finish command "export_db E:/FPGA guo sai/fall_detection/fpga/td/out_board_multi/multi_gate.db" in  4.289065s wall, 3.078125s user + 1.031250s system = 4.109375s CPU (95.8%)
+
+RUN-1004 : used memory is 1470 MB, reserved memory is 4013 MB, peak memory is 3050 MB
+[multi_synth] DONE
+
+td > 

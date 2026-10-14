@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+
+# 打包中间产物
+build/
+build_pyi/
+dist/
+*.spec
+
+# 系统文件
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# 上位机可执行程序（体积较大，作为 Release 附件发布）
+05_上位机可执行程序/*.exe

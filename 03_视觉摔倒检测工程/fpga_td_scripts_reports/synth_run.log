@@ -1,0 +1,433 @@
+============================================================
+   Tang Dynasty, V6.2.168116
+   Copyright (c) 2012-2025 Anlogic Inc.
+   Executable = E:/Anlogic/TD_6.2.1_Engineer_6.2.168.116/bin/td_commands_prompt.exe
+   Built at =   16:32:07 Jun 12 2025
+   Run by =     ASUS
+   Run Date =   Mon Oct  5 03:27:39 2026
+
+   Run on =     LAPTOP-TFPALG0P
+============================================================
+[synth] import_device eagle_s20.db -package EG4S20NG88
+RUN-1002 : start command "import_device eagle_s20.db -package EG4S20NG88"
+RUN-1001 : Using default speed grade: NA
+ARC-1001 : Device Initialization.
+ARC-1001 : ---------------------------------------------------------------
+ARC-1001 :            OPTION            |        IO         |   SETTING   
+ARC-1001 : ---------------------------------------------------------------
+ARC-1001 :   cso_b/cclk/mosi/miso/dout  |  P69/P82/P81/P80  |    gpio    
+ARC-1001 :             done             |        P8         |    gpio    
+ARC-1001 :           program_b          |        P67        |  dedicate  
+ARC-1001 :        tdi/tms/tck/tdo       |  P25/P22/P26/P21  |  dedicate  
+ARC-1001 : ---------------------------------------------------------------
+ARC-1004 : Device setting, marked 5 dedicate IOs in total.
+[synth] read_hdl
+RUN-1002 : start command "read_hdl -file rtl/gray_front.v rtl/frame_diff.v rtl/motion_morph.v rtl/proj_bbox.v rtl/posture_fsm.v td/fall_core_top.v -top fall_core_top"
+HDL-1007 : analyze verilog file rtl/gray_front.v
+HDL-1007 : analyze verilog file rtl/frame_diff.v
+HDL-1007 : analyze verilog file rtl/motion_morph.v
+HDL-1007 : analyze verilog file rtl/proj_bbox.v
+HDL-1007 : analyze verilog file rtl/posture_fsm.v
+HDL-1007 : analyze verilog file td/fall_core_top.v
+HDL-1007 : elaborate module fall_core_top in td/fall_core_top.v(18)
+HDL-1007 : elaborate module gray_front in rtl/gray_front.v(19)
+HDL-1007 : extracting RAM for identifier 'row_sum' in rtl/gray_front.v(44)
+HDL-1007 : elaborate module frame_diff in rtl/frame_diff.v(19)
+HDL-1007 : extracting RAM for identifier 'prev_ram' in rtl/frame_diff.v(36)
+HDL-1007 : elaborate module motion_morph in rtl/motion_morph.v(35)
+HDL-1007 : extracting RAM for identifier 'stack3' in rtl/motion_morph.v(57)
+HDL-1007 : extracting RAM for identifier 'stack11' in rtl/motion_morph.v(58)
+HDL-1007 : elaborate module proj_bbox in rtl/proj_bbox.v(36)
+HDL-1007 : extracting RAM for identifier 'mask_ram' in rtl/proj_bbox.v(66)
+HDL-1007 : elaborate module posture_fsm(COLLAPSE_FRAMES=36) in rtl/posture_fsm.v(23)
+HDL-5001 WARNING: Contains anonymous inst(s) and/or net(s) that have not been renamed
+HDL-1200 : Current top model is fall_core_top
+HDL-1100 : Inferred 5 RAMs.
+[synth] optimize_rtl
+RUN-1002 : start command "optimize_rtl"
+RUN-1001 : Open license file E:/Anlogic/TD_6.2.1_Engineer_6.2.168.116/license/Anlogic.lic
+SYN-1001 : Stage 1 | Optimize RTL
+SYN-1001 : Stage 1.1 | Check Design Sanity
+SYN-1001 : End Stage 1.1 | Check Design Sanity; Time: 0.003115s wall, 0.000000s user + 0.000000s system = 0.000000s CPU (n/a%); Memory(MB): used = 229, reserved = 221, peak = 229;
+
+SYN-1079 : finish stage Check Design Sanity. Total instances: 3926, Total nets: 56819.
+
+SYN-1001 : Stage 1.2 | Initialize Design
+SYN-1001 : End Stage 1.2 | Initialize Design; Time: 1.283921s wall, 1.265625s user + 0.015625s system = 1.281250s CPU (99.8%); Memory(MB): used = 229, reserved = 221, peak = 229;
+
+SYN-1079 : finish stage Initialize Design. Total instances: 1591, Total nets: 53765.
+
+SYN-1001 : Stage 1.3 | Flatten Module
+SYN-1011 : Flatten model fall_core_top
+SYN-1001 : End Stage 1.3 | Flatten Module; Time: 0.163572s wall, 0.171875s user + 0.000000s system = 0.171875s CPU (105.1%); Memory(MB): used = 230, reserved = 221, peak = 230;
+
+SYN-1079 : finish stage Flatten Module. Total instances: 1586, Total nets: 53560.
+
+SYN-1001 : Stage 1.4 | Uniform Instance
+SYN-5025 WARNING: Using 0 for all undriven pins and nets
+SYN-1001 : End Stage 1.4 | Uniform Instance; Time: 0.018050s wall, 0.015625s user + 0.000000s system = 0.015625s CPU (86.6%); Memory(MB): used = 230, reserved = 231, peak = 230;
+
+SYN-1079 : finish stage Uniform Instance. Total instances: 1580, Total nets: 53552.
+
+SYN-1001 : Stage 1.5 | Optimize Design
+SYN-1066 : Inferred FSM for state register 'u_bbox/acc_phase_reg' in module 'fall_core_top'
+--------------------------------------------
+     Previous Encoding     New Encoding
+--------------------------------------------
+                    00              001
+                    01              010
+                    10              100
+--------------------------------------------
+SYN-1067 : encoded FSM with state register 'u_bbox/acc_phase_reg' using encoding 'one_hot' in model 'fall_core_top'
+SYN-1066 : Inferred FSM for state register 'u_bbox/state_reg' in module 'fall_core_top'
+--------------------------------------------
+     Previous Encoding     New Encoding
+--------------------------------------------
+                    00             0001
+                    01             0010
+                    10             0100
+                    11             1000
+--------------------------------------------
+SYN-1067 : encoded FSM with state register 'u_bbox/state_reg' using encoding 'one_hot' in model 'fall_core_top'
+SYN-1066 : Inferred FSM for state register 'u_morph/phase_reg' in module 'fall_core_top'
+--------------------------------------------
+     Previous Encoding     New Encoding
+--------------------------------------------
+                    00              001
+                    01              010
+                    10              100
+--------------------------------------------
+SYN-1067 : encoded FSM with state register 'u_morph/phase_reg' using encoding 'one_hot' in model 'fall_core_top'
+SYN-1057 : Inferred 3 FSM(s)
+SYN-1001 : Optimize 1 less-than instances
+SYN-1032 : 53456/36 useful/useless nets, 1550/0 useful/useless insts
+SYN-1001 : Bypass 2 mux instances
+SYN-1019 : Optimized 29 mux instances.
+SYN-1016 : Merged 23 instances.
+SYN-1025 : Merged 3 RAM ports.
+SYN-1027 : Infer Logic DRAM(u_bbox/ramread0_syn_68) read 32768x8, write 32768x8
+SYN-1027 : Infer Logic DRAM(u_diff/ramread0_syn_4) read 131072x8, write 131072x8
+SYN-1027 : Infer Logic DRAM(u_gray/ramread0_syn_4) read 512x10, write 512x10
+SYN-1025 : Merged 1 RAM ports.
+SYN-1027 : Infer Logic DRAM(u_morph/ramread0_syn_30) read 512x3, write 512x3
+SYN-1025 : Merged 1 RAM ports.
+SYN-1027 : Infer Logic DRAM(u_morph/ramread1_syn_46) read 512x11, write 512x11
+SYN-1023 : Infer 5 Logic DRAMs, 0 Logic BRAMs.
+SYN-1016 : Merged 26 instances.
+SYN-1001 : End Stage 1.5 | Optimize Design; Time: 46.104307s wall, 44.359375s user + 0.531250s system = 44.890625s CPU (97.4%); Memory(MB): used = 292, reserved = 281, peak = 292;
+
+SYN-1079 : finish stage Optimize Design. Total instances: 19433, Total nets: 20912.
+
+SYN-1001 : Stage 1.6 | Optimize Iteratively
+SYN-1018 : Transformed 1 mux instances.
+SYN-1019 : Optimized 1 mux instances.
+SYN-1014 : Optimize round 1
+SYN-1017 : Remove 4 const input seq instances
+SYN-1020 : Optimized 1463 distributor mux.
+SYN-1001 : Optimize 9 less-than instances
+SYN-1019 : Optimized 10 mux instances.
+SYN-1016 : Merged 3175 instances.
+SYN-1015 : Optimize round 1, 10606 better
+SYN-1014 : Optimize round 2
+SYN-1044 : Optimized 4 inv instances.
+SYN-1020 : Optimized 2 distributor mux.
+SYN-1016 : Merged 3 instances.
+SYN-1015 : Optimize round 2, 9 better
+SYN-3010 : Optimized 42 DFF(s)
+SYN-1014 : Optimize round 1
+SYN-1015 : Optimize round 1, 22 better
+SYN-1014 : Optimize round 2
+SYN-1015 : Optimize round 2, 0 better
+SYN-1001 : End Stage 1.6 | Optimize Iteratively; Time: 10.565153s wall, 10.359375s user + 0.062500s system = 10.421875s CPU (98.6%); Memory(MB): used = 512, reserved = 514, peak = 555;
+
+SYN-1079 : finish stage Optimize Iteratively. Total instances: 18237, Total nets: 19658.
+
+SYN-1001 : Stage 1.7 | Check Design
+SYN-1001 : End Stage 1.7 | Check Design; Time: 0.005348s wall, 0.000000s user + 0.000000s system = 0.000000s CPU (n/a%); Memory(MB): used = 512, reserved = 514, peak = 555;
+
+SYN-1079 : finish stage Check Design. Total instances: 18237, Total nets: 19658.
+
+SYN-1001 : End Stage 1 | Optimize RTL; Time: 58.144519s wall, 56.171875s user + 0.609375s system = 56.781250s CPU (97.7%); Memory(MB): used = 512, reserved = 514, peak = 555;
+
+SYN-1079 : finish stage Optimize RTL. Total instances: 18237, Total nets: 19658.
+
+RUN-1003 : finish command "optimize_rtl" in  58.156318s wall, 56.187500s user + 0.609375s system = 56.796875s CPU (97.7%)
+
+RUN-1004 : used memory is 512 MB, reserved memory is 514 MB, peak memory is 555 MB
+RUN-1002 : start command "report_area -file E:/FPGA guo sai/fall_detection/fpga/td/out/fall_core_rtl.area"
+RUN-1001 : standard
+***Report Model: fall_core_top Device: EG4S20NG88***
+
+IO Statistics
+#IO                        79
+  #input                   20
+  #output                  59
+  #inout                    0
+
+Gate Statistics
+#Basic gates            17544
+  #and                    179
+  #nand                     0
+  #or                      58
+  #nor                      0
+  #xor                      0
+  #xnor                     0
+  #buf                      0
+  #not                     70
+  #bufif1                   0
+  #MX21                 11358
+  #FADD                     0
+  #DFF                   5879
+  #LATCH                    0
+#MACRO_ADD                108
+#MACRO_EQ                  26
+#MACRO_MULT                14
+#MACRO_MUX                536
+#MACRO_OTHERS               5
+
+[synth] read_sdc
+RUN-1002 : start command "read_sdc E:/FPGA guo sai/fall_detection/fpga/td/fall_core.sdc"
+[synth] optimize_gate
+RUN-1002 : start command "optimize_gate"
+RUN-1001 : Open license file E:/Anlogic/TD_6.2.1_Engineer_6.2.168.116/license/Anlogic.lic
+SYN-1001 : Stage 2 | Optimize Gate
+SYN-1001 : Stage 2.1 | Map Reg
+SYN-1001 : End Stage 2.1 | Map Reg; Time: 0.382239s wall, 0.375000s user + 0.000000s system = 0.375000s CPU (98.1%); Memory(MB): used = 513, reserved = 514, peak = 555;
+
+SYN-1079 : finish stage Map Reg. Total instances: 18237, Total nets: 19658.
+
+SYN-1001 : Stage 2.2 | Map IO
+SYN-2001 : Map 79 IOs to PADs of model 'fall_core_top'
+SYN-1001 : End Stage 2.2 | Map IO; Time: 0.155518s wall, 0.140625s user + 0.000000s system = 0.140625s CPU (90.4%); Memory(MB): used = 513, reserved = 514, peak = 555;
+
+SYN-1001 : Stage 2.3 | Map Macro
+RUN-1002 : start command "update_pll_param -module fall_core_top"
+SYN-2501 : Processed 0 LOGIC_BUF instances.
+SYN-2571 : Map 14 macro multiplier
+SYN-2571 : Optimize after map_dsp, round 1
+SYN-1016 : Merged 10292 instances.
+SYN-2571 : Optimize after map_dsp, round 1, 10292 better
+SYN-2571 : Optimize after map_dsp, round 2
+SYN-2571 : Optimize after map_dsp, round 2, 0 better
+SYN-1001 : Throwback 22 control mux instances
+SYN-1001 : Generate 13 bigger adders
+SYN-1001 : Optimize 18 adders
+SYN-2501 : Optimize round 1
+SYN-1016 : Merged 16 instances.
+SYN-2501 : Optimize round 1, 172 better
+SYN-2501 : Optimize round 2
+SYN-2501 : Optimize round 2, 0 better
+SYN-2501 : Optimize round 1
+SYN-1016 : Merged 846 instances.
+SYN-2501 : Optimize round 1, 846 better
+SYN-2501 : Optimize round 2
+SYN-2501 : Optimize round 2, 0 better
+SYN-2501 : Map 107 macro adder(s)
+SYN-1019 : Optimized 1696 mux instances.
+SYN-1016 : Merged 6281 instances.
+SYN-1001 : End Stage 2.3 | Map Macro; Time: 18.213247s wall, 17.250000s user + 0.468750s system = 17.718750s CPU (97.3%); Memory(MB): used = 996, reserved = 990, peak = 996;
+
+SYN-1079 : finish stage Map Macro. Total instances: 139310, Total nets: 199447.
+
+SYN-1001 : Stage 2.4 | Map Gate
+SYN-3001 : Collect 85116 PI 10848 PO (9939 timing unconstrained) for mapping
+SYN-2581 : Mapping with K=5, #lut = 72460 (3.98), #lev = 12 (4.37), #crit_level = 12
+SYN-2551 : Post LUT mapping optimization.
+SYN-2581 : Mapping with K=5, #lut = 71381 (3.91), #lev = 11 (5.96), #crit_level = 0
+SYN-3001 : Logic optimization opt = 34.52 sec, map = 10.56 sec, post map opt = 65.02 sec.
+SYN-3001 : Mapper removed 1 lut buffers
+SYN-1001 : End Stage 2.4 | Map Gate; Time: 134.351442s wall, 125.875000s user + 4.250000s system = 130.125000s CPU (96.9%); Memory(MB): used = 1495, reserved = 1588, peak = 1495;
+
+SYN-1001 : Packing model "fall_core_top" ...
+SYN-4010 : Pack lib has 59 rtl pack models with 26 top pack blocks
+SYN-1014 : Optimize round 1
+SYN-1015 : Optimize round 1, 0 better
+SYN-4002 : Packing 5869 DFF/LATCH to SEQ ...
+SYN-4009 : Pack 43 carry chain into lslice
+SYN-4007 : Packing 665 adder to BLE ...
+SYN-4008 : Packed 665 adder and 36 SEQ to BLE.
+SYN-4007 : Packing 0 gate4 to BLE ...
+SYN-4008 : Packed 0 gate4 and 0 SEQ to BLE.
+SYN-4013 : Packed 19846 DRAM and 0 SEQ.
+RUN-1002 : start command "report_qor -step gate -file gate.qor"
+RUN-1002 : start command "start_timer"
+RUN-1003 : finish command "start_timer" in  7.257565s wall, 6.687500s user + 0.375000s system = 7.062500s CPU (97.3%)
+
+RUN-1004 : used memory is 1504 MB, reserved memory is 1594 MB, peak memory is 1504 MB
+-----------------------------------------------------------
+| QoR metrics               |         value               |
+-----------------------------------------------------------
+| Timing                    |                             |
+|     Setup WNS             |        -9031                |
+|     Setup TNS             |    -10925258                |
+|     Num of violated S-EP  |         5612                |
+|     Hold WNS              |          694                |
+|     Hold TNS              |            0                |
+|     Num of violated H-EP  |            0                |
+-----------------------------------------------------------
+| Utilization               |                             |
+|     #registers            |         5833                |
+|     #luts                 |        71381                |
+|     #lut1                 |            6                |
+|     #lut1(~A)             |            6                |
+|     #slices               |        60050                |
+|     slices percentage     |      612.76%                |
+|     #RAMs                 |            0                |
+|     #DSPs                 |           10                |
+|     #f7mux                |        0.00%                |
+|     #MACROs               |        19940                |
+|     #insts in MACRO       |        60050                |
+-----------------------------------------------------------
+| kept_net                  |                             |
+|     #syn_keep             |            0                |
+|     #keep_hier            |            0                |
+|     #dont_touch           |            0                |
+|     #mark_debug           |            0                |
+|     #max_fanout_keep      |            0                |
+|     #async_reg            |            0                |
+-----------------------------------------------------------
+| Top 10% datanet fanout#   |       163.89                |
+| dff(single fanout)->dff   |           90                |
+| dff(single fanout)->dram  |            0                |
+-----------------------------------------------------------
+| Over-quota path num*      |                             |
+|     clk                   |          511                |
+|     Total                 |          511                |
+-----------------------------------------------------------
+| Rent**                    |                             |
+-----------------------------------------------------------
+Note*: Over-quota path shows the over-path-level-threshold path number of each clock.
+       The clock will not be shown if no path is with path level over the threshold.
+       The threshold is defined as worst path_margin / 800ps.
+Note**: Rent shows the rent exponent value of the modules whose rent value exceeds the threshold.
+        Only modules under top are reported, and the threshold is defined as 0.7.
+
+Over-quota Path Details
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  Clock  |  Index  |  Budget(Period)  |  Level(Quota)  |                                                             Cell Type List                                                              |  Reason  |  Slack  
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+   clk   |    1    |   11759(11905)   |     18(15)     |                  SEQ,DRAM,LUT4,LUT4,LUT5,LUT4,LUT5,LUT3,LUT5,LUT5,LUT5,LUT5,LUT5,ADDER,ADDER,LUT3,ADDER,ADDER,LUT4,SEQ                  |  normal  |  -7491  
+         |    2    |   11759(11905)   |     18(15)     |  SEQ,LUT4,LUT4,LUT5,LUT5,LUT4,LUT5,LUT5,LUT4,ADDER,ADDER,ADDER,ADDER,ADDER,ADDER,ADDER,LUT4,ADDER,ADDER,LUT4,LUT3,ADDER,ADDER,LUT5,SEQ  |  normal  |  -6917  
+         |    3    |   11759(11905)   |     18(15)     |  SEQ,LUT4,LUT4,LUT5,LUT5,LUT4,LUT5,LUT5,LUT4,ADDER,ADDER,ADDER,ADDER,ADDER,ADDER,ADDER,LUT4,ADDER,ADDER,LUT4,LUT3,ADDER,ADDER,LUT5,PAD  |  normal  |  -6744  
+         |    4    |   11759(11905)   |     17(15)     |                    SEQ,LUT4,LUT3,LUT3,LUT2,LUT2,ADDER,ADDER,DRAM,LUT4,LUT4,LUT4,LUT5,LUT5,ADDER,ADDER,LUT4,LUT5,SEQ                     |  normal  |  -6994  
+         |    5    |   11759(11905)   |     17(15)     |                    SEQ,LUT4,LUT3,LUT3,LUT2,LUT2,ADDER,ADDER,DRAM,LUT4,LUT4,LUT4,LUT5,LUT2,LUT5,ADDER,ADDER,LUT4,SEQ                     |  normal  |  -6767  
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Note: Table only show top 5 paths for each clock group in default
+
+Logic Level Distribution
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  Clock  |  Period            |  1      |  2    |  3    |  4      |  5     |  6     |  7      |  8     |  9    |  10    |  11    |  12  |  13  |  14  |  15   |  16  |  17  |  18
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  clk    |  11.905ns (83MHz)  |  55141  |  148  |  321  |  13163  |  1161  |  4281  |  17513  |  2551  |  679  |  1406  |  2984  |  34  |  59  |  48  |  438  |  64  |  6   |  3
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Note: The table count the worst 100000 paths, each endpoint count only one time.(100000 paths analyzed)
+
+Hierarchical Rent Exponent Report
++---------------------------------------------------------------+
+|Inst     |Model         |Rent     |Cell     |Pin     |Term     |
++---------------------------------------------------------------+
+|top      |fall_core_top |0.02     |137353   |1528272 |14       |
+|  u_bbox |proj_bbox_1   |0.24     |33480    |300719  |105      |
+|  u_diff |frame_diff_2  |0.08     |101524   |1206980 |31       |
++---------------------------------------------------------------+
+Note: Cell represents total number of cells inside module; Pin represents total number of pins
+      which have net connection inside module; Term represents total number of PIs and POs of module.
+      Rent represents the relationship between number of terms and number of cells in module.
+      A module with higher rent corresponds to highly connected logic and strong connectivity with others.
+Report gate stage QoR done.
+
+RUN-1003 : finish command "report_qor -step gate -file gate.qor" in  25.574227s wall, 23.906250s user + 0.875000s system = 24.781250s CPU (96.9%)
+
+RUN-1004 : used memory is 2416 MB, reserved memory is 2593 MB, peak memory is 2418 MB
+SYN-1001 : End Stage 2 | Optimize Gate; Time: 180.764703s wall, 169.515625s user + 5.640625s system = 175.156250s CPU (96.9%); Memory(MB): used = 2416, reserved = 2593, peak = 2418;
+
+RUN-1003 : finish command "optimize_gate" in  180.775269s wall, 169.531250s user + 5.640625s system = 175.171875s CPU (96.9%)
+
+RUN-1004 : used memory is 2416 MB, reserved memory is 2593 MB, peak memory is 2418 MB
+RUN-1002 : start command "report_area -file E:/FPGA guo sai/fall_detection/fpga/td/out/fall_core_gate.area"
+RUN-1001 : standard
+***Report Model: fall_core_top Device: EG4S20NG88***
+
+IO Statistics
+#IO                        79   out of     66  119.70%
+  #input                   20
+  #output                  59
+  #inout                    0
+
+LUT Statistics
+#Total_luts             71381
+  #lut4                 53485
+  #lut5                 17896
+  #lut6                     0
+  #lut5_mx41                0
+  #lut4_alu1b               0
+
+Utilization Statistics
+#lut                   191481   out of  19600  976.94%
+#reg                     5869   out of  19600   29.94%
+#bram                       0   out of     64    0.00%
+  #bram9k                   0
+  #fifo9k                   0
+#bram32k                    0   out of     16    0.00%
+#dsp                       10   out of     29   34.48%
+#pad                       79   out of     66  119.70%
+  #ireg                     0
+  #oreg                    58
+  #treg                     0
+#pll                        0   out of      4    0.00%
+#gclk                       0   out of     16    0.00%
+
+RUN-1003 : finish command "report_area -file E:/FPGA guo sai/fall_detection/fpga/td/out/fall_core_gate.area" in  133.571629s wall, 124.234375s user + 4.828125s system = 129.062500s CPU (96.6%)
+
+RUN-1004 : used memory is 2094 MB, reserved memory is 2593 MB, peak memory is 2418 MB
+RUN-1002 : start command "report_timing_summary -file E:/FPGA guo sai/fall_detection/fpga/td/out/fall_core_gate.timing"
+RUN-1002 : start command "flow_status -file E:/FPGA guo sai/fall_detection/fpga/td/out/synth_flow.status"
+Location         : E:\FPGA guo sai\fall_detection\fpga
+Running with     : Tang Dynasty v6.2.168116
+                   Copyright (c) 2012-2025 Anlogic Inc.
+Top Model        : fall_core_top
+Device           : EG4S20NG88
+Speed            : NA
+
+Timing Mode      : basic
+Setup            : WNS -9031ps  TNS -10925258ps  NUM_FEPS  5612
+Hold             : WNS   694ps  TNS        0ps  NUM_FEPS     0
+
+Flow Statistics  :
+RUN-1001 : Flow Statistics:
+RUN-1001 : --------------------------------------------------------------------------------------------------
+RUN-1001 :      command     |  #calls  |  wall time  |  cpu time(s)  |  used memory(mb)  |  peak memory(mb)  
+RUN-1001 : --------------------------------------------------------------------------------------------------
+RUN-1001 :   optimize_gate  |    1     |  3m0s(75%)  |   174(75%)    |       2416        |       2418        
+RUN-1001 :   optimize_rtl   |    1     |  58s(24%)   |    56(24%)    |        512        |        555        
+RUN-1001 :   import_device  |    1     |   0s(0%)    |     0(0%)     |        83         |        83         
+RUN-1001 :     read_sdc     |    1     |   0s(0%)    |     0(0%)     |        513        |        555        
+RUN-1001 : --------------------------------------------------------------------------------------------------
+RUN-1001 :       total      |    4     |    3m58s    |      230      |       2416        |       2418        
+RUN-1001 : --------------------------------------------------------------------------------------------------
+[synth] export_db
+RUN-1002 : start command "export_db E:/FPGA guo sai/fall_detection/fpga/td/out/fall_core_gate.db"
+RUN-1001 : Exported flow parameters
+RUN-1001 : Exported /
+RUN-1001 : Exported libs
+RUN-1001 : Exported entities
+RUN-1001 : Exported ports
+RUN-1001 : Exported pins
+RUN-1001 : Exported instances
+RUN-1001 : Exported nets
+RUN-1001 : Exported buses
+RUN-1001 : Exported models
+RUN-1001 : Exported packer
+RUN-1001 : Exported congestions
+RUN-1001 : Exported violations
+RUN-1001 : Exported ATMR Setting
+RUN-1001 : Exported timing constraints
+RUN-1001 : Exported IO constraints
+RUN-1001 : Exported Inst constraints
+RUN-1001 : Exported ChipWatcher
+RUN-1003 : finish command "export_db E:/FPGA guo sai/fall_detection/fpga/td/out/fall_core_gate.db" in  2.321002s wall, 2.453125s user + 0.328125s system = 2.781250s CPU (119.8%)
+
+RUN-1004 : used memory is 1965 MB, reserved memory is 2664 MB, peak memory is 2418 MB
+[synth] DONE
+
+td > 

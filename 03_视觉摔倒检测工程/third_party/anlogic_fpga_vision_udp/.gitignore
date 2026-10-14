@@ -1,0 +1,18 @@
+# 安路 TD 构建/运行产物
+prj_Runs/
+log/
+*.log
+*.logw
+__pycache__/
+*.pyc
+
+# 工具配置
+.claude/
+
+# 无关文件
+*.dmp
+*.pptx
+*.png
+.design.prj
+.recent_user_depot.ini
+top_final_route.check_timing

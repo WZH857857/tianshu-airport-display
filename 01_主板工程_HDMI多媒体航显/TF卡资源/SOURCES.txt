@@ -1,0 +1,53 @@
+airport slideshow image sources
+generated 2026-09-26, 640x480 24-bit BI_RGB bottom-up BMP
+
+IMG01.BMP  Beijing Capital Airport T3 terminal interior
+  source page : Hunter Douglas China, project page "Capital International Airport T3"
+  image url   : https://hunterdouglas.cn/cms/imgs/project/lg_LIN_0463.jpg
+
+IMG02.BMP  Xiamen Airlines A320 lifting off the runway
+  source page : CAAC News (中国民航网), 2017-03
+  image url   : http://www.caacnews.com.cn/ht/jx/201703/W020170317402432657078.jpg
+
+IMG03.BMP  control tower, terminal and parked airliners
+  source page : Sohu photo feature "中国民航机场塔台一览" series one, 2020-08-25
+  image url   : http://p4.itc.cn/q_70/images03/20200825/e0d2552341cd4cb58ac11e586f55912a.jpeg
+
+IMG04.BMP  boarding bridge docking an airliner
+  source page : Hangzhou Airport official site, 2025-01 (ARJ21 bridge test)
+  image url   : https://www.hzairport.com/upload/user/2025-01/6775f273eb727.png
+
+IMG05.BMP  apron at sunset with boarding bridge and airliner
+  source page : China Civil Aviation Network (中国民用航空网), 2021-08
+  image url   : https://images.ccaonline.cn/wp-content/uploads/2021/08/7521d192e21b06bc_1_post.jpg
+
+IMG06.BMP  Beijing Daxing International Airport, aerial view
+  source page : Shenzhen News (深圳新闻网), 2019-06-26
+  image url   : https://www.sznews.com/photo/pic/2019-06/26/702c736f-2066-44b8-93fb-6c0d4c477560.jpg
+
+VOICE.WAV  airport boarding announcement, played over the HDMI audio channel
+  content    : E5 -> C5 boarding chime, then the spoken announcement
+  text       : 欢迎来到天枢空港；CA1234 开始登机；MU5678 登机口由 5 号改到
+               9 号；CZ2468 因天气延误 30 分钟；ZH1357 四号口按座位区域登机；
+               最后是看管随身物品、留意广播的提醒，共 6 段
+  made with  : Windows System.Speech (Microsoft Huihui Desktop, rate +1)
+  format     : 16 bit PCM, mono, 8 kHz, 920471 samples (115.06 s)
+  duration   : 0.67 s chime + 114.39 s speech, well over the 1 minute target
+  sha256     : D4BAE5B6364CD65516109E5F972612B422B2290E6A9C1BCAF5CB3F49BB875C3A
+  note       : the streaming bit file (hdmi_adv05_stream.bit) reads this file
+               straight off the card, one mu-law byte per sample, so there is
+               no 40960 sample bank limit any more.  Copy it to the card root
+               and keep it the only .WAV there - the scanner takes the first.
+
+note: images are used as public web material for a non-commercial student demo;
+copyright remains with the original photographers / publishers.
+
+ADV03 scaling demo set
+----------------------
+adv03_demo/IMG01.BMP  640x480  copy of IMG01.BMP
+adv03_demo/IMG02.BMP  640x480  copy of IMG02.BMP
+adv03_demo/IMG03.BMP  640x480  copy of IMG03.BMP
+adv03_demo/IMG04.BMP  640x480  copy of IMG04.BMP
+adv03_demo/IMG05.BMP  320x240  downscaled copy of IMG05.BMP (LANCZOS)
+adv03_demo/IMG06.BMP  960x720  upscaled copy of IMG06.BMP (LANCZOS)
+adv03_demo/VOICE.WAV  copy of the streaming airport announcement
